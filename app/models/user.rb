@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :messages
   has_many :chats, through: :flats
   has_many :booking_as_owner, through: :flats, source: :booking_requests #Bookings incoming, to my flat
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone_number, presence: true
+  validates :email, presence: true
 end
