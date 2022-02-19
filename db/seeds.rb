@@ -6,24 +6,62 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-puts 'Creating 5 booking_requests...'
+puts "cleaning the db"
+Message.destroy_all
+Chat.destroy_all
+Review.destroy_all
+BookingRequest.destroy_all
+Flat.destroy_all
+User.destroy_all
+puts "start seeding"
 5.times do |i|
-  users = User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
-    first_name: Faker::Name.name,
-    last_name: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    password: "123456"
   )
-  puts "User ##{i}, #{users.first_name}"
+  puts "User ##{i + 1}, #{user.first_name}"
 
-  # booking = BookingRequest.create!(
-  #   status: "Pending",
-  #   month_request: ,
-  #   price: ,
-  #   direction: ,
-  #   stay_status: ,
-  #   user_id: ,
-  #   flat_id:
-  # )
+  flat = Flat.create!(
+    address: Faker::Address.street_name,
+    price: Faker::Commerce.price,
+    description: Faker::Restaurant.description,
+    city: Faker::Address.city,
+    availabity: ["Available", "Taken"].sample,
+    user_id: user.id
+  )
+  puts "flat ##{i + 1}, #{flat.address}"
+
+  booking_request = BookingRequest.create!(
+    status: ["available", "rented"].sample,
+    month_request: Date::MONTHNAMES.sample,
+    price: Faker::Commerce.price,
+    direction: Faker::Address.street_address,
+    stay_status: ["stay in the moment", "in the future", "past stay"].sample,
+    user_id: user.id,
+    flat_id: flat.id
+  )
+  puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
+
+  review = Review.create!(
+    content: "random...",
+    rating: rand(5..10),
+    booking_request_id: booking_request.id
+  )
+  puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
+
+  chat = Chat.create!(
+    flat_id: flat.id
+  )
+  puts "chat ##{i + 1}, chating with user ##{chat.flat_id}"
+
+  message = Message.create!(
+    content: "Message",
+    user_id: user.id,
+    chat_id: chat.id
+  )
+  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_id}"
 end
-puts 'Finished!'
+puts "seeding finished successfully"
