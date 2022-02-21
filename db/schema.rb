@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_184025) do
     t.integer "price"
     t.text "description"
     t.string "city"
-    t.string "availabity"
+    t.string "availabity", default: [], array: true
     t.string "photos", default: [], array: true
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
