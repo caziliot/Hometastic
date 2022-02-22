@@ -62,8 +62,8 @@ end
   message = Message.create!(
     content: ["Message", "something", "else"].sample,
     user_id: rand(User.first.id..User.last.id),
-    chat_id: chatroom.id
+    chat_room_id: chatroom.id
   )
-  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_id}"
+  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_room_id}"
 end
 puts "seeding finished successfully"
