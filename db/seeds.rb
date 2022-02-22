@@ -21,7 +21,6 @@ puts "start seeding"
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.cell_phone,
     password: "123456"
-
   )
   puts "User ##{i + 1}, #{user.first_name}"
 
@@ -30,8 +29,8 @@ puts "start seeding"
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
-    availability: ["available", "taken"].sample,
-    user_id: user.id
+    user_id: user.id,
+    photos: ["https://picsum.photos/200/300"]
   )
   puts "flat ##{i + 1}, #{flat.address}"
 end
@@ -50,7 +49,7 @@ end
 
   review = Review.create!(
     content: ["good", "bad", "terrible", "amazing"].sample,
-    rating: rand(5..10),
+    rating: rand(1..5),
     booking_request_id: booking_request.id
   )
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
