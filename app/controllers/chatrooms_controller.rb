@@ -1,6 +1,6 @@
 class ChatRoomsController < ApplicationController
   def show
-    @chatrooms = Chatrooms.find(params[:id])
+    @chatrooms = ChatRooms.find(params[:id])
   end
 
   private
