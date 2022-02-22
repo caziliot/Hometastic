@@ -30,7 +30,7 @@ puts "start seeding"
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
-    availabity: ["available", "taken"].sample,
+    availability: ["available", "taken"].sample,
     user_id: user.id
   )
   puts "flat ##{i + 1}, #{flat.address}"
