@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :chat
-  validates :content, presence: true, message: "can't be blank"
+  belongs_to :chat_room
+  validates :content, presence: true
 end

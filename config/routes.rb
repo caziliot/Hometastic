@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :booking_requests, only: %i[new create show destroy]
     # Reviews don't need to be nested if the creation and view are on the show page of the booking request
     # Chats only need of a flat id
-    resources :chats, only: %i[new show destroy]
+    resources :chatrooms, only: %i[new show destroy]
     # Messages are created by the chat so don't need a route.
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
