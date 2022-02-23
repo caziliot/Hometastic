@@ -10,5 +10,4 @@ class Flat < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :city, presence: true
   validates :photos, presence: true
-  validates_date :available_months, after: -> { Date.current }, message: "date must be after today"
 end
