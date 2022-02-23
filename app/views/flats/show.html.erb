@@ -1,1 +1,11 @@
-<h2>flat showpage</h2>
+<h2><%= @flat.address %></h2>
+<p><%= @flat.price %></p>
+<p><%= @flat.description %></p>
+<p><%= @flat.city %></p>
+
+<h2>Reviews</h2>
+<ul>
+  <% @flat.reviews.each do |review| %>
+    <li><%= review.content %> || <%= review.rating %></li>
+  <% end %>
+</ul>
