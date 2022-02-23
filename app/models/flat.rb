@@ -3,7 +3,7 @@ class Flat < ApplicationRecord
   has_many :chats
   has_many :booking_requests
   has_many :messages, through: :chats
-  has_many :available_months
+  has_many :available_months, dependent: :destroy
 
   validates :address, presence: true
   validates :price, presence: true
