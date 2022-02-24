@@ -1,15 +1,48 @@
 //Homepage button
 .btn-home {
-  width: 279px;
-  height: 72.15px;
-  font-size: 28.76px;
+  width: 280px;
+  height: 72px;
+  font-size: 32px;
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
   color: FFFFFF;
   background-color: #94B3FD;
 }
 
 .btn-home:hover {
   background-color: #87a6ee;
-  -webkit-transform: translateY(-5px);
-	transform: translateY(-5px);
+  -webkit-transform: translateY(-2px);
+	transform: translateY(-2px);
 }
+
+//Lightblue button
+.btn-lb {
+  width: 256px;
+  height: 40;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 450;
+  color: FFFFFF;
+  background-color: #94B3FD;
+}
+
+.btn-lb:hover {
+  background-color: #87a6ee;
+}
+
+//Darkblue button
+.btn-db {
+  width: 256px;
+  height: 40;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 450;
+  color: FFFFFF;
+  background-color: #2C364C;
+}
+
+.btn-db:hover {
+  background-color: #202838;
+}
+
+//BlackWhite button
