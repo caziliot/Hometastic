@@ -5,6 +5,7 @@ class BookingRequest < ApplicationRecord
   validates :flat, presence: true
   validates :user, presence: true
   validates :month_request, presence: true
+  validate :flat_needs_to_be_available_on_the_month_requested
 
   # calculate the Service Fee as 10% of the most expensive flat, that both should pay.
   def calculate_service_fee
@@ -22,12 +23,7 @@ class BookingRequest < ApplicationRecord
     self.price_requester = price_owner > service_fee ? service_fee : dif + service_fee
   end
 
-  def flat_available?
-    if flat.available_months.any?
-      date_r = month_request.to_date
-      m_a = flat.available_months.select { |month| month.month_year.to_date == date_r }
-      return m_a.any?
-    end
-    return false
+  def flat_needs_to_be_available_on_the_month_requested
+    errors.add(:flat, "flat is not available on the month requested") unless flat.available(month_request)
   end
 end
