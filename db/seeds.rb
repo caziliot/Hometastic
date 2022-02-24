@@ -43,7 +43,7 @@ end
 
 5.times do |i|
   booking_request = BookingRequest.create!(
-    status: ["available", "rented"].sample,
+    status: "Pending",
     direction: Faker::Address.street_address,
     stay_status: ["stay in the moment", "in the future", "past stay"].sample,
     user_id: rand(User.first.id..User.last.id),
