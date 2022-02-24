@@ -7,7 +7,11 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
-    @reviews = @flat.booking_requests.reviews
+    @booking_requests = @flat.booking_requests
+    @reviews = []
+    @booking_requests.each do |b|
+      @reviews << b.reviews
+    end
     @user = current_user if user_signed_in?
   end
 
