@@ -1,9 +1,12 @@
-<input type="button" value="Go back to index!" onclick="history.back()">
-<h2>Details About The Flat</h2>
-<p>------------turn this into 1 line----------------------------------------</p>
-<br>
-<h5 class="card-address"><u>Address: </u></h5><%=@flat.address%>
-<br>
-<h5 class="card-description"><u>Description: </u></h5><%=@flat.description %></h3>
-<br>
-<p><u>insert cloudinary pic</u></p>
+<h2><%= @flat.address %></h2>
+<p><%= @flat.price %></p>
+<p><%= @flat.description %></p>
+<p><%= @flat.city %></p>
+
+<h2>Reviews</h2>
+<ul>
+  <% @flat.reviews.each do |review| %>
+    <li><%= review.content %> || <%= review.rating %></li>
+  <% end %>
+</ul>
+
