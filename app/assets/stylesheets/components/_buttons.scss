@@ -1,0 +1,15 @@
+//Homepage button
+.btn-home {
+  width: 279px;
+  height: 72.15px;
+  font-size: 28.76px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: FFFFFF;
+  background-color: #94B3FD;
+}
+
+.btn-home:hover {
+  background-color: #87a6ee;
+  -webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
