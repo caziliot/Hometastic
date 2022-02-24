@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_22_202424) do
+ActiveRecord::Schema.define(version: 2022_02_24_061256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2022_02_22_202424) do
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.decimal "price_requester", precision: 3, scale: 2
-    t.decimal "price_owner", precision: 3, scale: 2
-    t.decimal "service_fee", precision: 3, scale: 2
+    t.decimal "price_requester", precision: 10, scale: 2
+    t.decimal "price_owner", precision: 10, scale: 2
+    t.decimal "service_fee", precision: 10, scale: 2
     t.index ["flat_id"], name: "index_booking_requests_on_flat_id"
     t.index ["user_id"], name: "index_booking_requests_on_user_id"
   end
