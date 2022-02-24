@@ -1,1 +1,16 @@
-<h1>flats</h1>
+<h1>flat index</h1>
+<p>put a search box</p>
+<% @flats.each do |flat| %>
+  <div>
+    <p><u>City: </u></p><%=flat.city %>
+
+    <p><u>Address: </u></p><%=flat.address %>
+
+    <p><u>Price: </u></p><%=flat.price.to_s + "$/hour"%>
+    <br>
+    <%=link_to "See details", flat_path(flat)%>
+    <br>
+    <%="---------------------------------------------------------------------"%>
+    <br>
+  </div>
+<% end %>
