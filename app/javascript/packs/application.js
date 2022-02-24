@@ -28,4 +28,3 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
-require("@fortawesome/fontawesome-free")
