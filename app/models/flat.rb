@@ -1,9 +1,11 @@
 class Flat < ApplicationRecord
   belongs_to :user
-  has_many :chats
+  has_many :chatrooms
   has_many :booking_requests
-  has_many :messages, through: :chats
+
   has_many :available_months, dependent: :destroy
+  has_many :messages, through: :chatrooms
+
   has_many :reviews, through: :booking_requests
 
   validates :address, presence: true

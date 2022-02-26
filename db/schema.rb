@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
     t.index ["user_id"], name: "index_booking_requests_on_user_id"
   end
 
-  create_table "chats", force: :cascade do |t|
+  create_table "chat_rooms", force: :cascade do |t|
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["flat_id"], name: "index_chats_on_flat_id"
+    t.index ["flat_id"], name: "index_chat_rooms_on_flat_id"
   end
 
   create_table "flats", force: :cascade do |t|
@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
-    t.bigint "chat_id", null: false
+    t.bigint "chat_room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
   add_foreign_key "available_months", "flats"
   add_foreign_key "booking_requests", "flats"
   add_foreign_key "booking_requests", "users"
-  add_foreign_key "chats", "flats"
+  add_foreign_key "chat_rooms", "flats"
   add_foreign_key "flats", "users"
-  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "booking_requests"
 end

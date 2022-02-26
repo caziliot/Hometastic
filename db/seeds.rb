@@ -8,7 +8,7 @@
 require 'faker'
 puts "cleaning the db"
 Message.destroy_all
-Chat.destroy_all
+ChatRoom.destroy_all
 Review.destroy_all
 BookingRequest.destroy_all
 Flat.destroy_all
@@ -62,16 +62,16 @@ end
   )
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
 
-  chat = Chat.create!(
+  chatroom = ChatRoom.create!(
     flat_id: rand(Flat.first.id..Flat.last.id)
   )
-  puts "chat ##{i + 1}, chating with user ##{chat.flat_id}"
+  puts "chat ##{i + 1}, chating with user ##{chatroom.flat_id}"
 
   message = Message.create!(
     content: ["Message", "something", "else"].sample,
     user_id: rand(User.first.id..User.last.id),
-    chat_id: chat.id
+    chat_room_id: chatroom.id
   )
-  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_id}"
+  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_room_id}"
 end
 puts "seeding finished successfully"
