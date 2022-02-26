@@ -9,6 +9,7 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
     @user = current_user if user_signed_in?
+    @booking = BookingRequest.new
   end
 
   def create

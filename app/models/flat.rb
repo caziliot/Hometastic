@@ -13,12 +13,7 @@ class Flat < ApplicationRecord
   validates :photos, presence: true
 
   def available?(date_s)
-    if flat.available_months.any?
-      date_r = date_s.to_date
-      m_a = flat.available_months.select { |month| month.month_year.to_date == date_r && !month.taken }
-      return m_a.any?
-    end
-    return false
+    return available_months.find_by(month_year: date_s, taken: true).nil?
   end
   # validates :photos, presence: true *temporarily commented for testing purposes
 end

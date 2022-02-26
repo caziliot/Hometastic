@@ -52,6 +52,7 @@ end
   )
   booking_request.month_request = booking_request.flat.available_months.first.month_year
   booking_request.calculate_prices
+  booking_request.save
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(

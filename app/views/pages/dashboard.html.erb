@@ -1,0 +1,9 @@
+<h1>DASHBOARD</h1>
+<p>Welcome <%= @user.first_name %></p>
+<br>
+<h2>Your bookings</h2>
+<ul>
+  <% @user.booking_requests.each do |booking| %>
+    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %> - flat <%= booking.flat.id %></li>
+  <% end %>
+</ul>
