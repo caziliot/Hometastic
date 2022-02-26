@@ -13,6 +13,9 @@ class BookingRequestsController < ApplicationController
     @booking.calculate_prices
   end
 
+  def show
+  end
+
   # There should be a create, for when the Booking is sent and one update for when the
   def create
     @user = current_user
@@ -33,7 +36,7 @@ class BookingRequestsController < ApplicationController
     @booking = BookingRequest.find(params[:id])
     @user = current_user
     @user.accept(@booking)
-    redirect_to "pages/dashboard"
+    redirect_to dashboard_path
     return
   end
 
