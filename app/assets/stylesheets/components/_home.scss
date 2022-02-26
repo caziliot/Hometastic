@@ -1,0 +1,42 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(home_large.jpeg);
+  background-size:cover;
+  background-position: right 35% bottom 30%;;
+  padding: 150px 10px;
+  height: 100vh;
+  object-fit:contain;
+
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 64px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+
+.headerTitle {
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #94B3FD!important;
+  height: 300px;
+  width: 500px;
+  line-height: 80px;
+
+}
+
+.home-container{
+   text-align: left;
+   margin: 0;
+   padding-top: 80px;
+   padding-left: 50px;
+}

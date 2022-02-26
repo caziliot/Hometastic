@@ -10,3 +10,130 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// ----------------------------------
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+.header{
+  width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0,0,0,0.2)), url(https://images.unsplash.com/photo-1561228647-c97a76d0fd0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=864&q=80);
+  background-position: center;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+nav{
+  width: 100%;
+  height: 84px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 3%;
+  transition: 1s;
+  background-color: #fff;
+
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #2C364C;
+  height: 50px;
+  width: 50px;
+
+}
+
+nav .logo img{
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+nav ul{
+  margin:0!important;
+}
+
+nav ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 0px 10px;
+}
+
+
+.nav-item{
+  text-decoration: none;
+  color: #2C364C;
+  font-weight: 500;
+}
+
+.nav-btn {
+  background-color: #2C364C;
+  color: #fff!important;
+  border-radius: 50px;
+  font-weight: normal;
+  padding: 10px 30px;
+  a {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.nav-dropdown {
+  background-color: #F4F4F5;
+  color: #fff!important;
+  border-radius: 50px;
+  font-weight: normal;
+  padding: 8px 20px;
+  a {
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+.burger {
+  margin-right: -10px;
+}
+
+nav:hover {
+  background-color:#94B3FD;
+
+}
+
+nav:hover .logo {
+  color:#333
+}
+nav:hover ul li a {
+  color: #333
+
+}
+
+
+
+.slide-left {
+  animation: slideleft 1s linear forwards;
+}
+@keyframes slideleft {
+  0%{
+    transform: translate(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1;
+
+  }
+}
+
+p.slide-left {
+  animation-delay: 1s;
+}
+
+.links.slide-left {
+  animation-delay: 2s;
+}
