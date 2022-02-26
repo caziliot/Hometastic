@@ -13,6 +13,12 @@ class BookingRequestsController < ApplicationController
     @booking.calculate_prices
   end
 
+  def pay
+    @booking = BookingRequest.find(params[:id])
+    @requester = @booking.user
+    @owner = @booking.flat.user
+  end
+
   def show
   end
 
