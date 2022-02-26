@@ -4,13 +4,22 @@
 <p><%= @flat.price %></p>
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
-
+<div class="booking-form">
 <%= simple_form_for [ @flat, @booking ] do |f| %>
-
-  <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker", id: "from" } %>
+<div class="form-date">
+    <%= f.input :month_request, as: :string, required: true, label:"month", placeholder:'select date', wrapper_html: {class: "form-month"}, input_html: {class: "datepicker", id: "from" } %>
+    <div class="form-year">
+    <label for="Year">Year</label>
+    <p>2022</p>
+    </div>
+</div>
   <br>
-  <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+<div class="form-button">
+<button type="button" class="btn-lb rounded-pill border-0">Speak to owner</button>
+  <%= f.submit "Send a request to this Flat", class:"btn-db rounded-pill mt-3 border-0"  %>
+</div>
 <% end %>
+</div>
 
 <h2>Reviews</h2>
 <ul>
