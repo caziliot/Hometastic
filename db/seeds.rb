@@ -43,9 +43,7 @@ end
 
 5.times do |i|
   booking_request = BookingRequest.create!(
-    status: "Pending",
     direction: Faker::Address.street_address,
-    stay_status: ["stay in the moment", "in the future", "past stay"].sample,
     user_id: rand(User.first.id..User.last.id),
     flat_id: rand(Flat.first.id..Flat.last.id),
     month_request: "01-03-2022"
