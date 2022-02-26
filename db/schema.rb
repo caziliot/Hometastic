@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "taken"
+    t.boolean "taken", default: false
     t.index ["flat_id"], name: "index_available_months_on_flat_id"
   end
 
