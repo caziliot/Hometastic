@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get :dashboard, to: 'pages#dashboard'
   # Users are created by Devise
-  resources :flats, only: %i[create show index] do
+  resources :flats, only: %i[new create show index] do
     # A Booking Request needs a User and a Flat.
     resources :booking_requests, only: %i[new create show destroy]
     # Reviews don't need to be nested if the creation and view are on the show page of the booking request
