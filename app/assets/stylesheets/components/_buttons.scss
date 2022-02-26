@@ -1,17 +1,20 @@
 
 //Homepage button
 .btn-home {
-  width: 280px;
-  height: 72px;
-  font-size: 32px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  color: #FFFFFF;
-  background-color: #94B3FD;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #87a6ee;
+  color: #fff!important;
+  border-radius: 50px;
+  font-weight: normal;
+  padding: 10px 30px;
+  width: 260px;
+  text-align: center;
+  //  rounded-pill border-0 shadow
 }
 
 .btn-home:hover {
-  background-color: #87a6ee;
+  background-color: #597FCA;
   -webkit-transform: translateY(-2px);
 	transform: translateY(-2px);
 }
@@ -25,7 +28,7 @@
   width: 256px;
   height: 40px;
   font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 450;
   color: #FFFFFF;
   background-color: #94B3FD;
@@ -44,7 +47,7 @@
   width: 256px;
   height: 40px;
   font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 450;
   color: #FFFFFF;
   background-color: #2C364C;
@@ -63,7 +66,7 @@
   width: 176px;
   height: 48px;
   font-size: 14px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 550;
   border-radius: 8px;
   border-width: thin;
@@ -79,7 +82,7 @@
   width: 88px;
   height: 26px;
   font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   color: #FFFFFF;
   background-color: #2C364C;
@@ -92,4 +95,3 @@
 .btn-small:active {
   background-color: #151a24;
 }
-
