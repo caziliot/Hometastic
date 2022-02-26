@@ -1,0 +1,29 @@
+.banner {
+  background-image: url(home_large.jpeg);
+  background-size:cover;
+  background-position: right 35% bottom 30%;;
+  padding: 110px 10px;
+  height: 100vh;
+  object-fit:contain;
+
+}
+
+.headerTitle {
+  font-size: 70px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #2C364C!important;
+  height: 200px;
+  width: 650px;
+  line-height: 80px;
+  margin: 0;
+}
+
+.home-container{
+   text-align: left;
+   margin: 0;
+   padding-top: 60px;
+   padding-left: 50px;
+}
+
+

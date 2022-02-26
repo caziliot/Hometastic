@@ -12,6 +12,7 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
+    @amenities = @flat.amenities
     @user = current_user if user_signed_in?
     @booking = BookingRequest.new
   end
