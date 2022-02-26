@@ -4,14 +4,16 @@
 <p><%= @flat.price %></p>
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
-<p>Amenities:</p>
+
   <% if !@amenities.empty? %>
+  <p>Amenities:</p>
     <ul>
       <% @amenities.each do |amenity| %>
         <li><%= amenity.title %></li>
       <% end %>
     </ul>
   <% end %>
+  <button type="button" class="btn-small rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
 
 <% unless current_user == @flat.user %>
   <%= simple_form_for [ @flat, @booking ] do |f| %>
