@@ -1,4 +1,3 @@
-
 <h1 class="flats-header">Restaurant index</h1>
 
 <%= render 'components/search_bar' %>
@@ -11,10 +10,12 @@
         <div class="card-trip-infos">
           <div>
             <h2><%=flat.city %></h2>
-            <p><%=flat.address %></p>
+            <p id="pL"><%=flat.address %></p>
           </div>
-          <h2 class="card-trip-pricing"><%=flat.price.to_s + " $/hour"%></h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <div>
+          <h2 class="card-trip-pricing"><%=flat.price.to_s + " €/month"%></h2>
+          <p>Apr-May</p>
+          </div>
         </div>
       </div>
     <% end %>

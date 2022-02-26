@@ -5,6 +5,24 @@
 <p><u>Description:</u><%=" " + @flat.description %></p>
 <p><u>City:</u><%=" " + @flat.city %></p>
 
+  <% if !@amenities.empty? %>
+  <p>Amenities:</p>
+    <ul>
+      <% @amenities.each do |amenity| %>
+        <li><%= amenity.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <button type="button" class="btn-small rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+
+<% unless current_user == @flat.user %>
+  <%= simple_form_for [ @flat, @booking ] do |f| %>
+    <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker", id: "from" } %>
+    <br>
+    <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+  <% end %>
+<% end  %>
+
 <h2>Reviews</h2>
 <ul>
   <% @flat.reviews.each do |review| %>

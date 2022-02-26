@@ -1,0 +1,7 @@
+<h1>Add an amenity</h1>
+<%= simple_form_for [ @flat, @amenity ] do |f| %>
+  <%= f.input :title %>
+  <%#= f.input :icon_class %>
+  <%= f.submit "Add", class: "btn btn-success rounded-pill mt-5"%>
+  <%= link_to "Back", flat_path(@flat)%>
+<% end %>
