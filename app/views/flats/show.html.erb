@@ -4,6 +4,14 @@
 <p><%= @flat.price %></p>
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
+<p>Amenities:</p>
+  <% if !@amenities.empty? %>
+    <ul>
+      <% @amenities.each do |amenity| %>
+        <li><%= amenity.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
 <%= simple_form_for [ @flat, @booking ] do |f| %>
 

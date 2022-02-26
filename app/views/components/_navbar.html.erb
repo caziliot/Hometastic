@@ -1,0 +1,41 @@
+ <nav>
+      <div class="logo">
+        <%= image_tag "logo.png" %>
+        <span class="slide-left">Hometastic</span>
+      </div>
+      <ul>
+      <% if user_signed_in? %>
+        <li>
+            <%= link_to "Favourite","#", class: "nav-item" %>
+          </li>
+          <li>
+            <%= link_to "Messages","#", class: "nav-item" %>
+          </li>
+          <li>
+            <%= link_to "My dashboard", "#", class: "nav-btn" %>
+          </li>
+          <li class="nav-dropdown">
+            <%= image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://images.unsplash.com/photo-1623330188314-8f4645626731?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <p class="dropdown-item"> current_user.email</p>
+              <%= link_to "Edit account", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+      <% else %>
+           <li>
+            <%= link_to "How it works","#", class: "nav-item" %>
+          </li>
+          <li >
+            <%= link_to "Pricing","#", class: "nav-item" %>
+          </li>
+          <li>
+            <%= link_to "Sign in", "#", class: "nav-btn" %>
+          </li>
+            <li>
+            <%= link_to "Log in", "#", class: "nav-btn" %>
+          </li>
+      <% end %>
+      </ul>
+    </nav>

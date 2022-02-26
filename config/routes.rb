@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     # Chats only need of a flat id
     resources :chatrooms, only: %i[new show destroy]
     # Messages are created by the chat so don't need a route.
+    resources :amenities, only: %i[new create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
