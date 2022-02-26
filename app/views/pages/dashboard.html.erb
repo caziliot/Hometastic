@@ -4,14 +4,27 @@
 <h2>Your Outgoing bookings</h2>
 <ul>
   <% @user.booking_requests.each do |booking| %>
-    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %> - flat <%= booking.flat.id %></li>
+    <li>
+      <%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
+      - flat <%= booking.flat.id %>
+      <% if booking.stay_status == BookingRequest::TB_PAID  %>
+        <%= link_to "pay"%>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
 <h2>Your Incoming bookings</h2>
 <ul>
   <% @user.booking_as_owner.each do |booking| %>
-    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
-    - flat <%= booking.flat.id %> <%= link_to "Accept", accept_booking_path(booking), method: :patch  %></li>
+    <li>
+      <%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
+      - flat <%= booking.flat.id %>
+        <% if booking.stay_status == BookingRequest::ON_REQUEST  %>
+          <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+        <% elsif booking.stay_status == BookingRequest::TB_PAID %>
+          <%= link_to "pay"%>
+        <% end %>
+    </li>
   <% end %>
 </ul>
