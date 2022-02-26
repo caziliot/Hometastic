@@ -29,6 +29,14 @@ class BookingRequestsController < ApplicationController
   end
 
   # This is just to keep in mind: Accept
+  def accept
+    @booking = BookingRequest.find(params[:id])
+    @user = current_user
+    @user.accept(@booking)
+    redirect_to "pages/dashboard"
+    return
+  end
+
   protected
 
   def booking_request_params

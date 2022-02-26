@@ -6,6 +6,6 @@ class AvailableMonth < ApplicationRecord
   validates :month_year, presence: true
 
   def take
-    self.taken = true
+    update(taken: true)
   end
 end

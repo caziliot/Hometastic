@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get :dashboard, to: 'pages#dashboard'
+  patch 'booking_requests/:id', to: "booking_requests#accept", as: :accept_booking
   # Users are created by Devise
   resources :flats, only: %i[new create show index] do
     # A Booking Request needs a User and a Flat.

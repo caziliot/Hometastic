@@ -22,7 +22,7 @@ class User < ApplicationRecord
   def accept(booking)
     booking.accept
     booking_as_owner.where(month_request: booking.month_request).each do |b|
-      b.status = BookingRequest.declined unless b.id == booking.id
+      b.update(status: BookingRequest::DECLINED) unless b.id == booking.id
     end
   end
 end
