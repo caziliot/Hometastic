@@ -8,6 +8,8 @@ class Flat < ApplicationRecord
 
   has_many :reviews, through: :booking_requests
 
+  has_many :amenities
+
   validates :address, presence: true
   validates :price, presence: true
   validates :description, presence: true, length: { minimum: 10 }

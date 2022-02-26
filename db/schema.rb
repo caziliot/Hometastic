@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_25_185228) do
+ActiveRecord::Schema.define(version: 2022_02_26_105533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "title"
+    t.string "icon_class"
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flat_id"], name: "index_amenities_on_flat_id"
+  end
 
   create_table "available_months", force: :cascade do |t|
     t.string "month_year"
@@ -94,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "amenities", "flats"
   add_foreign_key "available_months", "flats"
   add_foreign_key "booking_requests", "flats"
   add_foreign_key "booking_requests", "users"
