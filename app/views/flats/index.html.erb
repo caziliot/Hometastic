@@ -1,5 +1,8 @@
-<h1>flat index</h1>
-<p>put a search box</p>
+
+<h1 class="flats-header">Restaurant index</h1>
+
+<%= render 'components/search_bar' %>
+<br>
 <div class="cards">
   <% @flats.each do |flat| %>
     <%=link_to flat_path(flat) do%>

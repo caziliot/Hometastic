@@ -2,7 +2,18 @@ class FlatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @flats = Flat.all
+    if params[:query].present?
+      sql_query = " \
+        flats.city ILIKE :query \
+        OR flats.address ILIKE :query \
+      "
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @flats = Flat.all
+    end
+    @cities = Flat.all.select{|flat| flat.city}
+    @months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    @years = ["2022", "2023", "2024", "2025", "2026"]
   end
 
   def show
