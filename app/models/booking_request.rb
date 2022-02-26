@@ -7,6 +7,8 @@ class BookingRequest < ApplicationRecord
 
   ON_REQUEST = "On Request"
   TB_PAID = "To be paid"
+  TBP_REQUESTER = "Awaiting requester payment"
+  TBP_OWNER = "Awaiting owner payment"
   UPCOMING = "Upcoming"
   IN_PROGRESS = "In progress"
   FINISHED = "Finished"
@@ -49,6 +51,22 @@ class BookingRequest < ApplicationRecord
       update(status: ACCEPTED, stay_status: TB_PAID)
       available = flat.available_months.find_by(month_year: month_request)
       available&.take
+    end
+  end
+
+  def owner_pays
+    if paid_by_requester
+      update(paid_by_owner: true, stay_status: UPCOMING)
+    else
+      update(paid_by_owner: true, stay_status: TBP_REQUESTER)
+    end
+  end
+
+  def requester_pays
+    if paid_by_owner
+      update(paid_by_requester: true, stay_status: UPCOMING)
+    else
+      update(paid_by_requester: true, stay_status: TBP_OWNER)
     end
   end
 end
