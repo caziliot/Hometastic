@@ -2,15 +2,21 @@ class BookingRequestsController < ApplicationController
   before_action :authenticate_user!
 
   # The confirm page is only going to be shown once the booking is accepted.
+  def pay
+    @booking = BookingRequest.find(params[:id])
+    if current_user.id == @booking.user.id
+      @booking.requester_pays
+    elsif current_user.id == @booking.flat.user.id
+      @booking.owner_pays
+    else
+      redirect_to dashboard_path
+    end
+  end
+
   def confirm
-    # User (@user) creates an outgoing request to flat
-    @user = current_user
-    @flat = Flat.find(params[:flat_id])
-    @booking = BookingRequest.new(booking_request_params)
-    # console
-    @booking.user = @user
-    @booking.flat = @flat
-    @booking.calculate_prices
+    @booking = BookingRequest.find(params[:id])
+    @requester = @booking.user
+    @owner = @booking.flat.user
   end
 
   def show
