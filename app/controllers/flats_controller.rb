@@ -2,7 +2,11 @@ class FlatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @flats = Flat.all
+    if params[:query]
+      @flats = Flat.search_by_name_date_price_direction_city(params[:query])
+    else
+      @flats = Flat.all
+    end
   end
 
   def show
