@@ -8,7 +8,7 @@
 require 'faker'
 puts "cleaning the db"
 Message.destroy_all
-Chat.destroy_all
+ChatRoom.destroy_all
 Review.destroy_all
 BookingRequest.destroy_all
 Flat.destroy_all
@@ -33,18 +33,26 @@ puts "start seeding"
     photos: ["https://picsum.photos/200/300"]
   )
   puts "flat ##{i + 1}, #{flat.address}"
+
+  ava_m = AvailableMonth.create!(
+    month_year: "1-#{rand(3..12)}-2022",
+    flat_id: flat.id
+  )
+  puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
 end
 
 5.times do |i|
   booking_request = BookingRequest.create!(
-    status: ["available", "rented"].sample,
-    month_request: Date::MONTHNAMES.sample,
-    price: Faker::Commerce.price,
+    status: "Pending",
     direction: Faker::Address.street_address,
     stay_status: ["stay in the moment", "in the future", "past stay"].sample,
     user_id: rand(User.first.id..User.last.id),
-    flat_id: rand(Flat.first.id..Flat.last.id)
+    flat_id: rand(Flat.first.id..Flat.last.id),
+    month_request: "01-03-2022"
   )
+  booking_request.month_request = booking_request.flat.available_months.first.month_year
+  booking_request.calculate_prices
+  booking_request.save
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(
@@ -54,16 +62,16 @@ end
   )
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
 
-  chat = Chat.create!(
+  chatroom = ChatRoom.create!(
     flat_id: rand(Flat.first.id..Flat.last.id)
   )
-  puts "chat ##{i + 1}, chating with user ##{chat.flat_id}"
+  puts "chat ##{i + 1}, chating with user ##{chatroom.flat_id}"
 
   message = Message.create!(
     content: ["Message", "something", "else"].sample,
     user_id: rand(User.first.id..User.last.id),
-    chat_id: chat.id
+    chat_room_id: chatroom.id
   )
-  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_id}"
+  puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_room_id}"
 end
 puts "seeding finished successfully"

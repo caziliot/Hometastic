@@ -2,13 +2,18 @@ class FlatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @flats = Flat.all
+    if params[:query]
+      @flats = Flat.search_by_name_date_price_direction_city(params[:query])
+    else
+      @flats = Flat.all
+    end
   end
 
   def show
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
     @user = current_user if user_signed_in?
+    @booking = BookingRequest.new
   end
 
   def create

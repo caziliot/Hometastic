@@ -1,7 +1,16 @@
+<button onclick="history.back()">Index</button>
+<h2>Flat Details</p>
 <h2><%= @flat.address %></h2>
 <p><%= @flat.price %></p>
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
+
+<%= simple_form_for [ @flat, @booking ] do |f| %>
+
+  <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker", id: "from" } %>
+  <br>
+  <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+<% end %>
 
 <h2>Reviews</h2>
 <ul>
@@ -9,4 +18,3 @@
     <li><%= review.content %> || <%= review.rating %></li>
   <% end %>
 </ul>
-
