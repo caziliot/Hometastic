@@ -1,0 +1,17 @@
+<h1>DASHBOARD</h1>
+<p>Welcome <%= @user.first_name %></p>
+<br>
+<h2>Your Outgoing bookings</h2>
+<ul>
+  <% @user.booking_requests.each do |booking| %>
+    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %> - flat <%= booking.flat.id %></li>
+  <% end %>
+</ul>
+
+<h2>Your Incoming bookings</h2>
+<ul>
+  <% @user.booking_as_owner.each do |booking| %>
+    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
+    - flat <%= booking.flat.id %> <%= link_to "Accept", accept_booking_path(booking), method: :patch  %></li>
+  <% end %>
+</ul>
