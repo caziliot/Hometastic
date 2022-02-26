@@ -5,6 +5,7 @@ class BookingRequest < ApplicationRecord
   DECLINED = "Declined"
   PENDING = "Pending"
 
+  ON_REQUEST = "On Request"
   TB_PAID = "To be paid"
   UPCOMING = "Upcoming"
   IN_PROGRESS = "In progress"
@@ -18,7 +19,7 @@ class BookingRequest < ApplicationRecord
   validates :user, presence: true
   validates :month_request, presence: true
   validate :flat_needs_to_be_available_on_the_month_requested
-  # validate :booking_already_exists
+  validate :booking_already_exists, on: :create
   # calculate the Service Fee as 10% of the most expensive flat, that both should pay.
   def calculate_service_fee
     user_flat = user.flats.first
