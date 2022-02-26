@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get :dashboard, to: 'pages#dashboard'
   patch 'booking_requests/:id', to: "booking_requests#accept", as: :accept_booking
-  resources :booking_requests, only: %i[show]
+  get 'booking_request/:id/pay', to: "booking_requests#pay", as: :pay_booking
   # Users are created by Devise
   resources :flats, only: %i[new create show index] do
     # A Booking Request needs a User and a Flat.

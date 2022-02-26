@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_25_185228) do
+ActiveRecord::Schema.define(version: 2022_02_26_130911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2022_02_25_185228) do
     t.decimal "price_requester", precision: 10, scale: 2
     t.decimal "price_owner", precision: 10, scale: 2
     t.decimal "service_fee", precision: 10, scale: 2
+    t.boolean "paid_by_owner", default: false
+    t.boolean "paid_by_requester", default: false
     t.index ["flat_id"], name: "index_booking_requests_on_flat_id"
     t.index ["user_id"], name: "index_booking_requests_on_user_id"
   end

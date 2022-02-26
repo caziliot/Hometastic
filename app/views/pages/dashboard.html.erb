@@ -4,7 +4,13 @@
 <h2>Your Outgoing bookings</h2>
 <ul>
   <% @user.booking_requests.each do |booking| %>
-    <li><%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %> - flat <%= booking.flat.id %></li>
+    <li>
+      <%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
+      - flat <%= booking.flat.id %>
+      <% if booking.stay_status == BookingRequest::TB_PAID  %>
+        <%= link_to "pay"%>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
