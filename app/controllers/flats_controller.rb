@@ -11,9 +11,9 @@ class FlatsController < ApplicationController
     else
       @flats = Flat.all
     end
-    @cities = Flat.all.select{|flat| flat.city}
-    @months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    @years = ["2022", "2023", "2024", "2025", "2026"]
+    @cities = []
+    Flat.all.each { |flat| @cities << flat.city }
+
   end
 
   def show

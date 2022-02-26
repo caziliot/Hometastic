@@ -1,48 +1,14 @@
-
-
- </div>
-    <div class="container">
-      <div class="search-bar">
-        <form>
-            <div class="location-input">
-              <label>Location</label>
-
-              <select name="locations" id="location-select">
-                <option>Where are you going?</option>
-                <% @flats.each do |flat|%>
-                  <option><%= flat.city%></option>
-                <% end %>
-              </select>
-            </div>
-            <div>
-              <label>Month</label>
-              <select name="Months" id="month-select">
-                <option>What month are you going?</option>
-                <% @months.each do |month|%>
-                  <option><%= month %></option>
-                <% end %>
-              </select>
-            </div>
-            <div>
-              <label>Year</label>
-              <select name="Years" id="year-select">
-                <option>What year are you going?</option>
-                <% @years.each do |year|%>
-                  <option><%= year %></option>
-                <% end %>
-              </select>
-            </div>
-            <button type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-        </form>
-      </div>
-
-<%= form_tag flats_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a flat"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+</div>
+  <div class="container">
+    <div class="search-bar">
+      <%= form_tag flats_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a flat"
+        %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  </div>
+</div>

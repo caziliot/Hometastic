@@ -8,6 +8,8 @@
 <h2>Reviews</h2>
 <ul>
   <% @flat.reviews.each do |review| %>
-      <li>Review Content: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
+      <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
   <% end %>
+
 </ul>
+<%= render "components/date_picker" %>
