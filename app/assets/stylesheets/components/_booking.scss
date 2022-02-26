@@ -1,0 +1,46 @@
+.form-button{
+align-items: center;
+margin: auto;
+display: flex;
+justify-content: center;
+padding: 8px;
+max-width: 800%;
+width: 100%;
+flex-wrap: wrap;
+}
+
+.form-date{
+    padding: 18px;
+    border-radius: 4px;
+    border: 1px solid #7a96d8;
+    outline: none;
+    display: block;
+    width: 100%;
+    margin: 5px 0 10px;
+
+}
+.form-month{
+    padding: 10px;
+    border-radius: 4px;
+
+    outline: none;
+    display: block;
+    width: 100%;
+    margin: 5px 0 10px;
+
+}
+
+.booking-form{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap;
+
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: sans-serif;
+}
