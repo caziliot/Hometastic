@@ -1,4 +1,5 @@
 import flatpickr from "flatpickr";
+import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 
 const initFlatpickr = () => {
   flatpickr(".datepicker", {
@@ -12,5 +13,4 @@ const initFlatpickr = () => {
     ]
   });
 }
-
 export { initFlatpickr };

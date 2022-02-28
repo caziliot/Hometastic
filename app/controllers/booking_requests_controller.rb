@@ -41,7 +41,11 @@ class BookingRequestsController < ApplicationController
   def accept
     @booking = BookingRequest.find(params[:id])
     @user = current_user
-    @user.accept(@booking)
+    if @booking.flat.available?(@booking.month_request) && @user.flats.first.available?(@booking.month_request)
+      @user.accept(@booking)
+    else
+      flash[:notice] = "Both flats need to be available on those dates."
+    end
     redirect_to dashboard_path
     return
   end

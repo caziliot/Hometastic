@@ -47,11 +47,11 @@ class BookingRequest < ApplicationRecord
   end
 
   def accept
-    if status == PENDING
-      update(status: ACCEPTED, stay_status: TB_PAID)
-      available = flat.available_months.find_by(month_year: month_request)
-      available&.take
-    end
+    update(status: ACCEPTED, stay_status: TB_PAID)
+    available = flat.available_months.find_by(month_year: month_request)
+    available_r = user.flats.first.available_months.find_by(month_year: month_request)
+    available&.take
+    available_r&.take
   end
 
   def owner_pays
