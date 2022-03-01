@@ -35,7 +35,7 @@ puts "start seeding"
   puts "flat ##{i + 1}, #{flat.address}"
 
   ava_m = AvailableMonth.create!(
-    month_year: "01-0#{rand(3..9)}-2022",
+    month_year: "01-0#{rand(4..9)}-2022",
     flat_id: flat.id
   )
   puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
