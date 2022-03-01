@@ -8,14 +8,19 @@
       <ul>
       <% if user_signed_in? %>
         <li>
-            <%= link_to "Favourite","#", class: "nav-item" %>
+          <%= link_to "Favourite","#", class: "nav-item" %>
+        </li>
+        <% if current_user.flats %>
+          <li >
+            <%= link_to "View My flat",flat_path(current_user.flats.first), class: "nav-item" %>
           </li>
-          <li>
-            <%= link_to "Messages","#", class: "nav-item" %>
-          </li>
-          <li>
-            <%= link_to "My dashboard", dashboard_path, class: "nav-btn" %>
-          </li>
+        <% end %>
+        <li>
+          <%= link_to "Messages","#", class: "nav-item" %>
+        </li>
+        <li>
+          <%= link_to "My dashboard", dashboard_path, class: "nav-btn" %>
+        </li>
           <li class="nav-dropdown">
             <%= image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <%= image_tag "https://images.unsplash.com/photo-1623330188314-8f4645626731?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -29,11 +34,6 @@
            <li>
             <%= link_to "How it works","#", class: "nav-item" %>
           </li>
-          <% if current_user.flats %>
-            <li >
-              <%= link_to "View My flat",flat_path(current_user.flats.first), class: "nav-item" %>
-            </li>
-          <% end %>
           <li>
             <%= link_to "Sign in", "#", class: "nav-btn" %>
           </li>
