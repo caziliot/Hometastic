@@ -10,7 +10,7 @@
         <li>
           <%= link_to "Favourite","#", class: "nav-item" %>
         </li>
-        <% if current_user.flats %>
+        <% if current_user.flats.any? %>
           <li >
             <%= link_to "View My flat",flat_path(current_user.flats.first), class: "nav-item" %>
           </li>

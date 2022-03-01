@@ -90,3 +90,50 @@
   </div>
 <%# main div ends %>
 </div>
+<button onclick="history.back()">Index</button>
+<h2>Flat Details</h2>
+<p><u>Name:</u><%= " " + @flat.name %></p>
+<p><u>Address:</u><%= " " + @flat.address %></p>
+<p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
+<p><u>Description:</u><%= " " + @flat.description %></p>
+<p><u>City:</u><%=  " " + @flat.city %></p>
+
+<% @flat.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<% if @amenities %>
+
+<p>Amenities:</p>
+  <ul>
+    <% @amenities.each do |amenity| %>
+      <li><%= amenity.title %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% unless current_user == @flat.user %>
+<div class="form">
+<h3>Your Hometastic Stay</h3>
+  <%= simple_form_for [ @flat, @booking ] do |f| %>
+    <%= f.input :month_request, as: :string, required: true,  placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
+    <br>
+    <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+  <%= link_to "go to dashboard", dashboard_path, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
+  <% end %>
+</div>
+<% else %>
+  <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
+  <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+<% end  %>
+
+
+<h2>Reviews</h2>
+<ul>
+  <% @flat.reviews.each do |review| %>
+     <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
+  <% end %>
+
+</ul>
+<%= render "components/date_picker" %>
