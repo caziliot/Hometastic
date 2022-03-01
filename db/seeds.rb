@@ -46,7 +46,7 @@ end
     direction: Faker::Address.street_address,
     user_id: rand(User.first.id..User.last.id),
     flat_id: rand(Flat.first.id..Flat.last.id),
-    month_request: "01-04-22"
+    month_request: "01-04-2022"
   )
   booking_request.month_request = booking_request.flat.available_months.first.month_year
   booking_request.calculate_prices
