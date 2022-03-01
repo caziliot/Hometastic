@@ -16,7 +16,7 @@ User.destroy_all
 puts "start seeding"
 5.times do |i|
   user = User.create!(
-    email: Faker::Internet.email,
+    email: "email-#{i}@gmail.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.cell_phone,
@@ -30,8 +30,8 @@ puts "start seeding"
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
-    user_id: user.id,
-    photos: ["https://picsum.photos/200/300"]
+    user_id: user.id
+    #photos: ["https://picsum.photos/200/300"]
   )
   puts "flat ##{i + 1}, #{flat.address}"
 

@@ -1,8 +1,8 @@
-<button onclick="history.back()">Index</button>
+<button class="btn_index" onclick="history.back()">Index</button>
 <h2>Flat Details</h2>
 <p><u>Name:</u><%= " " + @flat.name %></p>
 <p><u>Address:</u><%= " " + @flat.address %></p>
-<p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
+<p><u>Price per day:</u><%= " " + @flat.price.to_s + "$" %></p>
 <p><u>Description:</u><%= " " + @flat.description %></p>
 <p><u>City:</u><%=  " " + @flat.city %></p>
 

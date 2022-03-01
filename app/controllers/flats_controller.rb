@@ -6,6 +6,7 @@ class FlatsController < ApplicationController
       sql_query = " \
         flats.city ILIKE :query \
         OR flats.address ILIKE :query \
+        OR flats.name ILIKE :query
       "
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
     else
