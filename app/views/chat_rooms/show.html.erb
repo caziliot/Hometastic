@@ -11,6 +11,7 @@
     </div>
   <% end %>
 </div>
-<%= simple_form_for [ @chat_room, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chat_room.name}" %>
+<%= simple_form_for [ @flat, @chat_room, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message #{@chat_room.flat.user.first_name}" %>
+  <%= f.submit "Send", class: "btn btn-success rounded-pill mt-4 mb-3 mr-3" %>
 <% end %>
