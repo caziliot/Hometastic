@@ -6,6 +6,7 @@
 <p><%= @flat.city %></p>
 
   <% if @amenities %>
+
   <p>Amenities:</p>
     <ul>
       <% @amenities.each do |amenity| %>
@@ -13,7 +14,7 @@
       <% end %>
     </ul>
   <% end %>
-  <button type="button" class="btn-small rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+
 
 <% unless current_user == @flat.user %>
   <%= simple_form_for [ @flat, @booking ] do |f| %>
@@ -21,6 +22,9 @@
     <br>
     <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
   <% end %>
+<% else %>
+  <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
+  <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
 <% end  %>
 
 <h2>Reviews</h2>

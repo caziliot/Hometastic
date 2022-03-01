@@ -31,6 +31,21 @@ class FlatsController < ApplicationController
     @flat = Flat.new
   end
 
+  def edit
+    @flat = Flat.find(params[:id])
+    redirect_to flat_path(@flat) unless @flat.user = current_user
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat)
+    else
+      flash[:alert] = "Error while updating, try again later"
+      redirect_to flat_path(@flat)
+    end
+  end
+
   private
 
   def flat_params
