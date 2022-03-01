@@ -36,8 +36,14 @@
   </div>
   <%# Amenities end %>
   <%# Booking start %>
-  <div class="pL">
-    <p class="f16">Booking form</p>
+  <div class="form w250 pB">
+    <p class="f20 pB">Your Hometastic Stay</p>
+    <%= simple_form_for [ @flat, @booking ] do |f| %>
+      <%= f.input :month_request, as: :string, required: true,  placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
+      <br>
+      <%= f.submit "Chat with owner", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+    <%= link_to "Send a booking request", dashboard_path, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
+    <% end %>
   </div>
   <%# Booking end %>
 </div>
@@ -92,7 +98,7 @@
 </div>
 <button onclick="history.back()">Index</button>
 <h2>Flat Details</h2>
-<p><u>Name:</u><%= " " + @flat.name %></p>
+<%# <p><u>Name:</u><%= " " + @flat.name %></p> %>
 <p><u>Address:</u><%= " " + @flat.address %></p>
 <p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
 <p><u>Description:</u><%= " " + @flat.description %></p>
@@ -114,15 +120,7 @@
 
 
 <% unless current_user == @flat.user %>
-<div class="form">
-<h3>Your Hometastic Stay</h3>
-  <%= simple_form_for [ @flat, @booking ] do |f| %>
-    <%= f.input :month_request, as: :string, required: true,  placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
-    <br>
-    <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
-  <%= link_to "go to dashboard", dashboard_path, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
-  <% end %>
-</div>
+
 <% else %>
   <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
   <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
