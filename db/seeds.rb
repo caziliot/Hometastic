@@ -35,7 +35,7 @@ puts "start seeding"
   puts "flat ##{i + 1}, #{flat.address}"
 
   ava_m = AvailableMonth.create!(
-    month_year: "1-#{rand(3..12)}-2022",
+    month_year: "01-0#{rand(3..9)}-2022",
     flat_id: flat.id
   )
   puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
@@ -46,7 +46,7 @@ end
     direction: Faker::Address.street_address,
     user_id: rand(User.first.id..User.last.id),
     flat_id: rand(Flat.first.id..Flat.last.id),
-    month_request: "01-03-2022"
+    month_request: "01-04-22"
   )
   booking_request.month_request = booking_request.flat.available_months.first.month_year
   booking_request.calculate_prices
