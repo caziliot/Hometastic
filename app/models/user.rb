@@ -21,9 +21,20 @@ class User < ApplicationRecord
   end
 
   def accept(booking)
-    booking.accept
-    booking_as_owner.where(month_request: booking.month_request).each do |b|
-      b.update(status: BookingRequest::DECLINED) unless b.id == booking.id
+    if booking.status == BookingRequest::PENDING
+      booking.accept
+      booking_as_owner.where(month_request: booking.month_request).each do |b|
+        b.update(status: BookingRequest::DECLINED) unless b.id == booking.id
+      end
+      booking_requests.where(month_request: booking.month_request).each do |b|
+        b.update(status: BookingRequest::CANCELLED) unless b.id == booking.id
+      end
+    else
+      flash[:notice] = "This booking is not pending anymore"
     end
+  end
+
+  def decline(booking)
+    booking.update(status: BookingRequest::DECLINED)
   end
 end
