@@ -25,6 +25,7 @@ puts "start seeding"
   puts "User ##{i + 1}, #{user.first_name}"
 
   flat = Flat.create!(
+    name: Faker::Company.name,
     address: Faker::Address.street_name,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,

@@ -5,9 +5,11 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a flat"
+          placeholder: "Find a flat",
+          style: "border:black" #a black border here
         %>
-        <%= submit_tag "Search" %>
+        <%= submit_tag "Search",
+            style: "border:green" %> how do i put a green border here
       <% end %>
     </div>
   </div>

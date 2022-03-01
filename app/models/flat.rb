@@ -9,5 +9,6 @@ class Flat < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   validates :city, presence: true
+  validates :name, presence: true
   #validates :photos, presence: true *temporarily commented for testing purposes
 end

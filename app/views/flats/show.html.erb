@@ -1,14 +1,15 @@
 <button onclick="history.back()">Index</button>
-<h2>Restaurant Details</h2>
-<p><u>Address:</u><%=" " + @flat.address %></p>
-<p><u>Price:</u><%=" " + @flat.price.to_s + "$" %></p>
-<p><u>Description:</u><%=" " + @flat.description %></p>
-<p><u>City:</u><%=" " + @flat.city %></p>
+<h2>Flat Details</h2>
+<p><u>Name:</u><%= " " + @flat.name %></p>
+<p><u>Address:</u><%= " " + @flat.address %></p>
+<p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
+<p><u>Description:</u><%= " " + @flat.description %></p>
+<p><u>City:</u><%=  " " + @flat.city %></p>
 
 <h2>Reviews</h2>
 <ul>
   <% @flat.reviews.each do |review| %>
-      <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
+     <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
   <% end %>
 
 </ul>
