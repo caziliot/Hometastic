@@ -19,6 +19,8 @@ class Flat < ApplicationRecord
 
   validates :photos, presence: true
 
+  validates :name, presence: true
+
   include PgSearch::Model
   pg_search_scope :search_by_name_date_price_direction_city,
     against: [ :address, :price ],

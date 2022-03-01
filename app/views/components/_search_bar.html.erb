@@ -1,7 +1,17 @@
+  <div class="container">
+    <div class="search-bar">
+      <%= form_tag flats_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a flat"
+        %>
+        <%= submit_tag "Search" %> 
+      <% end %>
+    </div>
+  </div>
 
-
- </div>
-    <div class="container">
+<!--     <div class="container">
       <div class="search-bar">
         <form>
           <div class="location-input">
@@ -19,9 +29,5 @@
             <button type="submit">
              <i class="fas fa-search" style="color:white" ></i>
             </button>
-
-
         </form>
-
-
-      </div>
+      </div> -->
