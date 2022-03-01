@@ -6,3 +6,82 @@ body {
 .noDeco{
   text-decoration: none!important;
 }
+
+.f14 {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+}
+
+.f16 {
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+}
+
+.f18 {
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+}
+
+.f20 {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+}
+
+.f26 {
+  font-size: 26px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+}
+
+.mPage {
+  margin: 70px;
+}
+
+.imgContainer{
+  display: flex;
+}
+
+.mainImage {
+  width: 370px;
+  height: 370px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.secondaryImage {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px 10px;
+  margin-left: 10px;
+}
+
+.showGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 10px;
+}
+
+.pL {
+  padding-left: 50px;
+}
+
+.pT {
+  padding-top: 60px;
+}
+
+.w300 {
+  width:300px;
+}

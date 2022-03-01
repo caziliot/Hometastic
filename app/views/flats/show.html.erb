@@ -1,35 +1,92 @@
-<button onclick="history.back()">Index</button>
-<h2>Flat Details</p>
-<h2><%= @flat.address %></h2>
-<p><%= @flat.price %></p>
-<p><%= @flat.description %></p>
-<p><%= @flat.city %></p>
+<%# main start %>
+<div class="mPage">
+  <p class="f26">Flat name will be taking this hometastic place</p>
+  <p class="f14"><%= image_tag "star.png"%> &nbsp; 4.98 - 12 reviews</p>
+ <%# Show grid start %>
+  <div class="showGrid">
+  <%# Images wrapper start %>
+    <div class="imgContainer">
+      <%# Main pic start %>
+      <div>
+        <img class="mainImage" src="https://images.unsplash.com/photo-1612832164313-ac0d7e07b5ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="hero">
+      </div>
+      <%# Main pic end %>
+      <%# Secondary pics start %>
+      <div class="grid">
+        <img class="secondaryImage" src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="living room">
+        <img class="secondaryImage" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmF0aHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="bathroom">
+        <img class="secondaryImage" src="https://images.unsplash.com/photo-1624409990662-03f19cc0e0cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGVycmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="terrace">
+        <img class="secondaryImage" src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8a2l0Y2hlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="kitchen">
+      </div>
+      <%# Secondary pics end %>
+    </div>
+  <%# Images wrapper end %>
+  <%# Amenities start %>
+  <div class="pL w300">
+    <p class="f18">What Camilo’s place offers</p>
+    <p class="f16"><span class="iconify" data-icon="ant-design:wifi-outlined" style="color: #2c364c; font-size: 28px;"></span> Wifi</p>
+    <p class="f16"><span class="iconify" data-icon="ic:baseline-outdoor-grill" style="color: #2c364c; font-size: 28px;"></span> Barbecue</p>
+    <p class="f16"><span class="iconify" data-icon="mdi:flower-tulip" style="color: #2c364c; font-size: 28px;"></span> Shared furnished terrace</p>
+    <p class="f16"><span class="iconify" data-icon="jam:hairdryer" style="color: #2c364c; font-size: 28px;"></span>Hairdrier</p>
+    <p class="f16"><span class="iconify" data-icon="mdi:desk" style="color: #2c364c; font-size: 28px;"></span> Work desk</p>
+    <div class="pT">
+    <button type="button" class="btn-bw btn-outline-dark">Show all amenities</button>
+    </div>
 
-<% if @amenities %>
+  </div>
+  <%# Amenities end %>
+  <%# Booking start %>
+  <div class="pL">
+    <p class="f16">Booking form</p>
+  </div>
+  <%# Booking end %>
+</div>
+ <%# Show grid end %>
+   <p class="f20"><%= image_tag "star_big.png"%> &nbsp; 4.98 - 12 reviews</p>
 
-<p>Amenities:</p>
-  <ul>
-    <% @amenities.each do |amenity| %>
-      <li><%= amenity.title %></li>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+  <div>
+    <p><%= @flat.address %></p>
+    <p><%= @flat.price %></p>
+    <p><%= @flat.description %></p>
+    <p><%= @flat.city %></p>
+
+    <% if @amenities %>
+
+    <p>Amenities:</p>
+      <ul>
+        <% @amenities.each do |amenity| %>
+          <li><%= amenity.title %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
 
-<% unless current_user == @flat.user %>
-  <%= simple_form_for [ @flat, @booking ] do |f| %>
-    <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
-    <br>
-    <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
-  <% end %>
-<% else %>
-  <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
-  <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
-<% end  %>
+    <% unless current_user == @flat.user %>
+      <%= simple_form_for [ @flat, @booking ] do |f| %>
+        <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
+        <br>
+        <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+      <% end %>
+    <% else %>
+      <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
+      <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+    <% end  %>
 
-<h2>Reviews</h2>
-<ul>
-  <% @flat.reviews.each do |review| %>
-    <li><%= review.content %> || <%= review.rating %></li>
-  <% end %>
-</ul>
+    <h2>Reviews</h2>
+    <ul>
+      <% @flat.reviews.each do |review| %>
+        <li><%= review.content %> || <%= review.rating %></li>
+      <% end %>
+    </ul>
+    <button onclick="history.back()">Index</button>
+  </div>
+<%# main div ends %>
+</div>
