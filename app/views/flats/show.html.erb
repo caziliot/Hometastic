@@ -22,10 +22,13 @@
     <br>
     <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
   <% end %>
+  <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn btn-success" %>
 <% else %>
   <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
   <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
 <% end  %>
+
+
 
 <h2>Reviews</h2>
 <ul>

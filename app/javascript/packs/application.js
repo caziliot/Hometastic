@@ -23,8 +23,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initChatRoomCable } from "../channels/chat_room_channel";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr();
+  initChatRoomCable();
 });
