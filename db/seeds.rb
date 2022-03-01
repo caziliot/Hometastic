@@ -34,18 +34,24 @@ puts "start seeding"
     photos: ["https://picsum.photos/200/300"]
   )
   puts "flat ##{i + 1}, #{flat.address}"
+
+  ava_m = AvailableMonth.create!(
+    month_year: "01-0#{rand(4..9)}-2022",
+    flat_id: flat.id
+  )
+  puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
 end
 
 5.times do |i|
   booking_request = BookingRequest.create!(
-    status: ["available", "rented"].sample,
-    month_request: Date::MONTHNAMES.sample,
-    price: Faker::Commerce.price,
     direction: Faker::Address.street_address,
-    stay_status: ["stay in the moment", "in the future", "past stay"].sample,
     user_id: rand(User.first.id..User.last.id),
-    flat_id: rand(Flat.first.id..Flat.last.id)
+    flat_id: rand(Flat.first.id..Flat.last.id),
+    month_request: "01-04-2022"
   )
+  booking_request.month_request = booking_request.flat.available_months.first.month_year
+  booking_request.calculate_prices
+  booking_request.save
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(

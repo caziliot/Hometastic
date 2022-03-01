@@ -19,7 +19,9 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
+    @amenities = @flat.amenities
     @user = current_user if user_signed_in?
+    @booking = BookingRequest.new
   end
 
   def create
@@ -34,6 +36,21 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+  end
+
+  def edit
+    @flat = Flat.find(params[:id])
+    redirect_to flat_path(@flat) unless @flat.user = current_user
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat)
+    else
+      flash[:alert] = "Error while updating, try again later"
+      redirect_to flat_path(@flat)
+    end
   end
 
   private

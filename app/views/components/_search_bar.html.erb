@@ -1,16 +1,33 @@
-</div>
   <div class="container">
     <div class="search-bar">
       <%= form_tag flats_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a flat",
-          style: "border:black" #a black border here
+          placeholder: "Find a flat"
         %>
-        <%= submit_tag "Search",
-            style: "border:green" %> how do i put a green border here
+        <%= submit_tag "Search" %> 
       <% end %>
     </div>
   </div>
-</div>
+
+<!--     <div class="container">
+      <div class="search-bar">
+        <form>
+          <div class="location-input">
+            <label>Location</label>
+            <input type="text" placeholder="Where are you going">
+          </div>
+            <div>
+              <label>Month</label>
+              <input type="text" placeholder="Add Month">
+            </div>
+            <div>
+              <label>Year</label>
+              <input type="text" placeholder="Year">
+            </div>
+            <button type="submit">
+             <i class="fas fa-search" style="color:white" ></i>
+            </button>
+        </form>
+      </div> -->

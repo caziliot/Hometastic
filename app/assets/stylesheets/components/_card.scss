@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 20px;
 }
 
 .card-trip > img {
@@ -20,6 +21,11 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  text-align: right;
+}
+
+#pL {
+  text-align: left;
 }
 
 
@@ -29,6 +35,7 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  color: #2C364C;
 }
 
 .card-trip-infos .card-trip-user {
@@ -42,8 +49,9 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 80px;
+  margin: 80px;
 }
 
 // Smallest device
@@ -77,6 +85,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

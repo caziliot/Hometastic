@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/8116391e1d.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -14,7 +14,9 @@
 
   <body>
     <%= render 'components/navbar' %>
-    <%= render 'shared/flashes' %>
     <%= yield %>
+    <%= render 'shared/flashes' %>
+    <%= render 'components/footer' %>
+
   </body>
 </html>

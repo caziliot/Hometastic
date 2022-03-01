@@ -1,0 +1,95 @@
+
+//Homepage button
+.btn-home {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #87a6ee;
+  color: #fff!important;
+  border-radius: 50px;
+  font-weight: normal;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none!important;
+  &:hover{
+    background-color: #597FCA;
+  -webkit-transform: translateY(-2px)!important;
+	transform: translateY(-2px)!important;
+  }
+}
+
+.btn-home:active {
+  background-color: #7a96d8;
+}
+
+//Lightblue button
+.btn-lb {
+  width: 256px;
+  height: 40px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 450;
+  color: #FFFFFF;
+  background-color: #94B3FD;
+}
+
+.btn-lb:hover {
+  background-color: #87a6ee;
+}
+
+.btn-lb:active {
+  background-color: #7a96d8;
+}
+
+//Darkblue button
+.btn-db {
+  width: 256px;
+  height: 40px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 450;
+  color: #FFFFFF;
+  background-color: #2C364C;
+}
+
+.btn-db:hover {
+  background-color: #202838;
+}
+
+.btn-db:active {
+  background-color: #151a24;
+}
+
+//BlackWhite button
+.btn-bw {
+  width: 176px;
+  height: 48px;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 550;
+  border-radius: 8px;
+  border-width: thin;
+  background-color: white;
+}
+
+.btn-bw:active {
+  background-color: rgb(29, 29, 29) !important;
+}
+
+//Small button
+.btn-small {
+  width: 88px;
+  height: 26px;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #2C364C;
+}
+
+.btn-small:hover {
+  background-color: #202838;
+}
+
+.btn-small:active {
+  background-color: #151a24;
+}

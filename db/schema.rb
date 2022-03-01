@@ -10,21 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_03_01_153525) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "amenities", force: :cascade do |t|
+    t.string "title"
+    t.string "icon_class"
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flat_id"], name: "index_amenities_on_flat_id"
+  end
+
+  create_table "available_months", force: :cascade do |t|
+    t.string "month_year"
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "taken", default: false
+    t.index ["flat_id"], name: "index_available_months_on_flat_id"
+  end
+
   create_table "booking_requests", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "Pending"
     t.string "month_request"
-    t.integer "price"
     t.string "direction"
-    t.string "stay_status"
+    t.string "stay_status", default: "On Request"
     t.bigint "user_id", null: false
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "price_requester", precision: 10, scale: 2
+    t.decimal "price_owner", precision: 10, scale: 2
+    t.decimal "service_fee", precision: 10, scale: 2
+    t.boolean "paid_by_owner", default: false
+    t.boolean "paid_by_requester", default: false
     t.index ["flat_id"], name: "index_booking_requests_on_flat_id"
     t.index ["user_id"], name: "index_booking_requests_on_user_id"
   end
@@ -84,6 +108,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_153525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "amenities", "flats"
+  add_foreign_key "available_months", "flats"
   add_foreign_key "booking_requests", "flats"
   add_foreign_key "booking_requests", "users"
   add_foreign_key "chats", "flats"
