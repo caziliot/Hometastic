@@ -5,6 +5,10 @@
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
 
+<% @flat.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <% if @amenities %>
 
 <p>Amenities:</p>
