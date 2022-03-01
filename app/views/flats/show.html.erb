@@ -5,7 +5,7 @@
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
 
-  <% if !@amenities.empty? %>
+  <% if @amenities %>
   <p>Amenities:</p>
     <ul>
       <% @amenities.each do |amenity| %>

@@ -5,6 +5,7 @@ const initFlatpickr = () => {
   flatpickr(".datepicker", {
     plugins: [
       new monthSelectPlugin({
+        altInput:true,
         dateFormat: "d-m-Y", //defaults to "F Y"
         altFormat: "F Y", //defaults to "F Y"
         theme: "dark", // defaults to "light
