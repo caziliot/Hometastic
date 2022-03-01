@@ -13,10 +13,14 @@
   </head>
 
   <body>
+  <div class="wrapper">
+  <div>
     <%= render 'components/navbar' %>
     <%= yield %>
     <%= render 'shared/flashes' %>
+  </div>
     <%= render 'components/footer' %>
+  </div>
 
   </body>
 </html>
