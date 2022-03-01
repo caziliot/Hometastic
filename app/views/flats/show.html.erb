@@ -6,6 +6,10 @@
 <p><u>Description:</u><%= " " + @flat.description %></p>
 <p><u>City:</u><%=  " " + @flat.city %></p>
 
+<% @flat.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <% if @amenities %>
 
 <p>Amenities:</p>
