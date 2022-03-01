@@ -7,10 +7,11 @@ padding: 8px;
 max-width: 800%;
 width: 100%;
 flex-wrap: wrap;
+
 }
 
 .form-date{
-    padding: 18px;
+    padding: 20px 18px;
     border-radius: 4px;
     border: 1px solid #7a96d8;
     outline: none;
@@ -19,28 +20,45 @@ flex-wrap: wrap;
     margin: 5px 0 10px;
 
 }
-.form-month{
-    padding: 10px;
-    border-radius: 4px;
+.form-year{
+  padding: 20px;
 
+}
+.form-month{
+    padding: 18px 10px;
+    border-radius: 4px;
     outline: none;
     display: block;
     width: 100%;
     margin: 5px 0 10px;
+    height: 56px;
+    h2{
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      text-align: center;
+
+    }
+    text{
+      font-size:15px ;
+      font-weight: bold;
+    }
 
 }
 
 .booking-form{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    flex-wrap: wrap;
-
+  background:#f3f3f3;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-h3 {
-  font-size: 18px;
-  font-weight: 500;
-  font-family: sans-serif;
-}
+// .container{
+//   width: 100%;
+//   height: 100vh;
+//   background:white;
+//   align-items: center;
+//   justify-content: center;
+//   display: flex;
+// }

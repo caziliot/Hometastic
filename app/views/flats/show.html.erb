@@ -4,21 +4,23 @@
 <p><%= @flat.price %></p>
 <p><%= @flat.description %></p>
 <p><%= @flat.city %></p>
+<div class="container">
+  <div class="row justify-content-center">
 <div class="booking-form">
 <%= simple_form_for [ @flat, @booking ] do |f| %>
 <h2>Your Hometastic Stay</h2>
 <div class="form-date">
     <%= f.input :month_request, as: :string, required: true, label:"Month", placeholder:'select date', wrapper_html: {class: "form-month"}, input_html: {class: "datepicker", id: "from" } %>
-    <div class="form-year">
-    <label for="Year">Year</label>
+  <div class="form-year">
+      <label for="Year">Year</label>
     <p>2022</p>
-    </div>
+  </div>
 </div>
   <br>
   <div class="text">
-  <h3>You Pay</h3>
-  <H3>Service Fee</H3>
-  <h3>cleaning fee</h3>
+    <p>You pay</p>
+    <p>Service Fee</p>
+    <p>cleaning fee</p>
   </div>
 <div class="form-button">
 <button type="button" class="btn-lb rounded-pill border-0">Speak to owner</button>
