@@ -20,6 +20,7 @@ class BookingRequest < ApplicationRecord
   validates :flat, presence: true
   validates :user, presence: true
   validates :month_request, presence: true
+  validates_date :month_request, after: -> { Date.current }, message: "date must be after today"
   validate :flat_needs_to_be_available_on_the_month_requested
   validate :booking_already_exists, on: :create
   # calculate the Service Fee as 10% of the most expensive flat, that both should pay.
@@ -47,11 +48,11 @@ class BookingRequest < ApplicationRecord
   end
 
   def accept
-    if status == PENDING
-      update(status: ACCEPTED, stay_status: TB_PAID)
-      available = flat.available_months.find_by(month_year: month_request)
-      available&.take
-    end
+    update(status: ACCEPTED, stay_status: TB_PAID)
+    available = flat.available_months.find_by(month_year: month_request)
+    available_r = user.flats.first.available_months.find_by(month_year: month_request)
+    available&.take
+    available_r&.take
   end
 
   def owner_pays
