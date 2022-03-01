@@ -71,5 +71,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
-gem 'pg_search', '~> 2.3.0' #hello
+gem 'bootstrap-datepicker-rails'
+gem 'pg_search', '~> 2.3.0'

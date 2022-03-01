@@ -1,9 +1,10 @@
 <button onclick="history.back()">Index</button>
-<h2>Flat Details</p>
-<h2><%= @flat.address %></h2>
-<p><%= @flat.price %></p>
-<p><%= @flat.description %></p>
-<p><%= @flat.city %></p>
+<h2>Flat Details</h2>
+<p><u>Name:</u><%= " " + @flat.name %></p>
+<p><u>Address:</u><%= " " + @flat.address %></p>
+<p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
+<p><u>Description:</u><%= " " + @flat.description %></p>
+<p><u>City:</u><%=  " " + @flat.city %></p>
 
 <% if @amenities %>
 
@@ -30,6 +31,8 @@
 <h2>Reviews</h2>
 <ul>
   <% @flat.reviews.each do |review| %>
-    <li><%= review.content %> || <%= review.rating %></li>
+     <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
   <% end %>
+
 </ul>
+<%= render "components/date_picker" %>

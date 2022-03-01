@@ -2,11 +2,18 @@ class FlatsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if params[:query]
-      @flats = Flat.search_by_name_date_price_direction_city(params[:query])
+    if params[:query].present?
+      sql_query = " \
+        flats.city ILIKE :query \
+        OR flats.address ILIKE :query \
+      "
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
     else
       @flats = Flat.all
     end
+    @cities = []
+    Flat.all.each { |flat| @cities << flat.city }
+
   end
 
   def show
