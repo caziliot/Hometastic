@@ -29,9 +29,11 @@
            <li>
             <%= link_to "How it works","#", class: "nav-item" %>
           </li>
-          <li >
-            <%= link_to "Pricing","#", class: "nav-item" %>
-          </li>
+          <% if current_user.flats %>
+            <li >
+              <%= link_to "View My flat",flat_path(current_user.flats.first), class: "nav-item" %>
+            </li>
+          <% end %>
           <li>
             <%= link_to "Sign in", "#", class: "nav-btn" %>
           </li>
