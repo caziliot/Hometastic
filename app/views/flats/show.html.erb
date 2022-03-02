@@ -120,6 +120,12 @@
 
 
 <% unless current_user == @flat.user %>
+  <%= simple_form_for [ @flat, @booking ] do |f| %>
+    <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
+    <br>
+    <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+  <% end %>
+  <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn btn-success" %>
 
 <% else %>
   <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
