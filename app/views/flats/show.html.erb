@@ -37,13 +37,20 @@
   <%# Amenities end %>
   <%# Booking start %>
   <div class="form w250 pB">
-    <p class="f20 pB">Your Hometastic Stay</p>
-    <%= simple_form_for [ @flat, @booking ] do |f| %>
-      <%= f.input :month_request, as: :string, required: true,  placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
-      <br>
-      <%= f.submit "Chat with owner", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
-    <%= link_to "Send a booking request", dashboard_path, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
-    <% end %>
+    <% unless current_user == @flat.user %>
+      <p class="f20 pB">Your Hometastic Stay</p>
+      <%= simple_form_for [ @flat, @booking ] do |f| %>
+        <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
+        <br>
+        <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+      <% end %>
+      <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
+
+    <% else %>
+      <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+      <button type="button" class="btn-db rounded-pill border-0 w-100 mt-3 py-3"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+    <% end  %>
+    <%#----------------- %>
   </div>
   <%# Booking end %>
 </div>
@@ -66,7 +73,7 @@
 
     <% if @amenities %>
 
-    <p>Amenities:</p>
+      <p>Amenities:</p>
       <ul>
         <% @amenities.each do |amenity| %>
           <li><%= amenity.title %></li>
@@ -75,16 +82,7 @@
     <% end %>
 
 
-    <% unless current_user == @flat.user %>
-      <%= simple_form_for [ @flat, @booking ] do |f| %>
-        <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
-        <br>
-        <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
-      <% end %>
-    <% else %>
-      <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
-      <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
-    <% end  %>
+
 
     <h2>Reviews</h2>
     <ul>
@@ -92,52 +90,7 @@
         <li><%= review.content %> || <%= review.rating %></li>
       <% end %>
     </ul>
-    <button onclick="history.back()">Index</button>
+
   </div>
 <%# main div ends %>
 </div>
-<button onclick="history.back()">Index</button>
-<h2>Flat Details</h2>
-<%# <p><u>Name:</u><%= " " + @flat.name %></p>
-<p><u>Address:</u><%= " " + @flat.address %></p>
-<p><u>Price:</u><%= " " + @flat.price.to_s + "$" %></p>
-<p><u>Description:</u><%= " " + @flat.description %></p>
-<p><u>City:</u><%=  " " + @flat.city %></p>
-
-<% @flat.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<% if @amenities %>
-
-<p>Amenities:</p>
-  <ul>
-    <% @amenities.each do |amenity| %>
-      <li><%= amenity.title %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
-<% unless current_user == @flat.user %>
-  <%= simple_form_for [ @flat, @booking ] do |f| %>
-    <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
-    <br>
-    <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
-  <% end %>
-  <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn btn-success" %>
-
-<% else %>
-  <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
-  <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
-<% end  %>
-
-
-<h2>Reviews</h2>
-<ul>
-  <% @flat.reviews.each do |review| %>
-     <li>Details: <%= review.content %><br>Rating: <%= review.rating %>/10 stars</li>
-  <% end %>
-
-</ul>
-<%= render "components/date_picker" %>
