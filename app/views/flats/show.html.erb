@@ -22,15 +22,20 @@
 
 
 <% unless current_user == @flat.user %>
+<div class="form">
+<h3>Your Hometastic Stay</h3>
   <%= simple_form_for [ @flat, @booking ] do |f| %>
-    <%= f.input :month_request, as: :string, required: true, placeholder:'select date', input_html: {class: "datepicker"} %>
+    <%= f.input :month_request, as: :string, required: true,  placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
     <br>
-    <%= f.submit "Send a request to this Flat", class: "btn btn-success rounded-pill my-5 mr-3" %>
+    <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+  <%= link_to "go to dashboard", dashboard_path, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
   <% end %>
+</div>
 <% else %>
   <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn btn-success rounded-pill" %>
   <button type="button" class="btn btn-success rounded-pill border-0"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
 <% end  %>
+
 
 <h2>Reviews</h2>
 <ul>

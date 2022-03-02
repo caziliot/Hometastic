@@ -24,7 +24,8 @@
 //Lightblue button
 .btn-lb {
   width: 256px;
-  height: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
   font-weight: 450;
@@ -42,17 +43,22 @@
 
 //Darkblue button
 .btn-db {
-  width: 256px;
-  height: 40px;
+  // width: 256px;
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
   font-weight: 450;
   color: #FFFFFF;
   background-color: #2C364C;
+  text-align: center;
 }
 
 .btn-db:hover {
   background-color: #202838;
+  text-decoration: none;
+  color: white;
 }
 
 .btn-db:active {
