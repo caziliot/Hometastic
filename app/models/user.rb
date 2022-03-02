@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :chatrooms, through: :flats
   has_many :booking_as_owner, through: :flats, source: :booking_requests # Bookings incoming, to my flat
 
+  has_one_attached :photo
 
   validates :first_name, presence: true
   validates :last_name, presence: true
