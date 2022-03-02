@@ -1,6 +1,6 @@
 class Flat < ApplicationRecord
   belongs_to :user
-  has_many :chatrooms
+  has_many :chat_rooms
   has_many :booking_requests
 
   has_many :available_months, dependent: :destroy
@@ -8,7 +8,7 @@ class Flat < ApplicationRecord
 
   has_many :reviews, through: :booking_requests
 
-  has_many :amenities
+  has_many :amenities, dependent: :destroy
 
   has_many_attached :photos
 

@@ -16,4 +16,9 @@ class ChatRoomsController < ApplicationController
       redirect_to flat_path(@flat)
     end
   end
+
+  def self.find_chat(flat, user)
+    flat.chat_rooms.joins(:messages).where(messages: {user_id: user.id}).distinct
+  end
+
 end

@@ -16,17 +16,21 @@ Flat.destroy_all
 User.destroy_all
 puts "start seeding"
 5.times do |i|
-  user = User.create!(
-    email: Faker::Internet.email,
+
+  user = User.new(
+    email: "email-#{i}@email.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.cell_phone,
     password: "123456"
   )
+  file1 = URI.open('https://picsum.photos/200/300')
+  user.photo.attach(io: file1, filename: 'user.png', content_type: 'image/png')
+  user.save!
   puts "User ##{i + 1}, #{user.first_name}"
 
   flat = Flat.new(
-    name: Faker::Company.name,
+    name: "Flat - #{i}",
     address: Faker::Address.street_name,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
