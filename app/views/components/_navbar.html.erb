@@ -22,7 +22,7 @@
           <%= link_to "My dashboard", dashboard_path, class: "nav-btn" %>
         </li>
         <li class="nav-dropdown dropdown">
-          <%# image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
