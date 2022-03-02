@@ -8,7 +8,7 @@ class Flat < ApplicationRecord
 
   has_many :reviews, through: :booking_requests
 
-  has_many :amenities
+  has_many :amenities, dependent: :destroy
 
   has_many_attached :photos
 
