@@ -18,10 +18,7 @@ ActiveStorage.start()
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
-// External imports
-import { initFlatpickr } from "../plugins/flatpickr";
 
-initFlatpickr();
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
 
