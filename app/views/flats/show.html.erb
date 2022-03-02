@@ -1,5 +1,6 @@
 <%# main start %>
 <div class="mPage">
+  <%= link_to "⬅", flats_path  %>
   <p class="f26">Flat name will be taking this hometastic place</p>
   <p class="f14"><%= image_tag "star.png"%> &nbsp; 4.98 - 12 reviews</p>
  <%# Show grid start %>
@@ -47,7 +48,7 @@
       <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
 
     <% else %>
-      <%= link_to "edit your flat", edit_flat_path(@flat), class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+      <button type="button" class="btn-lb rounded-pill border-0 w-100 mt-3"><%= link_to "edit your flat", edit_flat_path(@flat)%>
       <button type="button" class="btn-db rounded-pill border-0 w-100 mt-3 py-3"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
     <% end  %>
     <%#----------------- %>
