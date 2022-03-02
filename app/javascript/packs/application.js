@@ -19,8 +19,9 @@ ActiveStorage.start()
 // ----------------------------------------------------
 
 // External imports
-import "bootstrap";
+import { initFlatpickr } from "../plugins/flatpickr";
 
+initFlatpickr();
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initChatRoomCable } from "../channels/chat_room_channel";

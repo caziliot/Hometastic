@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+gem 'cloudinary', '~> 1.16.0'
+
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -71,5 +73,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
-gem 'pg_search', '~> 2.3.0' #hello
+gem 'bootstrap-datepicker-rails'
+gem 'pg_search', '~> 2.3.0'

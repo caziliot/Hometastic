@@ -1,8 +1,11 @@
+<h1 class="flats-header">Flat index</h1>
+<%= render 'components/search_bar' %>
+<br>
 <div class="cards">
   <% @flats.each do |flat| %>
     <%=link_to flat_path(flat) do%>
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= cl_image_tag flat.photos.first.key %>
         <div class="card-trip-infos">
           <div>
             <h2><%=flat.city %></h2>
