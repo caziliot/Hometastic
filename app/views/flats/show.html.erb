@@ -2,7 +2,7 @@
 <div class="mPage">
   <%= link_to "⬅", flats_path  %>
   <p class="f26">Flat name will be taking this hometastic place</p>
-  <p class="f14"><%= image_tag "star.png"%> &nbsp; 4.98 - 12 reviews</p>
+  <p class="f14"><%= image_tag "star.png"%> &nbsp; 4.98 - 12 reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶<%= @flat.price %>€/month</p>
  <%# Show grid start %>
   <div class="showGrid">
   <%# Images wrapper start %>
@@ -24,7 +24,7 @@
   <%# Images wrapper end %>
   <%# Amenities start %>
   <div class="pL w300">
-    <p class="f18">What Camilo’s place offers</p>
+    <p class="f18">What the place offers</p>
     <p class="f16"><span class="iconify" data-icon="ant-design:wifi-outlined" style="color: #2c364c; font-size: 28px;"></span> Wifi</p>
     <p class="f16"><span class="iconify" data-icon="ic:baseline-outdoor-grill" style="color: #2c364c; font-size: 28px;"></span> Barbecue</p>
     <p class="f16"><span class="iconify" data-icon="mdi:flower-tulip" style="color: #2c364c; font-size: 28px;"></span> Shared furnished terrace</p>
@@ -45,7 +45,7 @@
         <br>
         <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
       <% end %>
-      <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
+      <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
 
     <% else %>
       <button type="button" class="btn-lb rounded-pill border-0 w-100 mt-3 f14White"><%= link_to "Edit your flat", edit_flat_path(@flat)%></button>
@@ -56,41 +56,32 @@
   <%# Booking end %>
 </div>
  <%# Show grid end %>
+<%# Description start %>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="mDescr">
+<p class="f18"><%= @flat.description %></p>
+</div>
+<%# Description end %>
 
   <div>
-    <p><%= @flat.address %></p>
-    <p><%= @flat.price %></p>
-    <p><%= @flat.description %></p>
-    <p><%= @flat.city %></p>
-
-    <% if @amenities %>
-
-      <p>Amenities:</p>
-      <ul>
-        <% @amenities.each do |amenity| %>
-          <li><%= amenity.title %></li>
-        <% end %>
-      </ul>
-    <% end %>
-
-
-
-
-    <h2>Reviews</h2>
+    <%# <% if @amenities %>
+      <%# <p>Amenities:</p> %>
+      <%# <ul> %>
+        <%# <% @amenities.each do |amenity| %>
+          <%# <li><%= amenity.title</li> %>
+        <%# <% end %>
+      <%# </ul> %>
+    <%# <% end %>
+    <br>
+    <br>
+    <div style="padding-left:20px;">
+    <h2 class="f26" >Reviews</h2>
     <ul>
       <% @flat.reviews.each do |review| %>
-        <li><%= review.content %> || <%= review.rating %></li>
+        <li style="list-style-type: none;"><%= review.content %> || <%= review.rating %></li>
       <% end %>
     </ul>
-
+    </div>
   </div>
 <%# main div ends %>
 </div>
