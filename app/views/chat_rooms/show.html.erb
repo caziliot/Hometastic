@@ -1,11 +1,14 @@
 <!-- app/views/chatrooms/show.html.erb -->
-<h1>#<%= @chat_room.flat.user.first_name %> <%= @chat_room.flat.user.last_name %></h1>
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <% @chat_room.messages.each do |message| %>
-    <%= render 'messages/message', message: message %>
+<div class="mPage">
+  <%= link_to "⬅️ back to chats", chat_rooms_path %>
+  <p class="f26">#<%= @chat_room.flat.name%> from <%= @chat_room.flat.user.first_name %></p>
+  <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
+    <% @chat_room.messages.each do |message| %>
+      <%= render 'messages/message', message: message %>
+    <% end %>
+  </div>
+  <%= simple_form_for [ @flat, @chat_room, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message #{@chat_room.flat.user.first_name}" %>
+    <%= f.submit "Send", class: "btn-lb py-3 border-0 rounded-pill mt-4 mb-3 mr-3" %>
   <% end %>
 </div>
-<%= simple_form_for [ @flat, @chat_room, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message #{@chat_room.flat.user.first_name}" %>
-  <%= f.submit "Send", class: "btn btn-success rounded-pill mt-4 mb-3 mr-3" %>
-<% end %>

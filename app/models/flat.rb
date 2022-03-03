@@ -31,4 +31,9 @@ class Flat < ApplicationRecord
   def available?(date_s)
     return available_months.find_by(month_year: date_s, taken: true).nil?
   end
+
+  def find_chat(user_id)
+    result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
+    return result.first
+  end
 end

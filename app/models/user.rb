@@ -38,4 +38,10 @@ class User < ApplicationRecord
   def decline(booking)
     booking.update(status: BookingRequest::DECLINED)
   end
+
+  def all_chats
+    ChatRoom.joins(:messages).where(messages: {user_id:12})
+  end
+
+
 end
