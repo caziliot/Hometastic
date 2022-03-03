@@ -48,15 +48,14 @@
       <%= link_to "chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
 
     <% else %>
-      <button type="button" class="btn-lb rounded-pill border-0 w-100 mt-3"><%= link_to "edit your flat", edit_flat_path(@flat)%>
-      <button type="button" class="btn-db rounded-pill border-0 w-100 mt-3 py-3"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+      <button type="button" class="btn-lb rounded-pill border-0 w-100 mt-3 f14White"><%= link_to "Edit your flat", edit_flat_path(@flat)%></button>
+      <button type="button" class="btn-db rounded-pill border-0 w-100 mt-3 py-3 f14White"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
     <% end  %>
     <%#----------------- %>
   </div>
   <%# Booking end %>
 </div>
  <%# Show grid end %>
-   <p class="f20"><%= image_tag "star_big.png"%> &nbsp; 4.98 - 12 reviews</p>
 
 <br>
 <br>
