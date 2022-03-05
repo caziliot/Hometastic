@@ -1,34 +1,16 @@
   <div class="container">
     <div class="search-bar">
-      <%= form_tag flats_path, method: :get do %>
+      <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           id: "flat_city",
-          placeholder: "Find a flat"
+          placeholder: "Location"
         %>
-        <%= submit_tag "Search"%>
+        <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.submit "Search" %>
+        implement datepicker
       <% end %>
     </div>
   </div>
-
-<!--     <div class="container">
-      <div class="search-bar">
-        <form>
-          <div class="location-input">
-            <label>Location</label>
-            <input type="text" placeholder="Where are you going">
-          </div>
-            <div>
-              <label>Month</label>
-              <input type="text" placeholder="Add Month">
-            </div>
-            <div>
-              <label>Year</label>
-              <input type="text" placeholder="Year">
-            </div>
-            <button type="submit">
-             <i class="fas fa-search" style="color:white" ></i>
-            </button>
-        </form>
-      </div> -->

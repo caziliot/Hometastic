@@ -35,10 +35,6 @@ puts "start seeding"
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
     user_id: user.id
-<<<<<<< HEAD
-    #photos: ["https://picsum.photos/200/300"]
-=======
->>>>>>> 05498c9b64f0e1e53265b2bf82240a1d5e8d3a6c
   )
   file = URI.open('https://picsum.photos/200/300')
   flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
