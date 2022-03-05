@@ -24,4 +24,4 @@ const initFlatRange = () => {
     })]
   });
 }
-export { initFlatpickr };
+export { initFlatpickr, initFlatRange };
