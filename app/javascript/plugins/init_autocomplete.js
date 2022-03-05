@@ -7,6 +7,10 @@ const initAutocomplete = () => {
     type: 'address', // Search only for addresses names
     aroundLatLngViaIP: false // disable the extra search/boost around the source IP
   };
+  const reconfigurableCity = {
+    type: 'city', // Search only for addresses names
+    aroundLatLngViaIP: false // disable the extra search/boost around the source IP
+  };
 
   if (addressInput) {
     var addressPlace = places({
@@ -23,6 +27,19 @@ const initAutocomplete = () => {
       cityInput.value = e.suggestion.city
     })
   }
+  if(cityInput){
+    places({
+      container: cityInput,
+      type: 'city',
+      templates: {
+        value: function (suggestion) {
+          return suggestion.name;
+        }
+      }
+    }).configure(reconfigurableCity);
+  }
+
+
 
 };
 
