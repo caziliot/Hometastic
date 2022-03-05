@@ -58,11 +58,10 @@ body {
 .imgContainer{
   display: flex;
   justify-content: center;
-  margin-left: 24px;
 }
 
 .mainImage {
-  width: 600px;
+  width: 550px;
   height: 400px;
   object-fit: cover;
   border-radius: 15px;
@@ -80,6 +79,13 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px 10px;
   margin-left: 10px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px 10px;
+
 }
 
 .amenitiesGrid {
@@ -107,7 +113,7 @@ body {
 }
 
 .w250 {
-  width:250px;
+  width:290px;
 }
 
 .wAmenities {
@@ -118,4 +124,22 @@ body {
 .mLR{
   margin-left: 70px;
   margin-right: 70px;
+}
+
+.titleFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.formFlex{
+  display: flex;
+  justify-content: end;
+}
+
+.show{
+  visibility: visible;
+}
+
+.m0{
+  margin: 0;
 }
