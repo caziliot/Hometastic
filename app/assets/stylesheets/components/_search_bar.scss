@@ -3,7 +3,7 @@
 }
 
 .search-bar{
-  background-color: rgb(26, 10, 10);
+  background-color: #dee2e6;
   width: 70%;
   margin: 30px auto;
   padding: 6px 10px 6px 30px;
@@ -11,6 +11,7 @@
 }
 
 .search-bar form {
+  width: 95%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -41,4 +42,13 @@
 
 .search-bar form label {
   font-weight: 600;
+}
+
+.searchflex {
+  align-items: center;
+  width: 100%;
+}
+
+.dateflex {
+  display: flex;
 }

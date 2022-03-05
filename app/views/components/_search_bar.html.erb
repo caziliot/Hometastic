@@ -7,13 +7,18 @@
           id: "flat_city",
           placeholder: "Where you want to go?"
         %>
-        <div>
-          <%= f.input :start_date, as: :date, html5: true, required: true, input_html: {class: "month_start"} %>
+
+        <div class="searchflex">
+          <div class="dateflex">
+              <%= f.input :start_date, as: :date, html5: true, required: true, input_html: {class: "month_start"} %>
+              <%= f.input :end_date, as: :date, html5: true, required: true, input_html: {class: "month_end"} %>
+          </div>
+
+          <%= button_tag do %>
+              <i class="fas fa-search"></i>
+          <% end %>
         </div>
-        <div>
-          <%= f.input :end_date, as: :date, html5: true, required: true, input_html: {class: "month_end"} %>
-        </div>
-        <%= f.submit "Search" %>
+
       <% end %>
     </div>
   </div>
