@@ -1,0 +1,90 @@
+
+.btn-bd {
+  padding: 10px 40px;
+  display: inline-block;
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 450;
+  color: #FFFFFF;
+  background-color: #2C364C;
+  text-align: center;
+
+
+}
+
+
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.avatar-large {
+  width: 56px;
+  border-radius: 50%;
+}
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+h2.purple{
+    color: #94B3FC;
+  }
+.para{
+  display: flex;
+
+}
+.log{
+  width: 15px;
+  border-radius: 30%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  height: 15px;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+
+
+}
+
+.flex p{
+  margin-top:0;
+}
+.space-between{
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-right: 10px;
+
+}
+
+.extra-margin{
+  margin-right:10px;
+}
+
+#spacing{
+  margin-top: 10px;
+  margin-bottom: 16px;
+}

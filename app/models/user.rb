@@ -36,7 +36,8 @@ class User < ApplicationRecord
   end
 
   def decline(booking)
-    booking.update(status: BookingRequest::DECLINED)
+    status = booking.update(status: BookingRequest::DECLINED, stay_status: BookingRequest::CANCELLED)
+    return status
   end
 
   def all_chats

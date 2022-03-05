@@ -36,7 +36,11 @@ class FlatsController < ApplicationController
   end
 
   def new
-    @flat = Flat.new
+    if current_user.flats.any?
+      redirect_to flat_path(current_user.flats.first)
+    else
+      @flat = Flat.new
+    end
   end
 
   def edit
