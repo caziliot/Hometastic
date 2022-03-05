@@ -50,6 +50,17 @@ class BookingRequestsController < ApplicationController
     return
   end
 
+  def decline
+    @booking = BookingRequest.find(params[:id])
+    @user = current_user
+    if @user.decline(@booking)
+      redirect_to dashboard_path
+      flash[:notice] = "Booking declined."
+    else
+      flash[:notice] = "Sorry, but something went wrong."
+    end
+  end
+
   protected
 
   def booking_request_params
