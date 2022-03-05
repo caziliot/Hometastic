@@ -1,4 +1,5 @@
 import flatpickr from "flatpickr";
+import rangePlugin from "flatpickr";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 
 const initFlatpickr = () => {

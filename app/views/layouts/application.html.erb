@@ -9,12 +9,12 @@
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   <div class="wrapper">
   <div>
     <%= render 'components/navbar' %>
