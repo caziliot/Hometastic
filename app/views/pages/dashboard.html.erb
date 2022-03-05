@@ -1,5 +1,4 @@
 <%= render 'components/search_bar' %>
-<%= render 'components/dashcard' %>
 <div class="mPage">
   <p class="f26 text-center">DASHBOARD</p>
   <br>
@@ -8,6 +7,7 @@
   <p class="f18">Your Outgoing bookings</h2>
   <ul class="list-group-flush">
     <% @user.booking_requests.each do |booking| %>
+      <%= render 'components/dashcard', booking: booking %>
       <div class="container list-group-flush">
         <li class="list-group-item f14">
           <div class="row">

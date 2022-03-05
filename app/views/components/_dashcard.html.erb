@@ -1,7 +1,8 @@
 
 <div class="container">
   <div class="card-product">
-    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+    <%= cl_image_tag booking.flat.user.photo.key, input_html: {class: "avatar-large"} %>
+    <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
     <div class="flex space-between">
       <div class="card-product-infos">
         <h2 class="purple">Marcy, Berlin</h2>
