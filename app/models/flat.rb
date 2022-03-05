@@ -1,12 +1,12 @@
 class Flat < ApplicationRecord
   belongs_to :user
-  has_many :chatrooms
+  has_many :chat_rooms
   has_many :booking_requests
   has_many :available_months, dependent: :destroy
   has_many :messages, through: :chatrooms
   has_many :reviews, through: :booking_requests
-  has_many :amenities
-  #has_many_attached :photos
+  has_many :amenities, dependent: :destroy
+  has_many_attached :photos
   validates :address, presence: true
   validates :price, presence: true
   validates :description, presence: true, length: { minimum: 10 }
@@ -23,5 +23,10 @@ class Flat < ApplicationRecord
 
   def available?(date_s)
     return available_months.find_by(month_year: date_s, taken: true).nil?
+  end
+
+  def find_chat(user_id)
+    result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
+    return result.first
   end
 end

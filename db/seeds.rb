@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'open-uri'
 puts "cleaning the db"
 Message.destroy_all
 ChatRoom.destroy_all
@@ -15,24 +16,33 @@ Flat.destroy_all
 User.destroy_all
 puts "start seeding"
 5.times do |i|
-  user = User.create!(
-    email: "email-#{i}@gmail.com",
+  user = User.new(
+    email: "email-#{i}@email.com",
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.cell_phone,
     password: "123456"
   )
+  file1 = URI.open('https://picsum.photos/200/300')
+  user.photo.attach(io: file1, filename: 'user.png', content_type: 'image/png')
+  user.save!
   puts "User ##{i + 1}, #{user.first_name}"
 
-  flat = Flat.create!(
-    name: Faker::Company.name,
+  flat = Flat.new(
+    name: "Flat - #{i}",
     address: Faker::Address.street_name,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
     user_id: user.id
+<<<<<<< HEAD
     #photos: ["https://picsum.photos/200/300"]
+=======
+>>>>>>> 05498c9b64f0e1e53265b2bf82240a1d5e8d3a6c
   )
+  file = URI.open('https://picsum.photos/200/300')
+  flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  flat.save!
   puts "flat ##{i + 1}, #{flat.address}"
 
   ava_m = AvailableMonth.create!(

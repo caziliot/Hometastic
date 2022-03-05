@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   patch 'booking_requests/:id', to: "booking_requests#accept", as: :accept_booking
   get 'booking_request/:id/confirm', to: "booking_requests#confirm", as: :confirm_booking
   get 'booking_request/:id/pay', to: "booking_requests#pay", as: :pay_booking
+
+  resources :chat_rooms, only: :index
   # Users are created by Devise
   resources :flats, only: %i[new create show index edit update] do
     # A Booking Request needs a User and a Flat.
     resources :booking_requests, only: %i[new create destroy]
     # Reviews don't need to be nested if the creation and view are on the show page of the booking request
     # Chats only need of a flat id
-    resources :chatrooms, only: %i[new show destroy]
+    resources :chat_rooms, only: %i[new create show destroy] do
+      resources :messages, only: :create
+    end
     # Messages are created by the chat so don't need a route.
     resources :amenities, only: %i[new create]
   end

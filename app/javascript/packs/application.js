@@ -19,13 +19,19 @@ ActiveStorage.start()
 // ----------------------------------------------------
 
 // External imports
-import { initFlatpickr } from "../plugins/flatpickr";
+import "bootstrap";
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 
-initFlatpickr();
 // Internal imports, e.g:
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initChatRoomCable } from "../channels/chat_room_channel";
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr();
+  initChatRoomCable();
+  initAutocomplete();
 });

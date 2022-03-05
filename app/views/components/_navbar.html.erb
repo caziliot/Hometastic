@@ -8,28 +8,36 @@
       <ul>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Favourite","#", class: "nav-item" %>
+          <%= link_to "Find a Home",flats_path, class: "nav-item" %>
         </li>
         <% if current_user.flats.any? %>
           <li >
             <%= link_to "View My flat",flat_path(current_user.flats.first), class: "nav-item" %>
           </li>
+        <% else %>
+          <li >
+            <%= link_to "Post my Flat",new_flat_path, class: "nav-item" %>
+          </li>
         <% end %>
         <li>
-          <%= link_to "Messages","#", class: "nav-item" %>
+          <%= link_to "Chats",chat_rooms_path, class: "nav-item" %>
         </li>
         <li>
           <%= link_to "My dashboard", dashboard_path, class: "nav-btn" %>
         </li>
-          <li class="nav-dropdown">
-            <%= image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <li class="nav-dropdown dropdown">
+          <%= image_tag "burger_menu.svg", class: "burger", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
             <%= image_tag "https://images.unsplash.com/photo-1623330188314-8f4645626731?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGF2YXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <p class="dropdown-item"> current_user.email</p>
-              <%= link_to "Edit account", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <p class="dropdown-item"> current_user.email</p>
+            <%= link_to "Edit account", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
       <% else %>
            <li>
             <%= link_to "How it works","#", class: "nav-item" %>

@@ -1,0 +1,8 @@
+<div class="mPage">
+  <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
+  <ul class="list-group-flush">
+    <% @chat_rooms.each do |chat| %>
+      <li class="list-group-item"> <%= link_to chat.flat.user.first_name, flat_chat_room_path(chat.flat, chat) %></li>
+    <% end %>
+  </ul>
+</div>
