@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get :dashboard, to: 'pages#dashboard'
   patch 'booking_requests/:id', to: "booking_requests#accept", as: :accept_booking
+  delete 'booking_requests/:id', to: "booking_requests#decline", as: :decline_booking
   get 'booking_request/:id/confirm', to: "booking_requests#confirm", as: :confirm_booking
   get 'booking_request/:id/pay', to: "booking_requests#pay", as: :pay_booking
 
