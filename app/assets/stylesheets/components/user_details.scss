@@ -1,0 +1,53 @@
+
+.user-summary {
+  align-items: center;
+  box-shadow: 0 -3em 3em rgba(0,0,0,0.1);
+  background-color: white;
+  width: 350px;
+  height: 500px;
+}
+
+.flat-gal{
+  display:flex;
+  width: 80px;
+  margin: 100px auto 50px;
+  grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+ .flat-gal img{
+  width: 100%;
+ }
+ .fas.fa-book-open{
+   color: #94B3FC;
+   margin:5px;
+ }
+
+  .fas.fa-user{
+   color: #94B3FC;
+   margin:5px;
+ }
+
+  .fas.fa-id-badge {
+   color: #94B3FC;
+   margin:5px;
+ }
+ .fas.fa-infinity{
+   color: #94B3FC;
+    margin:5px;
+
+ }
+
+
+
+
+
+
+ .details{
+   display: flex;
+   padding: 8px;
+   font-size: 14px;
+   font-family: 'Roboto', sans-serif;
+   color: #3F3F46;
+
+ }
