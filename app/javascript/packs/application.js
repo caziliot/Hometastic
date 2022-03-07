@@ -20,6 +20,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+import "jquery-ui-bundle";
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
