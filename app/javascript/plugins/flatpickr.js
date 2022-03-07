@@ -16,10 +16,10 @@ const initFlatpickr = () => {
   });
 }
 const initFlatRange = () => {
-  flatpickr(".start_date", {
+  flatpickr(".flatpic", {
     plugins: [
       new rangePlugin({
-        input: ".end_date"
+        input: "#month_end"
       })
     ]
   });

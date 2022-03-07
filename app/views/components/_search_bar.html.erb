@@ -10,8 +10,8 @@
 
         <div class="searchflex">
           <div class="dateflex">
-              <%= f.input :start_date, as: :date, html5: true, required: true, input_html: {class: "month_start"} %>
-              <%= f.input :end_date, as: :date, html5: true, required: true, input_html: {class: "month_end"} %>
+              <%= f.input :start_date, html5: true, required: true, input_html: {class: "flatpic"} %>
+              <%= f.input :end_date, html5: true, required: true, input_html: {class: "flatpic", id: "month_end"} %>
           </div>
 
           <%= button_tag do %>
