@@ -21,11 +21,11 @@
           </div>
             <div>
               <label>Available From</label>
-              <%= text_field_tag :start_month, params[:start_month], input_html: {class: "form-control datepicker", id: "flat_city"}, placeholder:"Select Month" %>
+              <%= text_field_tag :start_month, params[:start_month], class: "datepicker", placeholder:"Select Month" %>
             </div>
             <div>
               <label>To</label>
-              <%= text_field_tag :end_month, params[:start_month], input_html: {class: "form-control datepicker", id: "flat_city"}, placeholder:"Select Month" %>
+              <%= text_field_tag :end_month, params[:start_month], class: "datepicker", placeholder:"Select Month" %>
             </div>
             <%= button_tag do %>
               <i class="fas fa-search" style="color:white"></i>
