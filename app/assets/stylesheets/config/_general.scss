@@ -32,6 +32,13 @@ body {
   margin: 0;
 }
 
+.f24 {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+}
+
 .f26 {
   font-size: 26px;
   font-family: 'Roboto', sans-serif;
@@ -50,20 +57,21 @@ body {
 
 .imgContainer{
   display: flex;
+  justify-content: center;
 }
 
 .mainImage {
-  width: 370px;
-  height: 370px;
+  width: 550px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .secondaryImage {
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 195px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .grid {
@@ -73,28 +81,65 @@ body {
   margin-left: 10px;
 }
 
-.showGrid {
+.grid2 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px 10px;
+
+}
+
+.amenitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 10px;
   margin-left: 10px;
 }
 
-.pL {
-  padding-left: 50px;
+.pL2 {
+  padding-left: 90px;
 }
+
 
 .pT {
   padding-top: 60px;
+}
+
+.pT2 {
+  padding-top: 20px;
 }
 
 .pB {
   padding-bottom: 40px;
 }
 
-.w300 {
-  width:300px;
+.w250 {
+  width:290px;
 }
 
-.w250 {
-  width:250px;
+.wAmenities {
+  width:750px;
+  align-items: left;
+}
+
+.mLR{
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.titleFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.formFlex{
+  display: flex;
+  justify-content: end;
+}
+
+.show{
+  visibility: visible;
+}
+
+.m0{
+  margin: 0;
 }
