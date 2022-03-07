@@ -1,5 +1,5 @@
 import flatpickr from "flatpickr";
-import rangePlugin from "flatpickr/dist/plugins/";
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 
 const initFlatpickr = () => {
@@ -19,7 +19,11 @@ const initFlatRange = () => {
   flatpickr(".start_date", {
     plugins: [
       new rangePlugin({
-        input: ".end_date"
+        input: "#end_date",
+        altInput: true,
+        dateFormat: "m-Y", //defaults to "F Y"
+        altFormat: "F Y", //defaults to "F Y"
+        theme: "dark"
       })
     ]
   });
