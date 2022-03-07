@@ -51,6 +51,20 @@ nav .logo {
 
 }
 
+nav .text {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 600;
+  color: #597FCA;
+  height: 50px;
+  width: 50px;
+  &:hover{
+    color: #fff!important;
+  }
+
+}
+
 nav .logo img{
   height: 50px;
   width: 50px;
@@ -72,6 +86,9 @@ nav ul li{
   text-decoration: none;
   color: #2C364C;
   font-weight: 500;
+  &:hover{
+    color: #fff!important;
+  }
 }
 
 .nav-btn {
@@ -106,14 +123,20 @@ nav:hover {
 }
 
 nav:hover .logo {
-  color:#333
-}
-nav:hover ul li a {
-  color: #333
-
+  color:#fff;
 }
 
+nav:hover ul li > a {
+  color: #fff;
+}
 
+.dropStyle{
+  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  border-style: none;
+  color: #2C364C;
+  font-size: 14px;
+}
 
 .slide-left {
   animation: slideleft 1s linear forwards;
@@ -137,3 +160,4 @@ p.slide-left {
 .links.slide-left {
   animation-delay: 2s;
 }
+
