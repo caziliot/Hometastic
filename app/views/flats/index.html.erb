@@ -1,21 +1,22 @@
-<%= render 'components/search_bar' %>
-<br>
-<div class="cards">
-  <% @flats.each do |flat| %>
-    <%=link_to flat_path(flat), class: "text-decoration-none" do%>
-      <div class="card-trip">
-        <%= cl_image_tag flat.photos.first.key %>
-        <div class="card-trip-infos">
-          <div>
-            <h2 style="text-decoration:none;"><%=flat.city %></h2>
-            <p id="pL"><%=flat.address %></p>
-          </div>
-          <div>
-          <h2 class="card-trip-pricing"><%=flat.price.to_s + " €/month"%></h2>
-          <p>Apr-May</p>
+<div class="">
+  <%= render 'components/search_bar' %>
+  <div class="cards">
+    <% @flats.each do |flat| %>
+      <%=link_to flat_path(flat), class: "text-decoration-none" do%>
+        <div class="card-trip">
+          <%= cl_image_tag flat.photos.first.key %>
+          <div class="card-trip-infos">
+            <div>
+              <h2 style="text-decoration:none;"><%=flat.city %></h2>
+              <p id="pL"><%=flat.address %></p>
+            </div>
+            <div>
+            <h2 class="card-trip-pricing"><%=flat.price.to_s + " €/month"%></h2>
+            <p>Apr-May</p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
