@@ -1,5 +1,4 @@
 <%= render 'components/search_bar' %>
-<%= render 'components/dashcard' %>
 <div class="mPage">
   <p class="f26 text-center">DASHBOARD</p>
   <br>
@@ -8,58 +7,14 @@
   <p class="f18">Your Outgoing bookings</h2>
   <ul class="list-group-flush">
     <% @user.booking_requests.each do |booking| %>
-      <div class="container list-group-flush">
-        <li class="list-group-item f14">
-          <div class="row">
-            <div class="col-2">
-              <%= cl_image_tag booking.flat.photos.first.key , class: "avatar"%>
-            </div>
-            <div class="col-8">
-              <%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
-              - flat <%= booking.flat.id %>
-            </div>
-            <div class="col-2">
-              <% if booking.stay_status == BookingRequest::TB_PAID || booking.stay_status == BookingRequest::TBP_REQUESTER %>
-                <%= link_to "pay", confirm_booking_path(booking)%>
-              <% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
-                <%= link_to "View", booking_request_path(booking), class: "btn-db rounded-pill border-0 w-100 py-3" %>
-              <% end %>
-            </div>
-          </div>
-        </li>
-      </div>
+      <%= render 'components/dashcard', booking: booking %>
     <% end %>
   </ul>
 
   <p class="f20">Your Incoming bookings</h2>
   <ul class="list-group">
     <% @user.booking_as_owner.each do |booking| %>
-      <div class="container list-group-flush">
-        <li class="list-group-item f14">
-          <div class="row">
-            <div class="col-2">
-              <%= cl_image_tag booking.flat.user.photo.key, class: "avatar"%>
-            </div>
-            <div class="col-8">
-              <%= booking.month_request %> - <%= booking.status %> - <%= booking.stay_status %> - <%= booking.user.id %>
-              - flat <%= booking.flat.id %>
-            </div>
-            <div class="col-2">
-              <% if booking.stay_status == BookingRequest::ON_REQUEST  %>
-                <%= link_to "Accept", accept_booking_path(booking), method: :patch, class: "btn-db rounded-pill border-0 w-100 py-3" %>
-                <%= link_to "Decline", decline_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn-db rounded-pill border-0 w-100 py-3" %>
-              <% elsif booking.status == BookingRequest::DECLINED && booking.stay_status == BookingRequest::CANCELLED %>
-                <p>Declined<p>
-              <% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
-                <%= link_to "View", booking_request_path(booking), class: "btn-db rounded-pill border-0 w-100 py-3" %>
-              <% elsif booking.stay_status == BookingRequest::TB_PAID || booking.stay_status == BookingRequest::TBP_OWNER%>
-                <%= link_to "pay", confirm_booking_path(booking), class: "btn-db rounded-pill border-0 w-100 py-3 "%>
-              <% end %>
-            </div>
-          </div>
-        </li>
-      </div>
-
+      <%= render 'components/dashcard_in', booking: booking %>
     <% end %>
   </ul>
 </div>

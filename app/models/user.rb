@@ -17,6 +17,10 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   validates :email, presence: true
 
+  def total_swaps
+    booking_requests.where(stay_status: BookingRequest::FINISHED).count + booking_as_owner.where(stay_status: BookingRequest::FINISHED).count
+  end
+
   def booked?(month_request, flat_id)
     return !booking_requests.find_by(month_request: month_request, flat_id: flat_id).nil?
   end
