@@ -1,0 +1,98 @@
+
+
+.summary {
+  align-items: center;
+  box-shadow: 0 -3em 3em rgba(0,0,0,0.1);
+  background-color: white;
+  width: 270px;
+  height: 500px;
+  padding: 10px;
+
+
+
+}
+
+.swap-info {
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  padding: 8px;
+
+
+
+}
+.rating{
+  margin-right: 10px;
+  display: flex;
+  border-bottom: 1px solid lightgrey;
+  padding: 8px 8px 0 8px;
+
+
+
+}
+
+.fas.fa-medal{
+  color: green;
+}
+
+.fas.fa-star{
+  color:#94B3FC;
+
+
+
+
+}
+
+ .space{
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+ .swap{
+    border-bottom: 1px solid lightgray;
+
+ }
+
+ .year{
+   display: flex;
+   justify-content: space-between;
+
+  }
+
+ .swap-2{
+   margin-left:auto;
+   font-size: 14px;
+   font-family: 'Roboto', sans-serif;
+   color: #3F3F46;
+   padding: 8px;
+
+ }
+
+ .between-space{
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-right: 10px;
+  padding: 8px;
+
+ }
+
+ .percentage-rating{
+  padding: 8px;
+ }
+
+ .star-rating{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 8px;
+ }
+
+ .overall-rating{
+   display: flex;
+   align-items: center;
+   p{
+     margin-bottom: 0;
+   }
+ }
