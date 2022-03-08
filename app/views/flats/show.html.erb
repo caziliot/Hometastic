@@ -2,7 +2,7 @@
 <div class="container">
   <div class="">
     <div class="">
-      <p class="f26">Flat name will be taking this hometastic place</p>
+      <p class="f26"><%= @flat.name %></p>
       <div class="titleFlex">
         <div class="flex justify-content-between">
           <p class="f14"><%= image_tag "star.png"%> &nbsp; 4.98 - 12 reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶<%= @flat.price %>€/month </p>
@@ -55,6 +55,14 @@
       <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;"><%= @flat.description %></p>
     </div>
   <%# Description end %>
+    <%# Reviews start %>
+    <h2 class="f24 pT" >Reviews</h2>
+    <ul>
+      <% @flat.reviews.each do |review| %>
+        <li style="list-style-type: none;"><%= review.content %> || <%= review.rating %></li>
+      <% end %>
+    </ul>
+<%# Reviews end %>
    </div>
 <%# Wrapper amenities description form end %>
 
@@ -62,13 +70,13 @@
   <%  unless current_user == @flat.user %>
     <div class="formFlex mt-5">
       <div class="form m0 w250 pB30">
-          <p class="f20 pB">Your Hometastic Stay</p>
+          <p class="f20 pB" style="padding-left: 5px;">Your Hometastic Stay</p>
           <%= simple_form_for [ @flat, @booking ] do |f| %>
             <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
             <br>
-            <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3" %>
+            <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
           <% end %>
-          <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
+          <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
 
         <% else %>
 
@@ -79,8 +87,14 @@
   <%# Booking end %>
 
 
-  <%# Reviews start %>
-  <div class="container">
+
+</div>
+<%# main div ends %>
+
+
+
+
+
     <%# <% if @amenities %>
       <%# <p>Amenities:</p> %>
       <%# <ul> %>
@@ -89,16 +103,3 @@
         <%# <% end %>
       <%# </ul> %>
     <%# <% end %>
-    <div>
-    <h2 class="f24 pT" >Reviews</h2>
-    <ul>
-      <% @flat.reviews.each do |review| %>
-        <li style="list-style-type: none;"><%= review.content %> || <%= review.rating %></li>
-      <% end %>
-    </ul>
-    </div>
-  </div>
-<%# Reviews end %>
-
-<%# main div ends %>
-</div>
