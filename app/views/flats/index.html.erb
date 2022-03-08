@@ -1,15 +1,14 @@
-<h1 class="flats-header">Flat index</h1>
 <%= render 'components/search_bar' %>
 
 <br>
 <div class="cards">
   <% @flats.each do |flat| %>
-    <%=link_to flat_path(flat) do%>
+    <%=link_to flat_path(flat), class: "text-decoration-none" do%>
       <div class="card-trip">
         <%= cl_image_tag flat.photos.first.key %>
         <div class="card-trip-infos">
           <div>
-            <h2><%=flat.city %></h2>
+            <h2 style="text-decoration:none;"><%=flat.city %></h2>
             <p id="pL"><%=flat.address %></p>
           </div>
           <div>
