@@ -44,22 +44,24 @@ puts "start seeding"
   flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   flat.save!
   puts "flat ##{i + 1}, #{flat.address}"
+  3.times do |j|
+    ava_m = AvailableMonth.create!(
+      month_year: "01-0#{5+j}-2022",
+      flat_id: flat.id
+    )
 
-  ava_m = AvailableMonth.create!(
-    month_year: "01-0#{rand(4..9)}-2022",
-    flat_id: flat.id
-  )
-  puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
+    puts "Available Month ##{ava_m.id} for Flat ##{flat.id}, #{ava_m.month_year}"
+  end
 end
 
-5.times do |i|
+4.times do |i|
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: rand(User.first.id..User.last.id),
-    flat_id: rand(Flat.first.id..Flat.last.id),
-    month_request: "01-04-2022"
+    user_id: User.first.id + i,
+    flat_id: Flat.first.id + 1 + i,
+    month_request: "01-05-2022"
   )
-  booking_request.month_request = booking_request.flat.available_months.first.month_year
+
   booking_request.calculate_prices
   booking_request.save
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
