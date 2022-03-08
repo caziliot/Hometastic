@@ -29,7 +29,8 @@ class Flat < ApplicationRecord
     }
 
   def available?(date_s)
-    return available_months.find_by(month_year: date_s, taken: true).nil?
+    month = available_months.find_by(month_year: date_s)
+    return month.nil? ? false : !month.taken
   end
 
   def find_chat(user_id)
