@@ -13,7 +13,7 @@
           <span class="iconify" data-icon="clarity:note-edit-line" style="color: #a1a1aa; margin-right:10px;" data-width="32"></span>
         <% end %>
         <%= link_to new_flat_amenity_path(@flat) do %>
-          <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa;" data-width="32"></span>
+          <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa; margin-right:18px;" data-width="32"></span>
         <% end %>
         </div>
         <% end %>
@@ -42,24 +42,26 @@
   <%# Amenities start %>
     <div class="pT wAmenities mr-5">
     <p class="f24">What the place offers</p>
-    <div class="amenitiesGrid pT2">
+    <div class="amenitiesGrid pT2 pB30 borderB">
     <p class="f16"><span class="iconify" data-icon="ant-design:wifi-outlined" style="color: #2c364c; font-size: 28px;"></span> Wifi</p>
     <p class="f16"><span class="iconify" data-icon="ic:baseline-outdoor-grill" style="color: #2c364c; font-size: 28px;"></span> Barbecue</p>
     <p class="f16"><span class="iconify" data-icon="mdi:flower-tulip" style="color: #2c364c; font-size: 28px;"></span> Shared furnished terrace</p>
     <p class="f16"><span class="iconify" data-icon="jam:hairdryer" style="color: #2c364c; font-size: 28px;"></span>Hairdrier</p>
     <p class="f16"><span class="iconify" data-icon="mdi:desk" style="color: #2c364c; font-size: 28px;"></span> Work desk</p>
     </div>
-    <%# Description start %>
-  <div class="mDescr">
-    <p class="f16"><%= @flat.description %></p>
-  </div>
-  <%# Description end %>
-    </div>
   <%# Amenities end %>
+   <%# Description start %>
+    <div class="pTB borderB">
+      <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;"><%= @flat.description %></p>
+    </div>
+  <%# Description end %>
+   </div>
+<%# Wrapper amenities description form end %>
+
  <%# Booking start %>
+  <%  unless current_user == @flat.user %>
     <div class="formFlex mt-5">
-      <div class="form m0 w250 pB flex justify-content-end">
-        <%  unless current_user == @flat.user %>
+      <div class="form m0 w250 pB30">
           <p class="f20 pB">Your Hometastic Stay</p>
           <%= simple_form_for [ @flat, @booking ] do |f| %>
             <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
@@ -69,19 +71,16 @@
           <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3" %>
 
         <% else %>
-          <button type="button" class="btn-lb rounded-pill border-0 w-100 mt-3 f14White"><%= link_to "Edit your flat", edit_flat_path(@flat)%></button>
-          <button type="button" class="btn-db rounded-pill border-0 w-100 mt-3 py-3 f14White"><%= link_to 'Add amenities', new_flat_amenity_path(@flat) %></button>
+
         <% end  %>
         <%#----------------- %>
       </div>
     </div>
   <%# Booking end %>
-</div>
-<%# Wrapper amenities description form end %>
 
 
-
-  <div>
+  <%# Reviews start %>
+  <div class="container">
     <%# <% if @amenities %>
       <%# <p>Amenities:</p> %>
       <%# <ul> %>
@@ -90,10 +89,8 @@
         <%# <% end %>
       <%# </ul> %>
     <%# <% end %>
-    <br>
-    <br>
-    <div style="padding-left:20px;">
-    <h2 class="f26" >Reviews</h2>
+    <div>
+    <h2 class="f24 pT" >Reviews</h2>
     <ul>
       <% @flat.reviews.each do |review| %>
         <li style="list-style-type: none;"><%= review.content %> || <%= review.rating %></li>
@@ -101,5 +98,7 @@
     </ul>
     </div>
   </div>
+<%# Reviews end %>
+
 <%# main div ends %>
 </div>

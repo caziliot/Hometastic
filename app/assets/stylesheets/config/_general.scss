@@ -50,10 +50,6 @@ body {
   margin: 70px;
 }
 
-.mDescr {
-  margin-top: 70px;
-  margin-left: 15px;
-}
 
 .imgContainer{
   display: flex;
@@ -92,7 +88,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-gap: 10px;
-  margin-left: 10px;
 }
 
 .pL2 {
@@ -110,6 +105,16 @@ body {
 
 .pB {
   padding-bottom: 40px;
+}
+
+.pB30 {
+  padding-bottom: 30px;
+}
+
+
+.pTB30 {
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 .w250 {
@@ -140,8 +145,16 @@ body {
   visibility: visible;
 }
 
+.hide{
+  visibility: hidden;
+}
+
 .m0{
   margin: 0;
+}
+
+.borderB{
+  border-bottom: 1px solid #c4c4c4;
 }
 
 
