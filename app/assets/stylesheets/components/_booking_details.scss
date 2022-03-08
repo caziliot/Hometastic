@@ -1,7 +1,7 @@
 .booking-show-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 16px;
   display: flex;
 }
 
@@ -13,4 +13,29 @@
 .right-column {
   width: 35%;
   margin-top: 60px;
+}
+
+.picture {
+  height: 600px;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 12px 15px 20px 0 rgba(46,61,73,.3);
+}
+
+.city {
+  font-size: 52px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 24px;
+}
+
+.flat-details {
+  border-radius: 8px;
+  margin-top: -52px;
+}
+
+.standard-infos {
+  margin-bottom: -16px;
 }
