@@ -17,7 +17,7 @@
         <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
           <div class="location-input">
             <label>Location</label>
-            <%= text_field_tag :query, params[:query], class: "form-control", id: "flat_city", placeholder:"Where are you going" %>
+            <%= text_field_tag :query, params[:query], class: "ap-nostyle ap-icon-pin", id: "flat_city", placeholder:"Where are you going" %>
           </div>
             <div>
               <label>Available From</label>
