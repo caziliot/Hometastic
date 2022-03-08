@@ -25,10 +25,12 @@
 .city {
   font-size: 52px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
 
 .description {
   font-size: 24px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .flat-details {
@@ -36,6 +38,10 @@
   margin-top: -52px;
 }
 
-.standard-infos {
-  margin-bottom: -16px;
+h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
 }
