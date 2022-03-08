@@ -3,12 +3,18 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 20px;
+  height: 300px;
+  width: 300px;
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 235px;
   width: 100%;
   object-fit: cover;
+}
+
+.card-trip-infos:hover {
+  text-decoration:none!important;
 }
 
 .card-trip h2 {
@@ -22,7 +28,6 @@
   opacity: .7;
   margin: 0;
   text-align: right;
-  text-decoration: none!important;
 }
 
 #pL {
@@ -50,9 +55,9 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 80px;
-  margin: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin: 60px;
 }
 
 // Smallest device

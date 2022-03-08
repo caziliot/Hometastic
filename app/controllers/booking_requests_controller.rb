@@ -20,6 +20,12 @@ class BookingRequestsController < ApplicationController
   end
 
   def show
+    @booking = BookingRequest.find(params[:id])
+    if current_user.id == @booking.user_id
+      @flat = Flat.find(@booking.flat_id)
+    else
+      @flat = Flat.find_by(user_id: @booking.user_id)
+    end
   end
 
   # There should be a create, for when the Booking is sent and one update for when the

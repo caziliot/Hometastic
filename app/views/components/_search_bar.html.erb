@@ -1,45 +1,17 @@
-  <div class="container">
+<div class="container">
     <div class="search-bar">
       <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           id: "flat_city",
-          placeholder: "Where you want to go?"
+          placeholder: "Location"
         %>
-
-        <div class="searchflex">
-          <div class="dateflex">
-              <%= f.input :start_date, as: :date, html5: true, required: true, input_html: {class: "month_start"} %>
-              <%= f.input :end_date, as: :date, html5: true, required: true, input_html: {class: "month_end"} %>
-          </div>
-
-          <%= button_tag do %>
-              <i class="fas fa-search"></i>
-          <% end %>
-        </div>
-
+        <%= f.input :start_month, as: :string, required: true, input_html: {class: "datepicker", id: "month_start"} %>
+        <%= f.input :end_month, as: :string, required: true, input_html: {class: "datepicker", id: "month_end"} %>
+        <%= button_tag do %>
+          <i class="fas fa-search" style="color:white"></i>
+        <% end %>
       <% end %>
     </div>
   </div>
- <%# <div class="container">
-      <div class="search-bar">
-        <form>
-          <div class="location-input">
-            <label>Location</label>
-            <input type="text" placeholder="Where are you going">
-          </div>
-            <div>
-              <label>Month</label>
-              <input type="text" placeholder="Add Month">
-            </div>
-            <div>
-              <label>Year</label>
-              <input type="text" placeholder="Year">
-            </div>
-            <button type="submit">
-             <i class="fas fa-search" style="color:white" ></i>
-            </button>
-        </form>
-      </div>
-  </div> %>

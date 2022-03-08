@@ -20,11 +20,13 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+// import "jquery-ui-bundle";
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
 
 // Internal imports, e.g:
+import { rangePlugin } from "flatpickr/dist/plugins/rangePlugin";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initFlatRange } from "../plugins/flatpickr";
 import { initChatRoomCable } from "../channels/chat_room_channel";
@@ -33,8 +35,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr("#month_start", {
-    altInput: true,
-    "plugins": [new rangePlugin({ input: "#month_end"})
+    altInput: true
   });
   initFlatRange();
   initChatRoomCable();
