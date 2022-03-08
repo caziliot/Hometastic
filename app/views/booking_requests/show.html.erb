@@ -1,2 +1,12 @@
-<%= cl_image_tag @flat.photos.first.key %>
-<%= @flat.address %>
+<main class="booking-show-container">
+
+  <div class="left-column">
+    <%= cl_image_tag @flat.photos.first.key %>
+  </div>
+
+  <div class="right-column">
+    <%= @flat.city %>
+    <%= @flat.description %>
+  </div>
+
+</main>
