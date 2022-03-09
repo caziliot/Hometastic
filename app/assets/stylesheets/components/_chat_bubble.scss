@@ -3,28 +3,45 @@
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+
 }
 
 .chat-bub {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-   width: 60%;
+  width: 40%;
+  margin: 8px 16px 8px 16px;
+
+
 
 }
 
 .chat-info{
+  position: relative;
+}
+
+.chat-info p{
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
   color: #3F3F46;
-
+  font-weight: bold;
+  // top: 50px;
+  // position: absolute;
 }
 
-.name-info{
-  font-weight: bold;
+.message-info {
+  display: flex;
 
+  p{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: #3F3F46;
+    padding: 8px;
+
+  }
 
 }
