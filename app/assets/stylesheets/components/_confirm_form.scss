@@ -8,3 +8,11 @@
 	border-radius: 8px;
 	font-family: 'Roboto', sans-serif;
 }
+
+input:invalid {
+  border: 1px solid red;
+}
+
+input:valid {
+  border: 1px solid green;
+}
