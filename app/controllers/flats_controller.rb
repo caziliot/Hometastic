@@ -6,7 +6,8 @@ class FlatsController < ApplicationController
       sql_query = " \
         flats.city ILIKE :query \
         OR flats.address ILIKE :query \
-        OR flats.name ILIKE :query
+        OR flats.name ILIKE :query \
+        OR available_months.month_year ILIKE :query
       "
       @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
     else
@@ -18,6 +19,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
     @amenities = @flat.amenities
