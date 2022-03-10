@@ -1,0 +1,64 @@
+.avatar-large {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-right: -10px;
+}
+
+.chat-bub {
+  overflow: hidden;
+  height: 100px;
+  background-color: #F2F6FF;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  width: 40%;
+  margin: 8px 16px 8px 16px;
+
+
+
+}
+
+.chat-info{
+  position: relative;
+}
+
+.chat-info p{
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  font-weight: bold;
+  margin: 20px;
+
+
+}
+
+.message-info {
+  display: flex;
+
+  p{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    color: #3F3F46;
+    padding: 8px;
+    em{
+       font-family: 'Roboto', sans-serif;
+
+    }
+
+  }
+
+}
+
+.selected-color{
+  color: #D4D4D8;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+.chosen-background {
+  background-color:#D4D4D8;
+}
