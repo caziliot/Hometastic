@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   patch 'booking_requests/:id', to: "booking_requests#accept", as: :accept_booking
   delete 'booking_requests/:id', to: "booking_requests#decline", as: :decline_booking
   get 'booking_request/:id/confirm', to: "booking_requests#confirm", as: :confirm_booking
-  get 'booking_request/:id/pay', to: "booking_requests#pay", as: :pay_booking
+  put 'booking_request/:id/pay', to: "booking_requests#pay", as: :pay_booking
 
   resources :chat_rooms, only: :index
   # Users are created by Devise
