@@ -1,14 +1,14 @@
 <div class="confirm-form-container">
   <form action= <%=pay_booking_path(@booking)%> method='get'>
     <label class="string optional" for="credit_card_number">Credit Card Number</label>
-    <input class="form-control string optional" type="text" name="credit_card_number" id="credit_card_number" required>
+    <input class="form-control string optional" type="text" name="credit_card_number" id="credit_card_number" required pattern="[\d][0-9]{15}">
 
     <label class="string optional" for="expiracy_date">Expiracy Date</label>
-    <input class="form-control string optional" type="text" name="expiracy_date" id="expiracy_date" required>
+    <input class="form-control string optional" type="text" name="expiracy_date" id="expiracy_date" required pattern="^(0[1-9]|1[012])[ -\/]\d\d$">
 
 
     <label class="string optional" for="cvv">CVV</label>
-    <input class="form-control string optional" type="text" name="cvv" id="cvv" required>
+    <input class="form-control string optional" type="text" name="cvv" id="cvv" required pattern="^[0-9]{3,4}$">
 
     <input type="submit" name="commit" value="Pay" data-disable-with="pay" class="btn-small rounded-pill border-0">
   </form>
