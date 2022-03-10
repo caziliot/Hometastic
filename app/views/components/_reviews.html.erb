@@ -4,7 +4,7 @@
       <div class="review-card d-flex">
         <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar" %>
         <h5><%= review.booking_request.user.first_name%></h5>
-        <p><%= review.content %> || <%= review.rating %>/5</p>
+        <p><%= review.content %> <strong><em><%= review.rating %>/5 <i class="fa-solid fa-star"></i></em></strong></p>
       </div>
     <% end %>
   </div>
