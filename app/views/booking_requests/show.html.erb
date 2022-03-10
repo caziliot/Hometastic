@@ -1,18 +1,18 @@
 <div class="booking-show-container">
   <div class="left-column">
-     <%= cl_image_tag @flat.photos.first.key, class: "picture moveRight" %>
+    <%= cl_image_tag @flat.photos.first.key, class: "picture" %>
   </div>
 
   <div class="right-column">
     <div class="flat-details">
-      <div class="city"><%= @flat.city %></div>
+      <div class="city"><%= @flat.city %></div> <h2>is waiting for you!</h2>
       <div class="description"><%= @flat.description %></div>
     </div>
 
     <br>
 
     <div class="standard-infos">
-      <h4>General infos</h3>
+      <i class="fa-solid fa-circle-info"></i>
       <p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
     </div>
   </div>

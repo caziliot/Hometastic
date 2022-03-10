@@ -27,6 +27,7 @@
   font-size: 52px;
   font-weight: bold;
   font-family: 'Roboto', sans-serif;
+  color: #2C364C;
 }
 
 .description {
@@ -35,14 +36,19 @@
 }
 
 .flat-details {
-  border-radius: 8px;
   margin-top: -72px;
 }
 
-h4 {
+h2 {
   font-family: 'Roboto', sans-serif;
+  color: #94B3FD;
+  font-weight: bold;
 }
 
 p {
   font-family: 'Roboto', sans-serif;
+}
+
+.fa-circle-info {
+  color: #94B3FD;
 }
