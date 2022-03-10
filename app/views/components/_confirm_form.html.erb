@@ -1,5 +1,5 @@
 <div class="confirm-form-container">
-  <form action= <%=pay_booking_path(@booking)%> method='get'>
+  <form action= <%=pay_booking_path(booking)%> method='get'>
     <label class="string optional" for="credit_card_number">Credit Card Number</label>
     <input class="form-control string optional" type="text" name="credit_card_number" id="credit_card_number" required pattern="[\d][0-9]{15}">
 
