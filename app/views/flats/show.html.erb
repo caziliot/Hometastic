@@ -24,15 +24,16 @@
     <div class="imgContainer">
       <%# Main pic start %>
       <div>
-        <img class="mainImage" src="https://images.unsplash.com/photo-1612832164313-ac0d7e07b5ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="hero">
+      <%= cl_image_tag @flat.photos.first.key, class: "mainImage" %>
       </div>
       <%# Main pic end %>
       <%# Secondary pics start %>
       <div class="grid">
-        <img class="secondaryImage" src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="living room">
-        <img class="secondaryImage" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8YmF0aHJvb218ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="bathroom">
-        <img class="secondaryImage" src="https://images.unsplash.com/photo-1624409990662-03f19cc0e0cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGVycmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="terrace">
-        <img class="secondaryImage" src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8a2l0Y2hlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="kitchen">
+      <% @flat.photos.each_with_index do |photo, i| %>
+        <% unless i == 0%>
+          <%= cl_image_tag photo.key, class: "secondaryImage" %>
+        <% end %>
+      <% end %>
       </div>
       <%# Secondary pics end %>
     </div>

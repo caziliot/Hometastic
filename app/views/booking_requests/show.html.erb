@@ -1,13 +1,54 @@
-<div class="booking-show-container">
-  <div class="left-column">
-    <%= cl_image_tag @flat.photos.first.key, class: "picture" %>
+<div class="container my-5">
+ <div class="flex">
+  <div>
+      <p class="f20 mb-1 ml-3" ><%= @flat.name %></p>
   </div>
+</div>
+<%# Grid start %>
+<div class="grid">
 
-  <div class="right-column">
-    <div class="flat-details">
-      <div class="city"><%= @flat.city %></div> <h2>is waiting for you!</h2>
-      <div class="description"><%= @flat.description %></div>
+
+<%# carousel start %>
+<div class="flex justify-content-between">
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+      <% @flat.photos.each_with_index do |photo, i| %>
+    <div class="carousel-item <%= i == 0 ? "active" : "" %>">
+      <%= cl_image_tag photo.key, class: "d-block mainImage" %>
     </div>
+      <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+</div>
+</div>
+<%# carousel end %>
+
+
+<%# Info start %>
+<div class="pL2 pT">
+    <div class="flat-details">
+      <div class="city"><%= @flat.city %> is waiting for you!</div>
+        <div class="pTB ">
+      <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;">Hurray!<br> Prepare your suitcase, you are going to stay at <%= @flat.user.first_name %>'s place in:</p>
+      <div class="f28"><%= @booking.month_request.to_date.strftime("%B") %></div>
+      <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;">Remember you can always keep chatting with <%= @flat.user.first_name %> for any relevant </p>
+
+    </div>
+      <div class="description"> </div>
+    </div>
+</div>
+<%# Info end %>
+</div>
+<%# Grid end %>
+  <div class="right-column">
+
 
     <br>
 

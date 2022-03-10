@@ -30,7 +30,7 @@ puts "start seeding"
   puts "User ##{i + 1}, #{user.first_name}"
 
   flat = Flat.new(
-    name: "Flat - #{i}",
+    name: ["Epic Barceloneta Beach and Marina Apartment Blanco", "Light Studio Flat - Brand New - Chelsea", "Studio 'Spicy Wasabi' 31 qm", "Petit Studio Paris Centre", "Monolocale : cucina, bagno, terrazza comune"].sample,
     address: Faker::Address.street_name,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
@@ -64,7 +64,7 @@ end
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(
-    content: ["good", "bad", "terrible", "amazing"].sample,
+    content: ["Location of the flat is superb. Jacopo was extremely welcoming and helpful. Everything was clean and tidy and we thoroughly enjoyed our stay", "Great location and the apartment was very clean and had good facilities. The roof terrace is fantastic.", "The place is very well located near to Pantheon and Piazza Navona.. supermarkets and restaurants are nearby.. bus stops are nearby to go to Vatican City, Roma Termini etc.. House is sparkling clean and the bldg had an amazing terrace where couples can have romantic dinners", "Very accommodating! Clean place!", "Amazing Price for charming place in the heart of rome. Jacopo is a good host and reply’s very fast"].sample,
     rating: rand(1..5),
     booking_request_id: booking_request.id
   )
