@@ -1,22 +1,30 @@
 <%= render 'components/search_bar' %>
-<%= render 'components/flat_summary' %>
+
 
 <div class="mPage">
   <p class="f26 text-center">DASHBOARD</p>
   <br>
   <p class="f20"><strong>Welcome</strong> <%= @user.first_name %></p>
   <br>
-  <p class="f18">Your Outgoing bookings</h2>
-  <ul class="list-group-flush">
-    <% @user.booking_requests.each do |booking| %>
-      <%= render 'components/dashcard', booking: booking %>
-    <% end %>
-  </ul>
+  <div class="d-flex">
+    <div class= "flex-grow-1">
+      <p class="f18">Your Outgoing bookings</h2>
+      <ul class="list-group-flush">
+        <% @user.booking_requests.each do |booking| %>
+          <%= render 'components/dashcard', booking: booking %>
+        <% end %>
+      </ul>
 
-  <p class="f20">Your Incoming bookings</h2>
-  <ul class="list-group">
-    <% @user.booking_as_owner.each do |booking| %>
-      <%= render 'components/dashcard_in', booking: booking %>
-    <% end %>
-  </ul>
+      <p class="f20">Your Incoming bookings</h2>
+      <ul class="list-group">
+        <% @user.booking_as_owner.each do |booking| %>
+          <%= render 'components/dashcard_in', booking: booking %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="align-self-end">
+      <%= render 'components/flat_summary' %>
+    </div>
+  </div>
+
 </div>
