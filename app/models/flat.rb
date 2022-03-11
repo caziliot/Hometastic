@@ -37,4 +37,12 @@ class Flat < ApplicationRecord
     result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
     return result.first
   end
+
+  def review_average
+    sum = 0.0
+    reviews.each do |r|
+      sum+= r.rating
+    end
+    return (sum.to_f/reviews.size).round(1) if reviews.any?
+  end
 end
