@@ -57,13 +57,8 @@
     </div>
   <%# Description end %>
     <%# Reviews start %>
-    <h2 class="f24 pT" >Reviews</h2>
-    <ul>
-      <% @flat.reviews.each do |review| %>
-        <li style="list-style-type: none;"><%= review.content %> || <%= review.rating %></li>
-      <% end %>
-    </ul>
-<%# Reviews end %>
+      <%= render 'components/reviews' %>
+    <%# Reviews end %>
    </div>
 <%# Wrapper amenities description form end %>
 
