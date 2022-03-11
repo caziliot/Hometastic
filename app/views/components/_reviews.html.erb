@@ -2,7 +2,7 @@
   <div class="grid">
     <% @flat.reviews.each do |review| %>
       <div class="review-card d-flex">
-        <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar" %>
+        <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review" %>
         <h5><%= review.booking_request.user.first_name%></h5>
         <p><%= review.content %> <strong><em><%= review.rating %>/5 <i class="fa-solid fa-star"></i></em></strong></p>
       </div>
