@@ -1,0 +1,56 @@
+.booking-show-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  padding-top: 120px;
+}
+
+.left-column {
+  width: 65%;
+  position: relative;
+}
+
+.right-column {
+  width: 35%;
+  margin-top: 60px;
+}
+
+.picture {
+  height: 600px;
+  width: 600px;
+  border-radius: 8px;
+  box-shadow: 12px 15px 20px 0 rgba(46,61,73,.3);
+}
+
+.city {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  color: #2C364C;
+}
+
+.description {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.flat-details {
+  margin-top: -72px;
+}
+
+.lightblue {
+  font-family: 'Roboto', sans-serif;
+  color: #94B3FD;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+.fa-circle-info {
+  color: #94B3FD;
+}
+
+

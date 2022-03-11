@@ -20,6 +20,7 @@ ActiveStorage.start()
 
 // External imports
 import "bootstrap";
+// import "jquery-ui-bundle";
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
@@ -34,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatRange();
   initFlatpickr();
+  initFlatRange();
   initChatRoomCable();
   initAutocomplete();
 });

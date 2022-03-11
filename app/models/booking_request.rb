@@ -21,8 +21,9 @@ class BookingRequest < ApplicationRecord
   validates :user, presence: true
   validates :month_request, presence: true
   validates_date :month_request, after: -> { Date.current }, message: "date must be after today"
-  validate :flat_needs_to_be_available_on_the_month_requested
+  validate :flat_needs_to_be_available_on_the_month_requested, on: :create
   validate :booking_already_exists, on: :create
+  validate :self_booking
   # calculate the Service Fee as 10% of the most expensive flat, that both should pay.
   def calculate_service_fee
     user_flat = user.flats.first
@@ -45,6 +46,10 @@ class BookingRequest < ApplicationRecord
 
   def booking_already_exists
     errors.add(:user, "The user already sent a request like this one") if user.booked?(month_request, flat.id)
+  end
+
+  def self_booking
+    errors.add(:user, "User can't book his own flat") if user.id == flat.user.id
   end
 
   def accept

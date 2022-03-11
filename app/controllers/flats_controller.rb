@@ -58,6 +58,10 @@ class FlatsController < ApplicationController
     end
   end
 
+  def available_months
+
+  end
+
   private
 
   def flat_params

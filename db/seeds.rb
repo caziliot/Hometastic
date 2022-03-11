@@ -29,7 +29,7 @@ puts "start seeding"
   puts "User ##{i + 1}, #{user.first_name}"
 
   flat = Flat.new(
-    name: "Flat - #{i}",
+    name: ["Epic Barceloneta Beach and Marina Apartment Blanco", "Light Studio Flat - Brand New - Chelsea", "Studio 'Spicy Wasabi' 31 qm", "Petit Studio Paris Centre", "Monolocale : cucina, bagno, terrazza comune"].sample,
     address: Faker::Address.street_name,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
@@ -40,28 +40,30 @@ puts "start seeding"
   flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   flat.save!
   puts "flat ##{i + 1}, #{flat.address}"
+  3.times do |j|
+    ava_m = AvailableMonth.create!(
+      month_year: "01-0#{5+j}-2022",
+      flat_id: flat.id
+    )
 
-  ava_m = AvailableMonth.create!(
-    month_year: "01-0#{rand(4..9)}-2022",
-    flat_id: flat.id
-  )
-  puts "Available Month ##{ava_m.id}, #{ava_m.month_year}"
+    puts "Available Month ##{ava_m.id} for Flat ##{flat.id}, #{ava_m.month_year}"
+  end
 end
 
-5.times do |i|
+4.times do |i|
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: rand(User.first.id..User.last.id),
-    flat_id: rand(Flat.first.id..Flat.last.id),
-    month_request: "01-04-2022"
+    user_id: User.first.id + i,
+    flat_id: Flat.first.id + 1 + i,
+    month_request: "01-05-2022"
   )
-  booking_request.month_request = booking_request.flat.available_months.first.month_year
+
   booking_request.calculate_prices
   booking_request.save
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(
-    content: ["good", "bad", "terrible", "amazing"].sample,
+    content: ["Location of the flat is superb. Jacopo was extremely welcoming and helpful. Everything was clean and tidy and we thoroughly enjoyed our stay", "Great location and the apartment was very clean and had good facilities. The roof terrace is fantastic.", "The place is very well located near to Pantheon and Piazza Navona.. supermarkets and restaurants are nearby.. bus stops are nearby to go to Vatican City, Roma Termini etc.. House is sparkling clean and the bldg had an amazing terrace where couples can have romantic dinners", "Very accommodating! Clean place!", "Amazing Price for charming place in the heart of rome. Jacopo is a good host and reply’s very fast"].sample,
     rating: rand(1..5),
     booking_request_id: booking_request.id
   )

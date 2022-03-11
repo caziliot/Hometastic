@@ -17,6 +17,24 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   validates :email, presence: true
 
+  def total_swaps
+    booking_requests.where(stay_status: BookingRequest::FINISHED).count + booking_as_owner.where(stay_status: BookingRequest::FINISHED).count
+  end
+
+  def swaps_per_current_year
+    current_year = Date.current.year
+    outgoing_bookings_r = booking_requests.where(stay_status: BookingRequest::FINISHED)
+    ob = outgoing_bookings_r.select do |book|
+      book.month_request.to_date.year == current_year
+    end
+    incoming_bookings_r = booking_as_owner.where(stay_status: BookingRequest::FINISHED)
+    ib = incoming_bookings_r.select do |book|
+      book.month_request.to_date.year == current_year
+    end
+    return ob.size + ib.size
+
+  end
+
   def booked?(month_request, flat_id)
     return !booking_requests.find_by(month_request: month_request, flat_id: flat_id).nil?
   end

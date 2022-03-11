@@ -25,8 +25,13 @@
 }
 
 .avatar-large {
-  width: 56px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-left: 10px;
+  margin-right: -10px;
 }
 .card-product h2 {
   font-size: 16px;

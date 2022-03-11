@@ -1,27 +1,37 @@
 
 <div class="container">
   <div class="card-product">
-    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+    <%= cl_image_tag booking.flat.user.photo.key, class: "avatar-large"%>
+    <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
     <div class="flex space-between">
       <div class="card-product-infos">
-        <h2 class="purple">Marcy, Berlin</h2>
-        <H2 id="spacing">May, 2022</H2>
+        <%= link_to flat_path(booking.flat) do %>
+          <h2 class="purple"><%= booking.flat.user.first_name %>, <%= booking.flat.city %>, <%= booking.flat.name %></h2>
+        <% end %>
+        <H2 id="spacing"><%= booking.month_request.to_date.strftime("%b - %Y")  %></H2>
         <div class="flex">
           <div class="flex extra-margin">
             <%= image_tag "logo.png", class: 'log' %>
-            <p>14 swaps</p>
+            <p> <%= booking.flat.user.total_swaps %> swaps</p>
           </div>
           <div class="flex">
             <%= image_tag "star.png", class: 'log' %>
-            <p>10 reviews</p>
+            <p> <%= booking.flat.reviews.length %> reviews</p>
           </div>
         </div>
       </div>
       <div>
-        <button type="button" class="btn-bd rounded-pill border-0">Accept</button>
-        <button type="button" class="btn-bd rounded-pill border-0">Decline</button>
+        <% if booking.status == BookingRequest::PENDING %>
+          <h2 class="purple mr-3"><%= booking.status %></h2>
+        <% elsif booking.stay_status == BookingRequest::TB_PAID || booking.stay_status == BookingRequest::TBP_REQUESTER %>
+          <%= link_to "Pay", confirm_booking_path(booking), class: "btn-bd rounded-pill border-0"%>
+        <% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
+          <%= link_to "View", booking_request_path(booking), class: "btn-bd rounded-pill border-0" %>
+        <% end %>
+        <%# <button type="button" class="btn-bd rounded-pill border-0">Accept</button> %>
+        <%# <button type="button" class="btn-bd rounded-pill border-0">Decline</button> %>
       </div>
     </div>
 
   </div>
- </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="summary">
+    <h2 class="between-space">Flat Summary</h2>
+    <div class="rating">
+     <i class="fas fa-medal"></i>
+     <p>Great Job!</p>
+    </div>
+    <p class="percentage-rating">Your flat overall rating is</p>
+  <div class="rating star-rating">
+  <i class="fas fa-star"></i>
+    <p> <%= flat.review_average %> </p>
+  </div>
+  <div class="swap">
+    <h2 class="between-space">Your swaps<h2>
+    <div class="year">
+      <p class="swap-info"> <%= Date.current.year %></p>
+      <p class="swap-2"> <%= flat.user.swaps_per_current_year %></p>
+    </div>
+    <div class="year">
+      <p class="swap-info">Total</p>
+      <p class="swap-2"> <%= flat.user.total_swaps %></p>
+    </div>
+  </div>
+    <div class="swap">
+      <div class="year">
+        <p class="swap-info">Overall Rating</p>
+        <div class="overall-rating">
+          <i class="fas fa-star"></i>
+          <p class="swap-2"><%= flat.review_average %></p>
+       </div>
+    </div>
+    <div class="swap">
+      <div class="year">
+        <p class="swap-info">Total Reviews</p>
+        <p class="swap-2"> <%= flat.reviews.size %> </p>
+      </div>
+    </div>
+    <div class="swap">
+      <div class="year">
+        <p class="swap-info">Views to your flat</p>
+        <p class="swap-2">151</p>
+      </div>
+    </div>
+    </div>
+
+
+  </div>
+
+
+</div>

@@ -22,11 +22,20 @@ class Flat < ApplicationRecord
     }
 
   def available?(date_s)
-    return available_months.find_by(month_year: date_s, taken: true).nil?
+    month = available_months.find_by(month_year: date_s)
+    return month.nil? ? false : !month.taken
   end
 
   def find_chat(user_id)
     result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
     return result.first
+  end
+
+  def review_average
+    sum = 0.0
+    reviews.each do |r|
+      sum+= r.rating
+    end
+    return (sum.to_f/reviews.size).round(1) if reviews.any?
   end
 end
