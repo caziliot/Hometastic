@@ -43,6 +43,6 @@ class Flat < ApplicationRecord
     reviews.each do |r|
       sum+= r.rating
     end
-    return sum.to_f/reviews.size if reviews.any?
+    return (sum.to_f/reviews.size).round(1) if reviews.any?
   end
 end

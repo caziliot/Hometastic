@@ -8,17 +8,17 @@
     <p class="percentage-rating">Your flat overall rating is</p>
   <div class="rating star-rating">
   <i class="fas fa-star"></i>
-    <p>4.7</p>
+    <p> <%= flat.review_average %> </p>
   </div>
   <div class="swap">
     <h2 class="between-space">Your swaps<h2>
     <div class="year">
-      <p class="swap-info">2022</p>
-      <p class="swap-2">2</p>
+      <p class="swap-info"> <%= Date.current.year %></p>
+      <p class="swap-2"> <%= flat.user.swaps_per_current_year %></p>
     </div>
     <div class="year">
       <p class="swap-info">Total</p>
-      <p class="swap-2">7</p>
+      <p class="swap-2"> <%= flat.user.total_swaps %></p>
     </div>
   </div>
     <div class="swap">
@@ -26,13 +26,13 @@
         <p class="swap-info">Overall Rating</p>
         <div class="overall-rating">
           <i class="fas fa-star"></i>
-          <p class="swap-2">4.7</p>
+          <p class="swap-2"><%= flat.review_average %></p>
        </div>
     </div>
     <div class="swap">
       <div class="year">
         <p class="swap-info">Total Reviews</p>
-        <p class="swap-2">21</p>
+        <p class="swap-2"> <%= flat.reviews.size %> </p>
       </div>
     </div>
     <div class="swap">

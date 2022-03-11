@@ -21,7 +21,7 @@ class BookingRequest < ApplicationRecord
   validates :user, presence: true
   validates :month_request, presence: true
   validates_date :month_request, after: -> { Date.current }, message: "date must be after today"
-  validate :flat_needs_to_be_available_on_the_month_requested
+  validate :flat_needs_to_be_available_on_the_month_requested, on: :create
   validate :booking_already_exists, on: :create
   validate :self_booking
   # calculate the Service Fee as 10% of the most expensive flat, that both should pay.
