@@ -21,7 +21,11 @@ const initFlatRange = () => {
   flatpickr(".flatpic", {
     plugins: [
       new rangePlugin({
-        input: "#month_end"
+        input: ".end_date",
+        altInput: true,
+        dateFormat: "m-Y", //defaults to "F Y"
+        altFormat: "F Y", //defaults to "F Y"
+        theme: "dark"
       })
     ]
   });
