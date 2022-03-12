@@ -6,6 +6,7 @@ class ChatRoomsController < ApplicationController
   end
 
   def show
+    @chat_rooms = current_user.all_chats
     @chat_room = ChatRoom.find(params[:id])
     @flat = Flat.find(params[:flat_id])
     @message = Message.new
