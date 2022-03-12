@@ -1,31 +1,29 @@
 <div class="container">
-  <div class="summary">
-    <h2 class="between-space">Flat Summary</h2>
-    <div class="rating">
-     <i class="fas fa-medal"></i>
-     <p>Great Job!</p>
+  <div class="summary shadow">
+    <p class="f26 between-space mb-2 mt-1 ml-1"><strong>Flat Summary</strong></p>
+    <div class="rating mb-3">
+      <span class="iconify" data-icon="fa6-solid:medal" style="color: green; margin-right:2px;" data-width="26" data-height="26"></span>
+     <div class="f20 mt-1 mb-2"><strong>Great Job!</strong></div>
     </div>
-    <p class="percentage-rating">Your flat overall rating is</p>
-  <div class="rating star-rating">
-  <i class="fas fa-star"></i>
-    <p> <%= flat.review_average %> </p>
-  </div>
-  <div class="swap">
-    <h2 class="between-space">Your swaps<h2>
+    <p class="mb-2 pL">Your flat overall rating is:</p>
+  <div class="f28b rating star-rating borderB">  <i class="fas fa-star" style="margin-top:5px; margin-right:8px; padding-bottom:30px;"></i><%= flat.review_average %></div>
+
+  <div style="">
+    <p class="f18 between-space mt-2"><strong>Your swaps</strong><p>
     <div class="year">
       <p class="swap-info"> <%= Date.current.year %></p>
       <p class="swap-2"> <%= flat.user.swaps_per_current_year %></p>
     </div>
-    <div class="year">
+    <div class="year borderB">
       <p class="swap-info">Total</p>
       <p class="swap-2"> <%= flat.user.total_swaps %></p>
     </div>
   </div>
     <div class="swap">
       <div class="year">
-        <p class="swap-info">Overall Rating</p>
+        <p class="swap-info mt-3">Overall Rating</p>
         <div class="overall-rating">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-star" style="margin-bottom:4px; margin-right:8px;"></i>
           <p class="swap-2"><%= flat.review_average %></p>
        </div>
     </div>

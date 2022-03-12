@@ -61,6 +61,24 @@ body {
   font-weight: bold;
 }
 
+.f28L {
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+  font-weight: bold;
+}
+
+
+.f28b {
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
 .mPage {
   margin: 70px;
 }
@@ -108,6 +126,11 @@ body {
 .pL2 {
   padding-left: 90px;
 }
+
+.pL {
+  padding-left: 40px;
+}
+
 
 .pR {
   padding-right: 20px;
@@ -191,6 +214,10 @@ margin-bottom: 124px;
 margin-bottom: 176px;
 }
 
+.mB176{
+margin-bottom: 176px;
+}
+
 .map{
   height: 520px;
   width: 100%;
@@ -198,6 +225,13 @@ margin-bottom: 176px;
   margin-top: 30px;
   border-radius: 3%;
 
+}
+.alignC{
+text-align: left;
+}
+
+.pAcceptDecline{
+  margin: 0 0 0 80px;
 }
 
 
