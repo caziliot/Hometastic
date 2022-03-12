@@ -21,13 +21,7 @@
         </div>
       </div>
       <div>
-        <% if booking.status == BookingRequest::PENDING %>
-          <h2 class="purple mr-3"><%= booking.status %></h2>
-        <% elsif booking.stay_status == BookingRequest::TB_PAID || booking.stay_status == BookingRequest::TBP_REQUESTER %>
-          <%= link_to "Pay", confirm_booking_path(booking), class: "btn-bd rounded-pill border-0"%>
-        <% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
-          <%= link_to "View", booking_request_path(booking), class: "btn-bd rounded-pill border-0" %>
-        <% end %>
+        <%= render 'components/stay_status', booking: booking %>
         <%# <button type="button" class="btn-bd rounded-pill border-0">Accept</button> %>
         <%# <button type="button" class="btn-bd rounded-pill border-0">Decline</button> %>
       </div>
