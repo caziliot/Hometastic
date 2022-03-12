@@ -117,6 +117,13 @@ body {
 
 }
 
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px 10px;
+  margin-left: -20px;
+}
+
 .amenitiesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr ;
@@ -143,6 +150,10 @@ body {
 
 .pT2 {
   padding-top: 20px;
+}
+
+.pT3 {
+  padding-top: 10px;
 }
 
 .pB {
