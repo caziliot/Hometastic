@@ -36,8 +36,10 @@ puts "start seeding"
     city: Faker::Address.city,
     user_id: user.id
   )
-  file = URI.open('https://picsum.photos/200/300')
-  flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  5.times do
+    file = URI.open('https://source.unsplash.com/random/?apartment')
+    flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  end
   flat.save!
   puts "flat ##{i + 1}, #{flat.address}"
   3.times do |j|
