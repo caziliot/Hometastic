@@ -18,10 +18,10 @@ const initFlatpickr = () => {
   });
 }
 const initFlatRange = () => {
-  flatpickr(".start_date", {
+  flatpickr(".flatpic", {
     plugins: [
       new rangePlugin({
-        input: "#end_date",
+        input: ".end_date",
         altInput: true,
         dateFormat: "m-Y", //defaults to "F Y"
         altFormat: "F Y", //defaults to "F Y"

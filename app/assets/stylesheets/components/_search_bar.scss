@@ -3,7 +3,7 @@
 }
 
 .search-bar{
-  background-color: #fff;
+  background-color: #dee2e6;
   width: 70%;
   margin: 30px auto;
   padding: 6px 10px 6px 30px;
@@ -11,6 +11,7 @@
 }
 
 .search-bar form {
+  width: 95%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -18,26 +19,68 @@
 
 .search-bar form input {
   display: block;
-  border: 0;
+  //border: 0;
   outline: none;
   background: transparent;
 }
 
 .search-bar form button{
   background: #94B3FC;
-  width: 55px;
-  height: 55px;
+  width: 36px;
+  height: 30px;
   border-radius: 50%;
   border: 0;
   outline: none;
   cursor: pointer;
+  margin-top: 4px;
 }
 
-// .search-bar form button img {
-//   width: 15px;
-//   margin-top: 7px;
-// }
+.form-control{
+  border: 4px solid black;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
 
 .search-bar form label {
   font-weight: 600;
+}
+
+.searchflex {
+  align-items: center;
+  width: 100%;
+}
+
+.dateflex {
+  display: flex;
+}
+
+.ap-input-icon.ap-icon-pin {
+  display: none;
+}
+
+.searchbarflex {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form-group.string.required.search_start_month, .form-group.string.required.search_end_month {
+  margin-bottom: 0
+}
+
+.simple_form.search {
+  width: 100%;
+}
+
+.datepicker, .form-control.ap-input {
+  margin-bottom: 0%;
+}
+
+.fas.fa-search {
+  padding: 8px;
+}
+
+button.BtnSearch {
+  margin-left: 5px;
 }

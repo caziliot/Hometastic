@@ -26,6 +26,7 @@ import "bootstrap";
 //= require_tree .
 
 // Internal imports, e.g:
+import { rangePlugin } from "flatpickr/dist/plugins/rangePlugin";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initFlatRange } from "../plugins/flatpickr";
 import { initChatRoomCable } from "../channels/chat_room_channel";
