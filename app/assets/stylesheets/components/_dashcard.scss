@@ -16,9 +16,8 @@
 
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 100px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   width: 100%;
@@ -55,6 +54,7 @@
 h2.purple{
     color: #94B3FC;
   }
+
 .para{
   display: flex;
 
@@ -62,7 +62,6 @@ h2.purple{
 .log{
   width: 15px;
   border-radius: 30%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
   height: 15px;
 }
@@ -92,4 +91,17 @@ h2.purple{
 #spacing{
   margin-top: 10px;
   margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.userAvatar {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-bottom: 50px;
+  margin-left: 10px;
+  object-fit: cover;
+
 }
