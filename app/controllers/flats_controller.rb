@@ -29,7 +29,6 @@ class FlatsController < ApplicationController
   end
 
   def show
-
     @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
     @amenities = @flat.amenities
