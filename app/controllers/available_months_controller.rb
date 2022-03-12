@@ -6,11 +6,13 @@ class AvailableMonthsController < ApplicationController
 
   def create
     @available_month = AvailableMonth.new(months_params)
+    @flat = Flat.find(params[:flat_id])
     @available_month.flat = @flat
+    # @available_month.save!
     if @available_month.save
       redirect_to flat_path(@flat)
     else
-      render 'flat/show'
+      render "flats/show"
     end
   end
 

@@ -19,8 +19,8 @@ Rails.application.routes.draw do
     end
     # Messages are created by the chat so don't need a route.
     resources :amenities, only: %i[new create]
+    resources :available_months, only: %i[new create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :booking_requests, only: :show
-  resources :available_month, only: :create
 end
