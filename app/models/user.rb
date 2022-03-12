@@ -59,7 +59,7 @@ class User < ApplicationRecord
   end
 
   def all_chats
-    ChatRoom.joins(:messages).where(messages: {user_id:12})
+    ChatRoom.joins(:messages).where(messages: {user_id: id}).distinct
   end
 
 
