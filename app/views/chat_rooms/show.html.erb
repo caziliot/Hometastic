@@ -1,14 +1,27 @@
 <!-- app/views/chatrooms/show.html.erb -->
-<div class="mPage">
-  <%= link_to "⬅️ back to chats", chat_rooms_path %>
-  <p class="f26">#<%= @chat_room.flat.name%> from <%= @chat_room.flat.user.first_name %></p>
-  <div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-    <% @chat_room.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
-    <% end %>
+
+<div class="d-flex mPage">
+  <div class="flex-shrink-1">
+    <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
+    <ul class="list-group-flush">
+      <% @chat_rooms.each do |chat| %>
+        <% if chat.messages.any? %>
+          <% if chat.flat.user_id == current_user.id%>
+            <%= link_to flat_chat_room_path(chat.flat, chat) do %>
+              <%= render 'components/chat_bubble', user: chat.messages.first.user, chat: chat  %>
+            <% end %>
+          <% else %>
+            <%= link_to flat_chat_room_path(chat.flat, chat), class: "noDeco" do %>
+              <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
+            <% end %>
+          <%end %>
+        <%end %>
+      <% end %>
+    </ul>
   </div>
-  <%= simple_form_for [ @flat, @chat_room, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message #{@chat_room.flat.user.first_name}" %>
-    <%= f.submit "Send", class: "btn-lb py-3 border-0 rounded-pill mt-4 mb-3 mr-3" %>
-  <% end %>
+
+  <div class=" ml-4">
+    <%= render 'chat_show', flat: @flat, chat_room: @chat_room, message: @message %>
+
+  </div>
 </div>
