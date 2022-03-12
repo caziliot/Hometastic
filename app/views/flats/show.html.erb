@@ -79,26 +79,15 @@
             <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
             <br>
             <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
-
           <% end %>
           <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
-
         <% else %>
-
         <% end  %>
         <%#----------------- %>
       </div>
-
   <%# Booking end %>
-
-
-
 </div>
 <%# main div ends %>
-
-
-
-
 
     <%# <% if @amenities %>
       <%# <p>Amenities:</p> %>
