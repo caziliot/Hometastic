@@ -72,8 +72,8 @@
 
  <%# Booking start %>
   <%  unless current_user == @flat.user %>
-    <div class="formFlex mt-5">
-      <div class="form m0 w250 pB30">
+
+      <div class="form m0 w250 pB30 mt-5 shadow">
           <p class="f20 pB" style="padding-left: 5px;">Your Hometastic Stay</p>
           <%= simple_form_for [ @flat, @booking ] do |f| %>
             <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
@@ -86,7 +86,6 @@
         <%#----------------- %>
       </div>
   <%# Booking end %>
-</div>
 <%# main div ends %>
 
     <%# <% if @amenities %>
