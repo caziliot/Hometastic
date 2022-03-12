@@ -1,34 +1,20 @@
-  <%# <div class="container">
-    <div class="search-bar">
-      <%= form_tag flats_path, method: :get do %>
-        <%# text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          id: "flat_city",
-          placeholder: "Find a flat"
-        %>
-        <%# submit_tag "Search"%>
-      <%# end %>
-    <%# </div> %>
-  <%# </div>  %>
-
+  <div class="container">
 <div class="container">
-      <div class="search-bar">
-        <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
-          <div class="location-input">
-            <label>Location</label>
-            <%= text_field_tag :query, params[:query], class: "ap-nostyle ap-icon-pin", id: "flat_city", placeholder:"Where are you going" %>
-          </div>
-            <div>
-              <label>Available From</label>
-              <%= text_field_tag :start_month, params[:start_month], class: "datepicker", placeholder:"Select Month" %>
-            </div>
-            <div>
-              <label>To</label>
-              <%= text_field_tag :end_month, params[:start_month], class: "datepicker", placeholder:"Select Month" %>
-            </div>
-            <%= button_tag do %>
-              <i class="fas fa-search" style="color:white"></i>
-            <% end %>
-        <% end %>
-      </div>
+    <div class="search-bar">
+      <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+        <div class="searchbarflex">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: "flat_city",
+            placeholder: "Location"
+          %>
+          <%= f.input :start_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_start", placeholder: "start_month"} %>
+          <%= f.input :end_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_end", placeholder: "end_month"} %>
+          <%= button_tag class:"BtnSearch" do %>
+            <i class="fas fa-search" style="color:white"></i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+</div>

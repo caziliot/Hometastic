@@ -16,7 +16,6 @@ Flat.destroy_all
 User.destroy_all
 puts "start seeding"
 5.times do |i|
-
   user = User.new(
     email: "email-#{i}@email.com",
     first_name: Faker::Name.first_name,

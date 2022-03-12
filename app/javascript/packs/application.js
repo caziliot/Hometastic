@@ -26,6 +26,7 @@ import "bootstrap";
 //= require_tree .
 
 // Internal imports, e.g:
+import { rangePlugin } from "flatpickr/dist/plugins/rangePlugin";
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initFlatRange } from "../plugins/flatpickr";
 import { initChatRoomCable } from "../channels/chat_room_channel";
@@ -34,6 +35,12 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initFlatpickr();
+<<<<<<< HEAD
+  initFlatpickr("#month_start", {
+    altInput: true
+  });
+=======
+>>>>>>> 5d4e68b9ba0e49c71c6a8623d65ef5fa829e822e
   initFlatRange();
   initChatRoomCable();
   initAutocomplete();
