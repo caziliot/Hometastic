@@ -1,11 +1,12 @@
-<h2 class="f24 pT" >Reviews</h2>
-  <div class="grid">
+<div class="f24 pT alignC" ><%= image_tag "star_big.png"%> <p style="display: inline;"> <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews </p> </div>
+  <div class="grid3">
     <% @flat.reviews.each do |review| %>
       <div class="review-card d-flex">
-        <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review" %>
-        <h5><%= review.booking_request.user.first_name%></h5>
+        <p> <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review mr-2" %>
+        <%= review.booking_request.user.first_name%></p>
         <p><%= review.content %></p>
-        <p><strong><em><%= review.rating %>/5 <i class="fa-solid fa-star"></i></em></strong></p>
+        <p><strong><%= review.rating%><i class="fa-solid fa-star"></i></strong></p>
+
       </div>
     <% end %>
   </div>
