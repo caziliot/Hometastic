@@ -109,6 +109,10 @@ body {
   padding-left: 90px;
 }
 
+.pR {
+  padding-right: 20px;
+}
+
 
 .pT {
   padding-top: 60px;
@@ -157,6 +161,12 @@ body {
   justify-content: end;
 }
 
+.bookingFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: top!important;
+}
+
 .show{
   visibility: visible;
 }
@@ -172,6 +182,15 @@ body {
 .borderB{
   border-bottom: 1px solid #c4c4c4;
 }
+
+.mB124{
+margin-bottom: 124px;
+}
+
+.mB176{
+margin-bottom: 176px;
+}
+
 
 
 // QUESTI SONO I PIU IMPORTANTIIIIII
