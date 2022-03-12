@@ -1,26 +1,26 @@
 
 <div class="container">
-  <div class="card-product">
-    <%= cl_image_tag booking.user.photo.key, class: "avatar-large"%>
+  <div class="card-product borderB">
+    <div><%= cl_image_tag booking.user.photo.key, class: "userAvatar"%></div>
     <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
     <div class="flex space-between">
       <div class="card-product-infos">
         <%= link_to flat_path(booking.user.flats.first) do %>
-          <h2 class="purple"><%= booking.user.first_name %>, <%= booking.user.flats.first.city %>, <%= booking.user.flats.first.name %></h2>
+          <h2 class="purple alignC"><%= booking.user.first_name %>, <%= booking.user.flats.first.city %></h2>
         <% end %>
-        <H2 id="spacing"><%= booking.month_request.to_date.strftime("%b - %Y")  %></H2>
+        <h2 id="spacing" class="alignC f16"><%= booking.month_request.to_date.strftime("%b - %Y")  %></h2>
         <div class="flex">
           <div class="flex extra-margin">
             <%= image_tag "logo.png", class: 'log' %>
-            <p> <%= booking.user.total_swaps %> swaps</p>
+            <p style="padding-top: 3px; padding-left: 3px;"> <%= booking.user.total_swaps %> swaps</p>
           </div>
           <div class="flex">
             <%= image_tag "star.png", class: 'log' %>
-            <p> <%= booking.user.flats.first.reviews.length %> reviews</p>
+            <p style="padding-top: 5px; padding-left: 3px;"> <%= booking.user.flats.first.reviews.length %> reviews</p>
           </div>
         </div>
       </div>
-      <div>
+      <div class="pAcceptDecline">
         <%= render 'components/stay_status_in', booking: booking %>
         <%# <button type="button" class="btn-bd rounded-pill border-0">Accept</button> %>
         <%# <button type="button" class="btn-bd rounded-pill border-0">Decline</button> %>
