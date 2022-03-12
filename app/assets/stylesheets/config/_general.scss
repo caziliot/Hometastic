@@ -172,7 +172,7 @@ body {
 
 .w250 {
   width:290px;
-  height: 400px;
+  height: 400px!important;
 }
 
 .wAmenities {
@@ -199,6 +199,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: top!important;
+
 }
 
 .show{
