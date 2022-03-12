@@ -7,9 +7,9 @@
 <%# Grid start %>
 <div class="grid">
 
-
+<div>
 <%# carousel start %>
-<div class="bookingFlex">
+<div class="bookingFlex mb-5">
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
       <% @flat.photos.each_with_index do |photo, i| %>
@@ -31,9 +31,11 @@
 <%# carousel end %>
 <%# map start %>
 <div>
-<img src="app/assets/images/map.png" class="" alt="">
+<%= image_tag "map.png", class: "map mt-5" %>
 </div>
 <%# map end %>
+</div>
+
 
 <%# Info start %>
 <div class="pL2 pT">
@@ -42,11 +44,9 @@
         <div class="pTB ">
       <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;">Hurray!<br>Now that you both confirm you're happy to swap flat for some time at home away from home, check our tips and guidelines to make the most out of your trip. <br> <br> Prepare your suitcase, you are going to stay at <%= @flat.user.first_name %>'s place in:</p>
       <div class="f28"><%= @booking.month_request.to_date.strftime("%B") %></div>
-      <p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;">Remember you can always keep chatting with <%= @flat.user.first_name %> for any relevant information you may need. We rely on a community of great people that communicate between each other with respect, honesty and politeness.</p>
-      <br>
-      <br>
-      <br>
-      <div class="f24"><strong>Some more useful information for you</strong></div>
+      <p class="f16 mb-5" style="padding-top:30px; padding-bottom:30px;">Remember you can always keep chatting with <%= @flat.user.first_name %> for any relevant information you may need. We rely on a community of great people that communicate between each other with respect, honesty and politeness.</p>
+
+      <div class="f24 mb-3"><strong>Some more useful information for you</strong></div>
       <div class="flex justify-content-space-between">
         <div class="mB124"><span class="iconify pR" data-icon="akar-icons:key" style="color: #2c364c;" data-width="60" data-height="60"></span></div>
 
@@ -55,7 +55,7 @@
       <div class="flex justify-content-space-between">
         <div class="mB176"><span class="iconify pR" data-icon="ic:round-cancel-presentation" style="color: #2c364c;" data-width="60" data-height="60"></span></div>
 
-        <div><p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0;"><strong>Cancellation policy</strong><br>We hope you guys can all make it through your trips once agreed, confirmed and paid to the other flat's owner. We are also aware that you may have some emergencies or something unexpected happening. Please try as much as you can to let the other owner know about it, since this would results in flight last minute change and the need of finding someone else at the last moment.</p></div>
+        <div><p class="f16" style="padding-top:30px; padding-bottom:30px; margin-bottom:0"><strong>Cancellation policy</strong><br>We hope you guys can all make it through your trips once agreed, confirmed and paid to the other flat's owner. We are also aware that you may have some emergencies or something unexpected happening. Please try as much as you can to let the other owner know about it, since this would results in flight last minute change and the need of finding someone else at the last moment.</p></div>
       </div>
     </div>
       <div class="description"> </div>
@@ -64,5 +64,6 @@
 <%# Info end %>
 </div>
 <%# Grid end %>
+
 
 </div>
