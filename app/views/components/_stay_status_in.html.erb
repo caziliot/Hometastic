@@ -5,8 +5,14 @@
   <h2 class="purple mr-3"><%= booking.status %></h2>
 <% elsif booking.stay_status == BookingRequest::CANCELLED%>
   <h2 class="purple mr-3"><%= booking.stay_status %></h2>
-<% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
-  <%= link_to "View", booking_request_path(booking), class: "btn-bd rounded-pill border-0" %>
 <% elsif booking.stay_status == BookingRequest::TB_PAID || booking.stay_status == BookingRequest::TBP_OWNER%>
   <%= link_to "Pay", confirm_booking_path(booking), class: "btn-bd rounded-pill border-0"%>
+<% elsif booking.stay_status == BookingRequest::TBP_REQUESTER %>
+  <h2 class="purple mr-3"><%= booking.stay_status %></h2>
+<% elsif booking.status == BookingRequest::ACCEPTED && booking.stay_status == BookingRequest::UPCOMING %>
+  <%= link_to "View", booking_request_path(booking), class: "btn-bd rounded-pill border-0" %>
+<% elsif booking.stay_status == BookingRequest::IN_PROGRESS %>
+  <h2 class="purple mr-3"><%= booking.stay_status %></h2>
+<% elsif booking.stay_status == BookingRequest::FINISHED %>
+  <h2 class="purple mr-3"><%= booking.stay_status %></h2>
 <% end %>
