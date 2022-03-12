@@ -1,26 +1,28 @@
 <!-- app/views/chatrooms/show.html.erb -->
 
-<div class="d-flex mPage">
+<div class="d-flex mPage" >
+  <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
   <div class="flex-shrink-1">
-    <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
     <ul class="list-group-flush">
       <% @chat_rooms.each do |chat| %>
-        <% if chat.messages.any? %>
-          <% if chat.flat.user_id == current_user.id%>
-            <%= link_to flat_chat_room_path(chat.flat, chat) do %>
-              <%= render 'components/chat_bubble', user: chat.messages.first.user, chat: chat  %>
-            <% end %>
-          <% else %>
-            <%= link_to flat_chat_room_path(chat.flat, chat), class: "noDeco" do %>
-              <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
-            <% end %>
+        <div>
+          <% if chat.messages.any? %>
+            <% if chat.flat.user_id == current_user.id%>
+              <%= link_to flat_chat_room_path(chat.flat, chat), class: "noDeco linkin" do %>
+                <%= render 'components/chat_bubble', user: chat.messages.first.user, chat: chat  %>
+              <% end %>
+            <% else %>
+              <%= link_to flat_chat_room_path(chat.flat, chat), class: "noDeco linkout" do %>
+                <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
+              <% end %>
+            <%end %>
           <%end %>
-        <%end %>
+        </div>
       <% end %>
     </ul>
   </div>
 
-  <div class=" ml-4">
+  <div class=" ml-4" id="chat-display">
     <%= render 'chat_show', flat: @flat, chat_room: @chat_room, message: @message %>
 
   </div>
