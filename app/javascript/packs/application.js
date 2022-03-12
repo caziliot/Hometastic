@@ -34,9 +34,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initFlatpickr("#month_start", {
-    altInput: true
-  });
+  initFlatpickr();
   initFlatRange();
   initChatRoomCable();
   initAutocomplete();

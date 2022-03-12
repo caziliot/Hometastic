@@ -20,7 +20,7 @@ class Flat < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
+  
   def available?(date_s)
     month = available_months.find_by(month_year: date_s)
     return month.nil? ? false : !month.taken
