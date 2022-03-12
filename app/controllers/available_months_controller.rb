@@ -19,6 +19,6 @@ class AvailableMonthsController < ApplicationController
  private
 
   def months_params
-    params.require(:available_month).permit(:month_year, :free)
+    params.require(:available_month).permit(:month_year)
   end
 end

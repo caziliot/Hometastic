@@ -11,9 +11,17 @@
               <%end %> </p>
         </div>
         <% if current_user == @flat.user %>
-          <div style="padding-bottom:10px;">
-            <%= link_to edit_flat_path(@flat) do %>
-              <span class="iconify" data-icon="clarity:note-edit-line" style="color: #a1a1aa; margin-right:10px;" data-width="32"></span>
+        <div style="padding-bottom:10px;">
+        <%= link_to edit_flat_path(@flat) do %>
+          <span class="iconify" data-icon="clarity:note-edit-line" style="color: #a1a1aa; margin-right:10px;" data-width="32"></span>
+        <% end %>
+        <%= link_to new_flat_amenity_path(@flat) do %>
+          <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa; margin-right:18px;" data-width="32"></span>
+        <% end %>
+        <%= simple_form_for [ @flat, @available_month ] do |f| %>
+              <%= f.input :month_year, as: :string, input_html: {class: "datepicker"} %>
+              <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
+
             <% end %>
             <%= link_to new_flat_amenity_path(@flat) do %>
               <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa; margin-right:18px;" data-width="32"></span>
@@ -78,26 +86,19 @@
             <%= f.input :month_request, as: :string, required: true, placeholder:'select date', wrapper_html: {class:"form-month"}, input_html: {class: "datepicker"} %>
             <br>
             <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
-
           <% end %>
           <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
-
         <% else %>
-
         <% end  %>
         <%#----------------- %>
       </div>
+<<<<<<< HEAD
     </div>
+=======
+>>>>>>> master
   <%# Booking end %>
-
-
-
 </div>
 <%# main div ends %>
-
-
-
-
 
     <%# <% if @amenities %>
       <%# <p>Amenities:</p> %>
