@@ -1,11 +1,17 @@
 
 <div class="container">
   <div class="chat-bub">
-    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+    <%= cl_image_tag user.photo.key, class: "avatar-large"%>
+    <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
     <div class="chat-info">
-      <p>Diana <span class="selected-color">Berlin</span></p>
-      <p>Request Made</p>
-      <p><span class="message-info selected-color">Last Message 14 Dec 2021</span></p>
+      <p> <%= user.first_name %> <span class="selected-color"><%= user.flats.first.city %></span></p>
+      <p><%= user.first_name %>'s flat has received <%= user.booking_as_owner.size%> total requests</p>
+      <% last_message = chat.messages.last %>
+      <% if last_message.created_at.to_date == Date.current %>
+        <p><span class="message-info selected-color">Last Message: today </span></p>
+      <% else %>
+        <p><span class="message-info selected-color">Last Message: <%= last_message.created_at.strftime("%-d %b %y") %> </span></p>
+      <% end %>
     </div>
   </div>
 </div>

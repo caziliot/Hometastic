@@ -1,10 +1,20 @@
 
-<%= render 'components/chat_bubble' %>
+
 <div class="mPage">
   <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
   <ul class="list-group-flush">
     <% @chat_rooms.each do |chat| %>
-      <li class="list-group-item"> <%= link_to chat.flat.user.first_name, flat_chat_room_path(chat.flat, chat) %></li>
+      <% if chat.messages.any? %>
+        <% if chat.flat.user_id == current_user.id%>
+          <%= link_to flat_chat_room_path(chat.flat, chat) do %>
+            <%= render 'components/chat_bubble', user: chat.messages.first.user, chat: chat  %>
+          <% end %>
+        <% else %>
+          <%= link_to flat_chat_room_path(chat.flat, chat), class: "noDeco" do %>
+            <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
+          <% end %>
+        <%end %>
+      <%end %>
     <% end %>
   </ul>
 </div>
