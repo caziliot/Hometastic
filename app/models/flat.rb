@@ -20,11 +20,20 @@ class Flat < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-  
+
   def available?(date_s)
     month = available_months.find_by(month_year: date_s)
     return month.nil? ? false : !month.taken
   end
+
+  def available_between?(date_s, date_e)
+    months = available_months.select do |am|
+      am.month_year.to_date >= date_s.to_date && am.month_year.to_date <= date_e.to_date && !am.taken
+    end
+    return months.any?
+  end
+
+
 
   def find_chat(user_id)
     result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
