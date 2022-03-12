@@ -26,7 +26,11 @@
       </li>
     <% end %>
     <li>
-      <%= link_to "Chats",flat_chat_room_path(current_user.flats.first, current_user.flats.first.chat_rooms.first), class: "nav-item" %>
+      <% if current_user.all_chats.any? %>
+        <%= link_to "Chats",flat_chat_room_path(current_user.all_chats.first.flat, current_user.all_chats.first), class: "nav-item" %>
+      <% else %>
+        <%= link_to "Chats",chat_rooms_path, class: "nav-item" %>
+      <% end %>
     </li>
     <li>
       <%= link_to "Dashboard", dashboard_path, class: "nav-btn", style: "text-decoration: none;"%>
