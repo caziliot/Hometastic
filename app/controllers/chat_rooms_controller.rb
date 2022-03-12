@@ -10,6 +10,10 @@ class ChatRoomsController < ApplicationController
     @chat_room = ChatRoom.find(params[:id])
     @flat = Flat.find(params[:flat_id])
     @message = Message.new
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'chat_rooms/chat_show', locals: { chat_room: @chat_room, flat: @flat, message: @message}, formats: [:html] }
+    end
   end
 
   def create

@@ -2,7 +2,7 @@
 
 <div class="mPage">
   <%= link_to "⬅️ To dashboard", dashboard_path, class:"f14 nodeco" %>
-  <ul class="list-group-flush">
+  <ul class="list-group-flush ml">
     <% @chat_rooms.each do |chat| %>
       <% if chat.messages.any? %>
         <% if chat.flat.user_id == current_user.id%>

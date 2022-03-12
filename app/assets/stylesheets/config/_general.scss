@@ -61,6 +61,24 @@ body {
   font-weight: bold;
 }
 
+.f28L {
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+  font-weight: bold;
+}
+
+
+.f28b {
+  font-size: 28px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
 .mPage {
   margin: 70px;
 }
@@ -99,6 +117,13 @@ body {
 
 }
 
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px 10px;
+  margin-left: -20px;
+}
+
 .amenitiesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr ;
@@ -109,6 +134,15 @@ body {
   padding-left: 90px;
 }
 
+.pL {
+  padding-left: 40px;
+}
+
+
+.pR {
+  padding-right: 20px;
+}
+
 
 .pT {
   padding-top: 60px;
@@ -116,6 +150,10 @@ body {
 
 .pT2 {
   padding-top: 20px;
+}
+
+.pT3 {
+  padding-top: 10px;
 }
 
 .pB {
@@ -134,7 +172,7 @@ body {
 
 .w250 {
   width:290px;
-  height: 400px;
+  height: 400px!important;
 }
 
 .wAmenities {
@@ -157,6 +195,13 @@ body {
   justify-content: end;
 }
 
+.bookingFlex{
+  display: flex;
+  justify-content: space-between;
+  align-items: top!important;
+
+}
+
 .show{
   visibility: visible;
 }
@@ -171,6 +216,34 @@ body {
 
 .borderB{
   border-bottom: 1px solid #c4c4c4;
+}
+
+.mB124{
+margin-bottom: 124px;
+}
+
+.mB176{
+margin-bottom: 176px;
+}
+
+.mB176{
+margin-bottom: 176px;
+}
+
+.map{
+  height: 520px;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 30px;
+  border-radius: 3%;
+
+}
+.alignC{
+text-align: left;
+}
+
+.pAcceptDecline{
+  margin: 0 0 0 80px;
 }
 
 
