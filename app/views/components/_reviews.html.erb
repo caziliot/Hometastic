@@ -4,8 +4,12 @@
       <div class="review-card d-flex">
         <p> <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review mr-2" %>
         <%= review.booking_request.user.first_name%></p>
+        <div style="padding-left:20px;">
+          <% review.rating.times do %>
+            <i class="fa-solid fa-star" style=" display: inline-block;"></i>
+          <% end %>
+         </div>
         <p><%= review.content %></p>
-        <p><strong><%= review.rating%><i class="fa-solid fa-star"></i></strong></p>
 
       </div>
     <% end %>
