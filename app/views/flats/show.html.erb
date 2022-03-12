@@ -19,7 +19,7 @@
           <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa; margin-right:18px;" data-width="32"></span>
         <% end %>
         <%= simple_form_for [ @flat, @available_month ] do |f| %>
-              <%= f.input :month_year, as: :date, order: [:month, :year] %>
+              <%= f.input :month_year, as: :string, input_html: {class: "datepicker"} %>
               <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
 
             <% end %>
