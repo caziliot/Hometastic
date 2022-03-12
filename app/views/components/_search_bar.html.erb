@@ -3,12 +3,12 @@
     <div class="search-bar">
       <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
         <div class="searchbarflex">
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            id: "flat_city",
-            placeholder: "Location"
-          %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              id: "flat_city",
+              placeholder: "Location"
+            %>
           <%= f.input :start_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_start", placeholder: "start_month"} %>
           <%= f.input :end_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_end", placeholder: "end_month"} %>
           <%= button_tag class:"BtnSearch" do %>

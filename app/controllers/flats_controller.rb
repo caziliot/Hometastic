@@ -3,29 +3,34 @@ class FlatsController < ApplicationController
 
   def index
     #location
-    if params[:query].present?
-     @flats = Flat.search_by_name_date_price_direction_city(params[:query])
-    else
-     @flats = Flat.all
-    end
-
-
-
     # if params[:query].present?
-    #   sql_query = " \
-    #     flats.city ILIKE :query \
-    #     OR flats.address ILIKE :query \
-    #     OR flats.name ILIKE :query
-    #   "
-    #   @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
-    # elsif params[:start_date].present? && params[:end_date].present?
+    #  @flats = Flat.search_by_name_date_price_direction_city(params[:query])
+    # else
+    #  @flats = Flat.all
+    # end
+
+
+    if params[:start_date].present? && params[:end_date].present?
+      sql_query = " \
+        flats.city ILIKE :query \
+        OR flats.address ILIKE :query \
+        OR flats.name ILIKE :query
+      "
+    elsif params[:query].present?
+      sql_query = " \
+        flats.city ILIKE :query \
+        OR flats.address ILIKE :query \
+        OR flats.name ILIKE :query
+      "
+      @flats = Flat.where(sql_query, query: "%#{params[:query]}%")
 
 
     # elsif
     #   @flats = Flat.all
     # end
-    # @cities = []
-    # Flat.all.each { |flat| @cities << flat.city }
+    else
+    @flats = Flat.all
+    end
   end
 
   def show
