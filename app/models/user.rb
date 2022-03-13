@@ -59,6 +59,7 @@ class User < ApplicationRecord
   end
 
   def all_chats
+    f = flats.first
     ChatRoom.joins(:messages).where(messages: {user_id: id}).distinct
   end
 
