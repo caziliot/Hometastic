@@ -7,7 +7,6 @@ const initChatRoomCable = () => {
 
     consumer.subscriptions.create({ channel: "ChatRoomChannel", id: id }, {
       received(data) {
-        console.log(data)
         messagesContainer.insertAdjacentHTML('beforeend', data);
       },
     });

@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :flats
   has_many :booking_requests # Outgoing booking requests, booking as a customer
   has_many :messages
-  has_many :chatrooms, through: :flats
+  has_many :incoming_chatrooms, through: :flats, source: :chat_rooms # chats received as owners
+  has_many :chat_rooms # Outgoing Chats sent to owners
   has_many :booking_as_owner, through: :flats, source: :booking_requests # Bookings incoming, to my flat
 
   has_one_attached :photo
@@ -59,8 +60,7 @@ class User < ApplicationRecord
   end
 
   def all_chats
-    f = flats.first
-    ChatRoom.joins(:messages).where(messages: {user_id: id}).distinct
+    chat_rooms + incoming_chatrooms
   end
 
 
