@@ -1,4 +1,5 @@
 class AmenitiesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def new
     @general_amenities = GeneralAmenity.all
     @flat = Flat.find(params[:flat_id])
@@ -6,19 +7,34 @@ class AmenitiesController < ApplicationController
   end
 
   def create
-    @amenity = Amenity.new(amenity_params)
+    @result = amenity_params.delete("[]").split(",")
     @flat = Flat.find(params[:flat_id])
-    @amenity.flat = @flat
-    if @amenity.save
-      redirect_to flat_path(@flat)
-    else
-      render :new
+    amenities = []
+    @result.each do |id|
+      g = GeneralAmenity.find(id)
+      a= Amenity.new(title: g.title, icon_class: g.icon_class, flat_id: @flat.id)
+      amenities << a
     end
+    Amenity.transaction do
+      amenities.each do |a|
+        a.save!
+      end
+    end
+
+    respond_to do |format|
+      format.html { @vars
+        raise
+      }
+      format.text {
+        render partial: 'success', formats: [:html]
+      }
+    end
+
   end
 
   private
 
   def amenity_params
-    params.require(:amenity).permit(:title, :icon_class)
+    params.require(:json)
   end
 end
