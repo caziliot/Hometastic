@@ -31,7 +31,9 @@ import { initFlatpickr } from "../plugins/flatpickr";
 import { initFlatRange } from "../plugins/flatpickr";
 import { initChatRoomCable } from "../channels/chat_room_channel";
 import { initAutocomplete } from "../plugins/init_autocomplete";
-import { init_chat_listener} from "../plugins/init_chat_listener"
+import { init_chat_listener} from "../plugins/init_chat_listener";
+import { initMapbox } from '../plugins/init_mapbox';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   init_chat_listener();
@@ -39,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initFlatRange();
   initChatRoomCable();
   initAutocomplete();
+  initMapbox();
 });

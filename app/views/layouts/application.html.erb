@@ -13,6 +13,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <%= stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
@@ -21,7 +22,7 @@
       <%= render 'components/navbar' %>
       <%= yield %>
       <%= render 'shared/flashes' %>
-       <%# <%= render 'components/footer' unless params[:action] == "home" %> 
+       <%# <%= render 'components/footer' unless params[:action] == "home" %>
     </div>
   </div>
 
