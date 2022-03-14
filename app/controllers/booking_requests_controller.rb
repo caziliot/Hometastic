@@ -26,7 +26,7 @@ class BookingRequestsController < ApplicationController
     else
       @flat = Flat.find_by(user_id: @booking.user_id)
     end
-    @markers = @flat.geocode.map do
+    @markers = @flat.geocode.map do # geocode or geocoded??
       {
         lat: @flat.latitude,
         lng: @flat.longitude,

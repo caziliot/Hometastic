@@ -30,11 +30,13 @@ puts "start seeding"
 
   flat = Flat.new(
     name: ["Epic Barceloneta Beach and Marina Apartment Blanco", "Light Studio Flat - Brand New - Chelsea", "Studio 'Spicy Wasabi' 31 qm", "Petit Studio Paris Centre", "Monolocale : cucina, bagno, terrazza comune"].sample,
-    address: Faker::Address.street_name,
+    address: Faker::Address.street_address,
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
-    user_id: user.id
+    user_id: user.id,
+    latitude: ''.to_f,
+    longitude: ''.to_f
   )
   5.times do
     file = URI.open('https://source.unsplash.com/random/?apartment')
