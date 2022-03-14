@@ -1,5 +1,6 @@
 class AmenitiesController < ApplicationController
   def new
+    @general_amenities = GeneralAmenity.all
     @flat = Flat.find(params[:flat_id])
     @amenity = Amenity.new
   end

@@ -40,3 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatRoomCable();
   initAutocomplete();
 });
+
+import "controllers"

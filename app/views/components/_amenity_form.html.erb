@@ -1,5 +1,13 @@
-<div class="amenity-form-container">
+<div class="amenity-form-container" data-controller= "amenities-selector">
   <h1>Add an amenity </h1>
+  <% @general_amenities.each_with_index do |amenity, i|%>
+    <p class="f16">
+      <span class="iconify" data-icon=<%=amenity.icon_class%> data-amenities-selector-target=<%="a#{i}"%> style="color: #2c364c; font-size: 28px;">
+      </span> <%= amenity.title %>
+    </p>
+  <% end %>
+
+
   <%= simple_form_for [ @flat, @amenity ] do |f| %>
     <%= f.input :title %>
     <%#= f.input :icon_class %>
