@@ -1,0 +1,10 @@
+#messages {
+  overflow-y: scroll;
+  height: 300px;
+  width: 600px;
+}
+
+.message-container {
+  display: flex;
+  flex-flow: column wrap;
+}

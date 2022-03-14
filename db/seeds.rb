@@ -72,7 +72,8 @@ end
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
 
   chatroom = ChatRoom.create!(
-    flat_id: rand(Flat.first.id..Flat.last.id)
+    flat_id: Flat.first.id + i
+    user_id: Flat.first.user.id + 1 + i
   )
   puts "chat ##{i + 1}, chating with user ##{chatroom.flat_id}"
 

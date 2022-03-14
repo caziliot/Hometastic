@@ -12,17 +12,17 @@ class ChatRoomsController < ApplicationController
     @message = Message.new
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'chat_rooms/chat_show', locals: { chat_room: @chat_room, flat: @flat, message: @message}, formats: [:html] }
+      format.text { render partial: 'chat_rooms/chat_show', locals: { chat_room: @chat_room, flat: @flat, message: @message}, formats: [:html], anchor: "message-#{@chat_room.messages.last&.id}" }
     end
   end
 
   def create
     @flat = Flat.find(params[:flat_id])
-    if @flat.find_chat(current_user)
-      @chat_room = @flat.find_chat(current_user)
-      redirect_to flat_chat_room_path(@flat, @chat_room)
+    @chat_room = ChatRoom.find_by(flat_id: @flat.id, user_id: current_user.id)
+    if @chat_room
+      redirect_to flat_chat_room_path(@flat, @chat_room, anchor: "message-#{@chat_room.messages.last&.id}")
     else
-      @chat_room = ChatRoom.new(flat: @flat)
+      @chat_room = ChatRoom.new(flat: @flat, user: current_user)
       if @chat_room.save
         redirect_to flat_chat_room_path(@flat, @chat_room)
       else
@@ -31,8 +31,5 @@ class ChatRoomsController < ApplicationController
     end
   end
 
-  def self.find_chat(flat, user)
-    flat.chat_rooms.joins(:messages).where(messages: {user_id: user.id}).distinct
-  end
 
 end
