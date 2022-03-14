@@ -1,7 +1,7 @@
 <div class="flat-form-container">
   <%= simple_form_for flat do |f| %>
     <%= f.input :name %>
-    <%= f.input :address, id: "flat_addres" %>
+    <%= f.input :address, id: "flat_address" %>
     <%= f.input :city, id: "flat_city", readonly: false%>
     <%= f.input :description %>
     <%= f.input :price, input_html: { min: '0', step: 'any' } %>

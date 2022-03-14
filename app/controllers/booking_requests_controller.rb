@@ -23,15 +23,15 @@ class BookingRequestsController < ApplicationController
     @booking = BookingRequest.find(params[:id])
     if current_user.id == @booking.user_id
       @flat = Flat.find(@booking.flat_id)
-
-      @markers = @flat.geocode.map do
-        {
-          lat: @flat.latitude,
-          lng: @flat.longitude
-        }
-      end
     else
       @flat = Flat.find_by(user_id: @booking.user_id)
+    end
+    @markers = @flat.geocode.map do
+      {
+        lat: @flat.latitude,
+        lng: @flat.longitude,
+        image_url: helpers.asset_url('logo.png')
+      }
     end
   end
 
