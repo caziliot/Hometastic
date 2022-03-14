@@ -30,8 +30,9 @@
 </div>
 <%# carousel end %>
 <%# map start %>
-<div>
-<%= image_tag "map.png", class: "map mt-5" %>
+<div id="map"
+     style="margin-top: 5px;"
+     data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <%# map end %>
 </div>
