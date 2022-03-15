@@ -8,3 +8,22 @@
 	border-radius: 8px;
 	font-family: 'Roboto', sans-serif;
 }
+
+.amenity {
+  color: #D4D4D8;
+  cursor: pointer;
+}
+
+.span-size {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.amenity:hover {
+  color: #2c364c;
+}
+
+.selected {
+  color: #2c364c;
+  cursor: pointer;
+}
