@@ -1,9 +1,28 @@
-<div class="amenity-form-container">
+<div class="amenity-form-container " data-controller= "amenities-selector"
+  data-amenities-selector-amenity-class="amenity"
+  data-amenities-selector-selected-class="selected">
   <h1>Add an amenity </h1>
-  <%= simple_form_for [ @flat, @amenity ] do |f| %>
-    <%= f.input :title %>
-    <%#= f.input :icon_class %>
-    <%= f.submit "Add", class: "btn-small rounded-pill border-0"%>
-    <%= link_to "Back", flat_path(@flat)%>
+  <div class="amenitiesGrid pT2 pB30 borderB">
+    <% @general_amenities.each_with_index do |amenity, i|%>
+      <% if @flat.amenities.find_by(title: amenity.title)
+        classi = "selected"  %>
+      <% else %>
+        <% classi = "amenity"%>
+      <%end %>
+      <p class=<%="#{classi}"%> data-amenities-selector-target="amenity"
+        data-action="click->amenities-selector#select"
+        id="<%=amenity.id%>"
+        >
+        <span class="iconify span-size" data-icon=<%=amenity.icon_class%> >
+        </span> <%= amenity.title %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [ @flat, @amenity ], data: {amenities_selector_target: "form" } do |f| %>
+
+    <%= f.submit "Save", class: "btn-small rounded-pill border-0",
+      data: {amenities_selector_target: "button", action: "click->amenities-selector#update"}%>
+    <%= link_to "Back", flat_path(@flat), style: "text-decoration: none;"%>
   <% end %>
 </div>

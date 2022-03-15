@@ -20,7 +20,7 @@ const init_chat_listener = () => {
   });
 
   addEventListener('click', (event) => {
-    console.log(event);
+    // console.log(event);
   });
 
 }

@@ -103,6 +103,13 @@ ActiveRecord::Schema.define(version: 2022_03_14_094014) do
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
+  create_table "general_amenities", force: :cascade do |t|
+    t.string "title"
+    t.string "icon_class"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
