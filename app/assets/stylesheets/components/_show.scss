@@ -7,3 +7,24 @@ h2 {
 .btn_index {
   margin-left: 15px;
 }
+
+.display-available {
+  width: 174px;
+  height: 45px;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.9px solid #2C364C;
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.column-container {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/* Show all 13 amenities */

@@ -1,0 +1,6 @@
+<%= simple_form_for [ flat, available_month ], data: {show_target: "form" } do |f| %>
+  <%= f.input :month_year, as: :string, input_html: {class: "datepicker", data: {show_target: "input"}},
+    wrapper_html: {class:"form-month"}  %>
+  <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W",
+    data: {show_target: "button", action: "click->show#update"} %>
+<% end %>
