@@ -26,13 +26,7 @@ class BookingRequestsController < ApplicationController
     else
       @flat = Flat.find_by(user_id: @booking.user_id)
     end
-    @markers = @flat.geocode.map do # geocode or geocoded??
-      {
-        lat: @flat.latitude,
-        lng: @flat.longitude,
-        image_url: helpers.asset_url('logo.png')
-      }
-    end
+    @marker = { lat: @flat.latitude, lng: @flat.longitude, image_url: helpers.asset_url('logo.png') }
   end
 
   # There should be a create, for when the Booking is sent and one update for when the
