@@ -1,6 +1,6 @@
 <div>
-  <p class="f26">#<%= chat_room.flat.name%> from <%= chat_room.flat.user.first_name %></p>
-  <div id="messages" data-chat-room-id="<%= chat_room.id %>">
+  <p class="f26"><%= chat_room.flat.name%> from <%= chat_room.flat.user.first_name %></p>
+  <div id="messages" style="" data-chat-room-id="<%= chat_room.id %>" >
     <% chat_room.messages.each do |message| %>
       <%= render 'messages/message', message: message %>
     <% end %>

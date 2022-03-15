@@ -33,11 +33,31 @@ class Flat < ApplicationRecord
     return months.any?
   end
 
+  def edit_amenities(g_amenities_ids)
+    puts "enter amenities-------"
+    g_amenities_ids.inspect
+    amenis = []
+    GeneralAmenity.all.each do |ga|
+      on_flat = amenities.find_by(title: ga.title)
+      puts "on flat: #{on_flat&.title}"
+      unless g_amenities_ids.include?(ga.id.to_s) && on_flat
+        if g_amenities_ids.include?(ga.id.to_s)
+          a = Amenity.new(title: ga.title, icon_class: ga.icon_class, flat_id: id)
+          puts a
+          amenis << a
+        elsif on_flat
+          puts "destroying #{on_flat.id}"
+          on_flat.destroy!
+        end
+      end
+    end
+    Amenity.transaction do
+      amenis.each do |a|
+        puts "saving amenities"
+        a.save!
+      end
+    end
 
-
-  def find_chat(user_id)
-    result = chat_rooms.joins(:messages).where(messages: {user_id: user_id}).distinct
-    return result.first
   end
 
   def review_average

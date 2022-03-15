@@ -1,0 +1,2 @@
+class GeneralAmenity < ApplicationRecord
+end
