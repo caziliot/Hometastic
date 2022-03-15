@@ -24,6 +24,10 @@ GeneralAmenity.create!(title: "Work desk", icon_class: "mdi:desk")
 GeneralAmenity.create!(title: "heater", icon_class: "mdi:patio-heater")
 GeneralAmenity.create!(title: "TV", icon_class: "entypo:tv")
 GeneralAmenity.create!(title: "Double size Bed", icon_class: "ic:baseline-bed")
+GeneralAmenity.create!(title: "Pet-friendly space", icon_class: "dashicons:pets")
+GeneralAmenity.create!(title: "Jacuzzi", icon_class: "ic:baseline-hot-tub")
+GeneralAmenity.create!(title: "Air continioning", icon_class: "ic:twotone-ac-unit")
+GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-variant-alert")
 
 
 5.times do |i|
