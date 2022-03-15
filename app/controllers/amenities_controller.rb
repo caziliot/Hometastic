@@ -9,25 +9,10 @@ class AmenitiesController < ApplicationController
   def create
     @result = amenity_params.delete("[]").split(",")
     @flat = Flat.find(params[:flat_id])
-    amenities = []
-    @result.each do |id|
-      g = GeneralAmenity.find(id)
-      a= Amenity.new(title: g.title, icon_class: g.icon_class, flat_id: @flat.id)
-      amenities << a
-    end
-    Amenity.transaction do
-      amenities.each do |a|
-        a.save!
-      end
-    end
-
+    @flat.edit_amenities(@result)
     respond_to do |format|
-      format.html { @vars
-        raise
-      }
-      format.text {
-        render partial: 'success', formats: [:html]
-      }
+      format.html { redirect_to flat_path(@flat)}
+      format.text {render partial: 'success', formats: [:html]}
     end
 
   end

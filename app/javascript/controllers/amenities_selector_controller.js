@@ -37,6 +37,7 @@ export default class extends Controller {
     }).then(response => response.text())
       .then((data) => {
         console.log(data);
+        window.alert("Amenities edited successfully");
       })
   }
 }

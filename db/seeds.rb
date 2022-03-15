@@ -14,7 +14,18 @@ Review.destroy_all
 BookingRequest.destroy_all
 Flat.destroy_all
 User.destroy_all
+GeneralAmenity.destroy_all
 puts "start seeding"
+GeneralAmenity.create!(title: "Wifi", icon_class: "ant-design:wifi-outlined")
+GeneralAmenity.create!(title: "Barbecue", icon_class: "ic:baseline-outdoor-grill")
+GeneralAmenity.create!(title: "Shared furnished terrace", icon_class: "mdi:flower-tulip")
+GeneralAmenity.create!(title: "Hairdrier", icon_class: "jam:hairdryer")
+GeneralAmenity.create!(title: "Work desk", icon_class: "mdi:desk")
+GeneralAmenity.create!(title: "heater", icon_class: "mdi:patio-heater")
+GeneralAmenity.create!(title: "TV", icon_class: "entypo:tv")
+GeneralAmenity.create!(title: "Double size Bed", icon_class: "ic:baseline-bed")
+
+
 5.times do |i|
   user = User.new(
     email: "email-#{i}@email.com",
@@ -72,7 +83,7 @@ end
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
 
   chatroom = ChatRoom.create!(
-    flat_id: Flat.first.id + i
+    flat_id: Flat.first.id + i,
     user_id: Flat.first.user.id + 1 + i
   )
   puts "chat ##{i + 1}, chating with user ##{chatroom.flat_id}"
