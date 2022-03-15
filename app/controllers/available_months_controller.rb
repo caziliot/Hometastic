@@ -10,9 +10,17 @@ class AvailableMonthsController < ApplicationController
     @available_month.flat = @flat
     # @available_month.save!
     if @available_month.save
-      redirect_to flat_path(@flat)
+      respond_to do |format|
+        format.html { redirect_to flat_path(@flat)}
+        format.text { render partial: 'flats/month_p', locals: { month: @available_month }, formats: [:html] }
+      end
     else
-      render "flats/show"
+      flash[:notice] = @available_month.errors.full_messages
+      respond_to do |format|
+        format.html { render "flats/show"}
+        format.text { render partial: "components/available_form", locals: {flat: @flat, available_month: @available_month}, formats: [:html] }
+      end
+
     end
   end
 
