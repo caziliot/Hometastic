@@ -1,5 +1,5 @@
 <%# main start %>
-<div class="container">
+<div class="container" data-controller= "show" data-show-hide-class="d-none">
   <div class="">
     <div class="">
       <p class="f26"><%= @flat.name %></p>
@@ -17,10 +17,6 @@
             <% end %>
             <%= link_to new_flat_amenity_path(@flat) do %>
               <span class="iconify" data-icon="carbon:add-alt" style="color: #a1a1aa; margin-right:18px;" data-width="32"></span>
-            <% end %>
-            <%= simple_form_for [ @flat, @available_month ], html: {class: "d-none"} do |f| %>
-              <%= f.input :month_year, as: :string, input_html: {class: "datepicker"} %>
-              <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
             <% end %>
           </div>
         <% end %>
@@ -80,6 +76,14 @@
           <%= f.submit "Send a request to this Flat", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
         <% end %>
         <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
+      </div>
+    <% else %>
+      <button class="display-available"></button>
+      <div class="form m0 w250 pB30 mt-5 shadow" data-show-target="month">
+        <%= simple_form_for [ @flat, @available_month ], html: {class: ""} do |f| %>
+          <%= f.input :month_year, as: :string, input_html: {class: "datepicker"} %>
+          <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
+        <% end %>
       </div>
     <% end  %>
   </div>
