@@ -1,5 +1,5 @@
 
-<div class="container">
+
   <div class="chat-bub">
     <% if user.photo.key %>
       <%= cl_image_tag user.photo.key, class: "avatar-large"%>
@@ -18,4 +18,4 @@
       <p> <%= user.first_name %>'s flat has received <%= user.booking_as_owner.size%> total requests</p>
     </div>
   </div>
-</div>
+
