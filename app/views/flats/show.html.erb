@@ -82,6 +82,7 @@
         <% end %>
         <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
       </div>
+
     <% else %>
       <div class="column-container mt-10">
         <button class="display-available mt-5" data-show-target="displayer" data-action="click->show#display"
@@ -90,6 +91,7 @@
           <%= render 'components/available_form', flat: @flat, available_month: @available_month %>
         </div>
       </div>
+
     <% end  %>
   </div>
 </div>
