@@ -41,6 +41,11 @@
     </div>
       <%# Secondary pics end %>
   </div>
+  <div class="d-flex justify-content-end px-3" data-show-target="dates">
+    <% @flat.available_months.each do |month| %>
+       <%= render 'month_p', month: month %>
+    <% end %>
+  </div>
   <%# Images wrapper end %>
 
   <%# Wrapper amenities description form starts %>
@@ -78,12 +83,12 @@
         <%= link_to "Chat with the owner", flat_chat_rooms_path(@flat), method: :post, class: "btn-db rounded-pill border-0 w-100 mt-3 py-3 f14W" %>
       </div>
     <% else %>
-      <button class="display-available"></button>
-      <div class="form m0 w250 pB30 mt-5 shadow" data-show-target="month">
-        <%= simple_form_for [ @flat, @available_month ], html: {class: ""} do |f| %>
-          <%= f.input :month_year, as: :string, input_html: {class: "datepicker"} %>
-          <%= f.submit "Add Available Month", class: "btn-lb rounded-pill border-0 w-100 py-3 f14W" %>
-        <% end %>
+      <div class="column-container mt-10">
+        <button class="display-available mt-5" data-show-target="displayer" data-action="click->show#display"
+          >Add available dates</button>
+        <div class="form m0 pB30 mt-5 shadow d-none" data-show-target="month">
+          <%= render 'components/available_form', flat: @flat, available_month: @available_month %>
+        </div>
       </div>
     <% end  %>
   </div>

@@ -11,8 +11,6 @@ h2 {
 .display-available {
   width: 174px;
   height: 45px;
-  left: 0px;
-  top: 0px;
 
   background: rgba(255, 255, 255, 0.1);
   border: 0.9px solid #2C364C;
@@ -21,7 +19,12 @@ h2 {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
-  font-size: 14.4px;
+  font-size: 14px;
+}
+
+.column-container {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 /* Show all 13 amenities */
