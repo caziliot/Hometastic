@@ -14,7 +14,7 @@ class Flat < ApplicationRecord
   #validates :photos, presence: true
   validates :name, presence: true
 
-  geocoded_by :address
+  geocoded_by :full_street_address
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
@@ -70,4 +70,9 @@ class Flat < ApplicationRecord
     end
     return (sum.to_f/reviews.size).round(1) if reviews.any?
   end
+
+  def full_street_address
+    [address, city].compact.join(', ')
+  end
+
 end
