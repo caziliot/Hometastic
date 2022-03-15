@@ -49,7 +49,9 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
     price: Faker::Commerce.price,
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
-    user_id: user.id
+    user_id: user.id,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
   )
   5.times do
     file = URI.open('https://source.unsplash.com/random/?apartment')

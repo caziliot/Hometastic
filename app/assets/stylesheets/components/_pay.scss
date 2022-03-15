@@ -21,7 +21,8 @@
 	left: 0;
 	right: 0;
 	top:-20px;
-	margin:auto;
+	margin:20px auto;
+
 }
 
 .fa-circle-check {
@@ -52,6 +53,7 @@
 	text-align:center;
 	font-size:2em;
 	/*color: #189086;*/
+  padding: 40px;
 }
 
 .pay-container .text{
@@ -67,6 +69,8 @@
 	font-size:0.6em;
 
 }
+
+
 
 
 /*.circ{
@@ -97,6 +101,17 @@
 	font-size:.7em;
 }
 
+.dash-but{
+  color:#94B3FD ;
+  text-decoration: none;
+  font-size:16px;
+
+}
+ .dash-but:hover{
+    text-decoration: none;
+    color:#587FC9;
+
+  }
 
 /*@media (max-width:600px){
 	.congrats h1{
