@@ -1,16 +1,18 @@
-<div class="f24 pT alignC" ><%= image_tag "star_big.png"%> <p style="display: inline;"> <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews </p> </div>
-  <div class="grid3">
-    <% @flat.reviews.each do |review| %>
-      <div class="review-card d-flex">
-        <p> <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review mr-2" %>
-        <%= review.booking_request.user.first_name%></p>
-        <div style="padding-left:20px;">
-          <% review.rating.times do %>
-            <i class="fa-solid fa-star" style=" display: inline-block;"></i>
-          <% end %>
-         </div>
-        <p><%= review.content %></p>
+<% if @reviews.present? %>
+  <div class="f24 pT alignC" ><%= image_tag "star_big.png"%> <p style="display: inline;"> <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews </p> </div>
+    <div class="grid3">
+      <% @flat.reviews.each do |review| %>
+        <div class="review-card d-flex">
+          <p> <%= cl_image_tag review.booking_request.user.photo.key, class: "avatar-review mr-2" %>
+          <%= review.booking_request.user.first_name%></p>
+          <div style="padding-left:20px;">
+            <% review.rating.times do %>
+              <i class="fa-solid fa-star" style=" display: inline-block;"></i>
+            <% end %>
+          </div>
+          <p><%= review.content %></p>
 
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+<% end %>
