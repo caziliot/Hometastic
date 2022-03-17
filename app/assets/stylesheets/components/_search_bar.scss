@@ -24,7 +24,7 @@
   background: transparent;
 }
 
-.search-bar form button{
+.search-bar form .BtnSearch {
   background: #94B3FC;
   width: 36px;
   height: 30px;
@@ -75,13 +75,6 @@
 .datepicker, .form-control.ap-input {
   margin-bottom: 0%;
   background-color: #DEE2E6!important;
-}
-
-.datepicker, .form-control.wForm {
-  margin-bottom: 0%;
-  background-color: #fff!important;
-  width:100px;
-  color: #2C364C!important;
 }
 
 .fas.fa-search {
