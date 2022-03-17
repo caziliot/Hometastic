@@ -3,7 +3,7 @@ import { initChatRoomCable } from "../channels/chat_room_channel";
 const init_chat_listener = () => {
   const display = document.getElementById("chat-display");
   const linkouts = document.querySelectorAll(".linkout");
-  const linkin = document.querySelector(".linkin");
+
 
   linkouts.forEach(link => {
     link.addEventListener('click', function handleClick(event) {
@@ -14,6 +14,10 @@ const init_chat_listener = () => {
         .then((data) => {
           display.innerHTML = data;
           initChatRoomCable();
+          let flatText = document.getElementById('flat').textContent;
+          document.getElementById('user').textContent = flatText.split('•')[0];
+          const messages = document.getElementById("messages");
+          messages.scrollTo(0, messages.scrollHeight);
         })
     });
 

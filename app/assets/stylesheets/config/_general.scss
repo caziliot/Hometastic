@@ -8,7 +8,7 @@ body {
 }
 
 .f14 {
-  font-size: 14px;
+  font-size: 14px!important;
   font-family: 'Roboto', sans-serif;
   color: #3F3F46;
 }
@@ -124,12 +124,16 @@ body {
   margin-left: -20px;
 }
 
+
+
 .amenitiesGrid {
   display: grid;
   grid-template-columns: 1fr 1fr ;
   grid-gap: 10px;
 }
-
+.p0{
+  margin:0!important;
+}
 .pL2 {
   padding-left: 90px;
 }
@@ -158,6 +162,9 @@ body {
 
 .pB {
   padding-bottom: 40px;
+}
+.pB10 {
+  padding-bottom: 10px;
 }
 
 .pB30 {
@@ -218,6 +225,15 @@ body {
   border-bottom: 1px solid #c4c4c4;
 }
 
+.borderR{
+  border-radius: 25px!important;
+  height:40px!important;
+}
+
+.mR{
+margin-right: 24px!important;
+}
+
 .mB124{
 margin-bottom: 124px;
 }
@@ -230,6 +246,28 @@ margin-bottom: 176px;
 margin-bottom: 176px;
 }
 
+
+.marginMess{
+  margin-left:72px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  width: 72%;
+  border-right: 1px solid #c4c4c4;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.marginCurr{
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 195%;
+  border-bottom: 1px solid #c4c4c4;
+  margin-left: -71px;
+}
+
+.Mle{
+  margin-left: 68px;
+}
+
 .map{
   height: 520px;
   width: 100%;
@@ -238,6 +276,7 @@ margin-bottom: 176px;
   border-radius: 3%;
 
 }
+
 .alignC{
 text-align: left;
 }
@@ -245,6 +284,14 @@ text-align: left;
 .pAcceptDecline{
   margin: 0 0 0 80px;
 }
+
+.widthSend{
+  width:20%;
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
 
 
 // QUESTI SONO I PIU IMPORTANTIIIIII

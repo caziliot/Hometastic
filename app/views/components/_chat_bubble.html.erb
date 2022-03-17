@@ -1,5 +1,5 @@
 
-<div class="container">
+
   <div class="chat-bub">
     <% if user.photo.key %>
       <%= cl_image_tag user.photo.key, class: "avatar-large"%>
@@ -7,14 +7,15 @@
       <img class="avatar-large" alt="avatar-large" src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png">
     <% end %>
     <div class="chat-info">
-      <p> <%= user.first_name %> <span class="selected-color"><%= user.flats.first.city %></span></p>
-      <p><%= user.first_name %>'s flat has received <%= user.booking_as_owner.size%> total requests</p>
-      <% last_message = chat.messages.last %>
+      <p class="f14"> <%= user.first_name %> <span class="selected-color"> • <%= user.flats.first.city %></span></p>
+      <p> <% last_message = chat.messages.last %>
       <% if last_message&.created_at&.to_date == Date.current %>
-        <p><span class="message-info selected-color">Last Message: today </span></p>
+        <p  class="pB10"><span class="message-info selected-color">Last Message: today </span></p>
       <% else %>
-        <p><span class="message-info selected-color">Last Message: <%= last_message&.created_at&.strftime("%-d %b %y") if last_message %> </span></p>
+        <p  class="pB10"><span class="message-info selected-color">Last Message: <%= last_message&.created_at&.strftime("%-d %b %y") if last_message %> </span></p>
       <% end %>
+      </p>
+      <p> <%= user.first_name %>'s flat has received <%= user.booking_as_owner.size%> total requests</p>
     </div>
   </div>
-</div>
+

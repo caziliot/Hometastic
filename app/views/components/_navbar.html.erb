@@ -27,7 +27,8 @@
     <% end %>
     <li>
       <% if current_user.all_chats.any? %>
-        <%= link_to "Chats",flat_chat_room_path(current_user.all_chats.first.flat, current_user.all_chats.first), class: "nav-item" %>
+        <% chatroom = current_user.all_chats.first %>
+        <%= link_to "Chats",flat_chat_room_path(chatroom.flat, chatroom, anchor: "message-#{chatroom.messages.last&.id}"), class: "nav-item" %>
       <% else %>
         <%= link_to "Chats",chat_rooms_path, class: "nav-item" %>
       <% end %>
