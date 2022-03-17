@@ -37,6 +37,15 @@
   color: #3F3F46;
 }
 
+.form-input{
+  border: 1px solid #c4c4c4;
+  border-radius: 15px;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 16px;
+  color: transparent;
+}
+
 input:valid {
     border: none!important;
 }
