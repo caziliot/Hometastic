@@ -70,10 +70,16 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
 end
 
 12.times do |i|
+  user_id = rand(User.first.id..User.last.id)
+  flat = User.find(user_id).flats.first
+  while flat.user.id == user_id do
+    flat = Flat.find(rand(Flat.first..Flat.last))
+  end
+
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: User.first.id,
-    flat_id: Flat.first.id + rand(1..4),
+    user_id: user_id,
+    flat_id: flat.id,
     month_request: "01-05-2022"
   )
 

@@ -31,11 +31,14 @@ export default class extends Controller {
       body: new FormData(this.formTarget)
     }).then(response => response.text())
       .then((data) => {
-        if (data[1] == 'p'){
-          this.datesTarget.insertAdjacentHTML('beforeend', data);}
-        else {
+        if (data[1] == 'f'){
           this.monthTarget.innerHTML = data;
           initFlatpickr();
+          }
+        else {
+          this.datesTarget.insertAdjacentHTML('beforeend', data);
+          // console.log(data);
+
         }
       })
   }
