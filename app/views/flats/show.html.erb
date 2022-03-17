@@ -1,14 +1,11 @@
 <%# main start %>
-<div class="container" data-controller= "show" data-show-hide-class="d-none">
+<div class="container pT" data-controller= "show" data-show-hide-class="d-none">
   <div class="">
     <div class="">
       <p class="f26"><%= @flat.name %></p>
       <div class="titleFlex">
         <div class="flex justify-content-between">
-          <p class="f14"><%= image_tag "star.png"%> &nbsp; <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶<%= @flat.price %>€/month,
-            Available on: <% @flat.available_months.each do |month| %>
-              <%= month.month_year.to_date.strftime("%b %y") %>
-              <%end %> </p>
+          <p class="f14"><%= image_tag "star.png", class: "pT5"%> &nbsp; <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶&nbsp;<%= @flat.price %>€/month</p>
         </div>
         <% if current_user == @flat.user %>
           <div style="padding-bottom:10px;">
@@ -84,10 +81,10 @@
       </div>
 
     <% else %>
-      <div class="column-container mt-10">
+      <div class="column-container pAddDates" style="margin-left: 110px;">
         <button class="display-available mt-5" data-show-target="displayer" data-action="click->show#display"
-          >Add available dates</button>
-        <div class="form m0 pB30 mt-5 shadow d-none" data-show-target="month">
+          >Add available month</button>
+        <div class="form m0 pB30 mt-5 shadow d-none wForm" data-show-target="month">
           <%= render 'components/available_form', flat: @flat, available_month: @available_month %>
         </div>
       </div>

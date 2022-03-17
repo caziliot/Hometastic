@@ -14,7 +14,7 @@
 
 }
 .footer{
-    background:#94B3FC;
+    background:#b3c8f9;
     display: flex;
     box-shadow: 0 10px 10px 0px rgba(0,0,0,0.1);
     overflow: hidden;
@@ -23,11 +23,11 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 80px;
 
 }
 .footer div{
-    padding: 20px 50px;
+    padding: 15px 20px;
     font-size: 30px;
     cursor: pointer;
     position: relative;
@@ -35,13 +35,13 @@
 }
 .footer div span{
     position: absolute;
-    color: #ff5361;
+    color:  #fff;
     width: 100%;
     height: 100%;
-    padding: 20px 50px;
+    padding: 15px 20px;
     left: 0;
     top: 100%;
-    border-bottom: 5px solid #ff5361;
+    border-bottom: 5px solid #fff;
 }
 .footer div:hover{
     transform: translateY(-100%);
@@ -53,4 +53,7 @@
   justify-content: space-between;
   min-height: 100vh;
 
+}
+.transparency{
+  opacity: 0.3;
 }

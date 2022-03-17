@@ -5,12 +5,12 @@
         <div class="searchbarflex">
           <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control borderHover",
             id: "flat_city",
             placeholder: "Location"
           %>
-          <%= f.input :start_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_start", placeholder: "start_month", style: "border:none;"} %>
-          <%= f.input :end_month, as: :string, required: true, label: false, input_html: {class: "datepicker", id: "month_end", placeholder: "end_month", style: "border:none;"} %>
+          <%= f.input :start_month, as: :string, required: true, label: false, input_html: {class: "datepicker borderHover", id: "month_start", placeholder: "From", style: "border:none;"} %>
+          <%= f.input :end_month, as: :string, required: true, label: false, input_html: {class: "datepicker borderHover", id: "month_end", placeholder: "To", style: "border:none;"} %>
           <%= button_tag class:"BtnSearch" do %>
             <i class="fas fa-search" style="color:white"></i>
           <% end %>

@@ -13,6 +13,12 @@ body {
   color: #3F3F46;
 }
 
+.f13W {
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+}
+
 .f14W {
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
@@ -87,6 +93,7 @@ body {
 .imgContainer{
   display: flex;
   justify-content: center;
+  margin-left: -16px;
 }
 
 .mainImage {
@@ -160,6 +167,10 @@ body {
   padding-top: 10px;
 }
 
+.pT4 {
+  padding-top: 80px;
+}
+
 .pB {
   padding-bottom: 40px;
 }
@@ -170,7 +181,14 @@ body {
 .pB30 {
   padding-bottom: 30px;
 }
+.pT5{
+  margin-bottom: 3px!important;
+  margin-right:-5px;
+}
 
+.pT5b{
+  margin-bottom: 3px!important;
+}
 
 .pTB30 {
   padding-bottom: 30px;
@@ -292,7 +310,13 @@ text-align: left;
 
 }
 
+.pAddDates{
+  padding-top:5px;
+}
 
+.wForm{
+  width:175px;
+}
 
 // QUESTI SONO I PIU IMPORTANTIIIIII
 

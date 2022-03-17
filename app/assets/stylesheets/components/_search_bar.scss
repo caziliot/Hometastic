@@ -65,8 +65,8 @@
 }
 
 .form-group.string.required.search_start_month, .form-group.string.required.search_end_month {
-  margin-bottom: 0
-}
+  margin-bottom: 0;
+  background-color: #fff!important;}
 
 .simple_form.search {
   width: 100%;
@@ -74,6 +74,14 @@
 
 .datepicker, .form-control.ap-input {
   margin-bottom: 0%;
+  background-color: #DEE2E6!important;
+}
+
+.datepicker, .form-control.wForm {
+  margin-bottom: 0%;
+  background-color: #fff!important;
+  width:100px;
+  color: #2C364C!important;
 }
 
 .fas.fa-search {
@@ -81,9 +89,13 @@
 }
 
 button.BtnSearch {
-  margin-left: 5px;
+  margin-bottom: 5px;
 }
 button.BtnSearch:hover {
   background-color: #87a6ee;
   color: white;
+}
+
+.borderHover {
+    &:hover{border-bottom: 2px solid #2C364C!important;}
 }
