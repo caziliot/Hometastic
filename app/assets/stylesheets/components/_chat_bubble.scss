@@ -11,16 +11,18 @@
 .chat-bub {
   overflow: hidden;
   height: 100px;
-  background-color: #F2F6FF;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   width: 90%;
   margin: 8px 16px 8px 16px;
-
-
-
 }
+
+.chat-bub:hover {
+  background-color: #F2F6FF;
+}
+
+
 
 .chat-info{
   position: relative;
@@ -62,6 +64,6 @@
   font-size: 12px;
 }
 
-.chosen-background {
-  background-color:#D4D4D8;
+.chosen{
+  background-color: #F2F6FF;
 }

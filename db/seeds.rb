@@ -46,7 +46,7 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
   flat = Flat.new(
     name: ["Epic Barceloneta Beach and Marina Apartment Blanco", "Light Studio Flat - Brand New - Chelsea", "Studio 'Spicy Wasabi' 31 qm", "Petit Studio Paris Centre", "Monolocale : cucina, bagno, terrazza comune"].sample,
     address: Faker::Address.street_name,
-    price: Faker::Commerce.price,
+    price: rand(400..900),
     description: Faker::Restaurant.description,
     city: Faker::Address.city,
     user_id: user.id,
@@ -69,16 +69,20 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
   end
 end
 
-4.times do |i|
+12.times do |i|
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: User.first.id + i,
-    flat_id: Flat.first.id + 1 + i,
+    user_id: User.first.id,
+    flat_id: Flat.first.id + rand(1..4),
     month_request: "01-05-2022"
   )
 
   booking_request.calculate_prices
   booking_request.save
+  booking_request.month_request = "01-#{i+1}-2021"
+  booking_request.stay_status = BookingRequest::FINISHED
+  booking_request.status = BookingRequest::ACCEPTED
+  booking_request.save!
   puts "booking request ##{i + 1}, #{booking_request.stay_status}, #{booking_request.direction}"
 
   review = Review.create!(
@@ -87,7 +91,9 @@ end
     booking_request_id: booking_request.id
   )
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
+end
 
+4.times do |i|
   chatroom = ChatRoom.create!(
     flat_id: Flat.first.id + i,
     user_id: Flat.first.user.id + 1 + i
