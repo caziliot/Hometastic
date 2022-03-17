@@ -1,18 +1,1 @@
-<div>
-  <h1>Confirm your booking</h1>
-
-  <% if current_user.id == @owner.id %>
-    <p> <strong>Month requested:</strong> <%= @booking.month_request %></p>
-    <p> <strong>City of the booking:</strong> <%= @booking.flat.city %></p>
-    <p> <strong>Service Fee:</strong> <%= @booking.service_fee %></p>
-    <p> <strong>Total price to pay:</strong> <%= @booking.price_owner %></p>
-  <% elsif current_user.id == @requester.id %>
-    <p> <strong>Month requested:</strong> <%= @booking.month_request %></p>
-    <p> <strong>City of the booking:</strong> <%= @booking.flat.city %></p>
-    <p> <strong>Service Fee:</strong> <%= @booking.service_fee %></p>
-    <p> <strong>Total price to pay:</strong> <%= @booking.price_requester %></p>
-  <% else %>
-    <% redirect_to dashboard_path %>
-  <% end %>
-</div>
 <%= render 'components/confirm_form', booking: @booking %>
