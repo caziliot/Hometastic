@@ -1,4 +1,4 @@
-<div class="f24 pT alignC" ><%= image_tag "star_big.png"%> <p style="display: inline;"> <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews </p> </div>
+<div class="f24 pT alignC" ><%= image_tag "star_big.png", class: "pT5b"%> <p style="display: inline;"> <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews </p> </div>
   <div class="grid3">
     <% @flat.reviews.each do |review| %>
       <div class="review-card d-flex">

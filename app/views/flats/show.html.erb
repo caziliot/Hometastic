@@ -5,10 +5,7 @@
       <p class="f26"><%= @flat.name %></p>
       <div class="titleFlex">
         <div class="flex justify-content-between">
-          <p class="f14"><%= image_tag "star.png"%> &nbsp; <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶<%= @flat.price %>€/month,
-            Available on: <% @flat.available_months.each do |month| %>
-              <%= month.month_year.to_date.strftime("%b %y") %>
-              <%end %> </p>
+          <p class="f14"><%= image_tag "star.png", class: "pT5"%> &nbsp; <%= @flat.review_average%> - <%= @flat.reviews.count%> reviews &nbsp;📍<%= @flat.city %>, <%= @flat.address %> &nbsp; 💶&nbsp;<%= @flat.price %>€/month</p>
         </div>
         <% if current_user == @flat.user %>
           <div style="padding-bottom:10px;">
