@@ -12,7 +12,7 @@ class ChatRoomsController < ApplicationController
     @message = Message.new
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: 'chat_rooms/chat_show', locals: { chat_room: @chat_room, flat: @flat, message: @message}, formats: [:html], anchor: "message-#{@chat_room.messages.last&.id}" }
+      format.text { render partial: 'chat_rooms/chat_show', locals: { chat_room: @chat_room, flat: @flat, message: @message}, formats: [:html], anchor: "#message-#{@chat_room.messages.last&.id}" }
     end
   end
 

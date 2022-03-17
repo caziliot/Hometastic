@@ -1,6 +1,9 @@
 
 
-  <div class="chat-bub">
+  <div class="chat-bub
+    <% if chat.id == @chat_room.id%>
+      chosen
+    <%end%>">
     <% if user.photo.key %>
       <%= cl_image_tag user.photo.key, class: "avatar-large"%>
     <% else %>
@@ -18,4 +21,3 @@
       <p> <%= user.first_name %>'s flat has received <%= user.booking_as_owner.size%> total requests</p>
     </div>
   </div>
-
