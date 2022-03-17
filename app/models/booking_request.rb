@@ -20,7 +20,7 @@ class BookingRequest < ApplicationRecord
   validates :flat, presence: true
   validates :user, presence: true
   validates :month_request, presence: true
-  validates_date :month_request, after: -> { Date.current }, message: "date must be after today"
+  validates_date :month_request, after: -> { Date.current }, message: "date must be after today", on: :create
   validate :flat_needs_to_be_available_on_the_month_requested, on: :create
   validate :booking_already_exists, on: :create
   validate :self_booking
