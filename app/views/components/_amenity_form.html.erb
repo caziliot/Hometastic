@@ -21,8 +21,8 @@
 
   <%= simple_form_for [ @flat, @amenity ], data: {amenities_selector_target: "form" } do |f| %>
 
-    <%= f.submit "Save", class: "btn-small rounded-pill border-0",
+    <%= f.submit "Save", class: "btn-small rounded-pill border-0 mt-2 px-3",
       data: {amenities_selector_target: "button", action: "click->amenities-selector#update"}%>
-    <%= link_to "Back", flat_path(@flat), style: "text-decoration: none;"%>
+    <%= link_to "Back", flat_path(@flat), style: "text-decoration: none; margin-top: 5px;"%>
   <% end %>
 </div>

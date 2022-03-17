@@ -1,11 +1,12 @@
 #messages {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 300px;
 }
 
 .message-container {
   display: flex;
   flex-flow: column wrap;
+  padding:0 10px;
 }
 
 .widthChat{
