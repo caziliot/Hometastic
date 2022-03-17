@@ -71,16 +71,10 @@ end
 
 12.times do |i|
   user_id = rand(User.first.id..User.last.id)
-  flat = User.find(user_id).flats.first
-  flat_id = 0
-  while flat.user.id == user_id do
-    flat_id = rand(Flat.first..Flat.last))
-  end
-
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: user_id,
-    flat_id: flat.id,
+    user_id: User.first.id,
+    flat_id: Flat.first.id + rand(1..4),
     month_request: "01-05-2022"
   )
 
