@@ -13,6 +13,12 @@ body {
   color: #3F3F46;
 }
 
+.f13W {
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
+}
+
 .f14W {
   font-size: 14px;
   font-family: 'Roboto', sans-serif;
@@ -87,6 +93,7 @@ body {
 .imgContainer{
   display: flex;
   justify-content: center;
+  margin-left: -16px;
 }
 
 .mainImage {
@@ -299,7 +306,13 @@ text-align: left;
 
 }
 
+.pAddDates{
+  padding-top:5px;
+}
 
+.wForm{
+  width:175px;
+}
 
 // QUESTI SONO I PIU IMPORTANTIIIIII
 

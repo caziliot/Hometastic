@@ -81,10 +81,10 @@
       </div>
 
     <% else %>
-      <div class="column-container mt-10">
+      <div class="column-container pAddDates" style="margin-left: 110px;">
         <button class="display-available mt-5" data-show-target="displayer" data-action="click->show#display"
-          >Add available dates</button>
-        <div class="form m0 pB30 mt-5 shadow d-none" data-show-target="month">
+          >Add available month</button>
+        <div class="form m0 pB30 mt-5 shadow d-none wForm" data-show-target="month">
           <%= render 'components/available_form', flat: @flat, available_month: @available_month %>
         </div>
       </div>
