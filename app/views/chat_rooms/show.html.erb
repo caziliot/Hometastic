@@ -2,27 +2,29 @@
 
 <div class="grid2 mt-5">
   <div class="marginMess f18"><strong>Messages</strong></div>
-  <div class="flex f18 justify-content-space-between marginCurr" ><strong id="user"><%= @chat_room.flat.user.first_name %> </strong></div>
+  <div class="flex f18 justify-content-space-between marginCurr" >
+    <% if @chat_room.flat.user.id == current_user.id %>
+      <strong id="user"><%= @chat_room.user.first_name %> </strong>
+    <% else  %>
+      <strong id="user"><%= @chat_room.flat.user.first_name %> </strong>
+    <% end %>
+  </div>
 </div>
 
 
 <div class="d-flex Mle" >
   <div class="flex-shrink-1" style="border-right: 1px solid #c4c4c4;">
-    <div class="">
-      <% @chat_rooms.each do |chat| %>
-        <div>
-
-          <% if chat.flat.user_id == current_user.id%>
-            <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
-              <%= render 'components/chat_bubble', user: chat.user, chat: chat  %>
-            <% end %>
-          <% else %>
-            <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
-              <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
-            <% end %>
-          <%end %>
-
-        </div>
+    <div class="" id = "chat-cards">
+      <% @chat_rooms.each_with_index do |chat, i| %>
+        <% if chat.flat.user_id == current_user.id%>
+          <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
+            <%= render 'components/chat_bubble', user: chat.user, chat: chat  %>
+          <% end %>
+        <% else %>
+          <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
+            <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
+          <% end %>
+        <%end %>
       <% end %>
     </div>
   </div>

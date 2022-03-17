@@ -11,10 +11,10 @@ export default class extends Controller {
 
   display() {
     this.monthTarget.classList.toggle(this.hideClass);
-    if (this.displayerTarget.textContent == 'Add available dates') {
+    if (this.displayerTarget.textContent == 'Add available month') {
       this.displayerTarget.textContent = 'Hide form';
     } else {
-      this.displayerTarget.textContent = 'Add available dates';
+      this.displayerTarget.textContent = 'Add available month';
     }
   }
 
