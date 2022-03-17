@@ -72,8 +72,9 @@ end
 12.times do |i|
   user_id = rand(User.first.id..User.last.id)
   flat = User.find(user_id).flats.first
+  flat_id = 0
   while flat.user.id == user_id do
-    flat = Flat.find(rand(Flat.first..Flat.last))
+    flat_id = rand(Flat.first..Flat.last))
   end
 
   booking_request = BookingRequest.create!(
