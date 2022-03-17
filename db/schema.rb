@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_14_094014) do
   end
 
   create_table "available_months", force: :cascade do |t|
-    t.string "month_year"
+    t.date "month_year"
     t.bigint "flat_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
