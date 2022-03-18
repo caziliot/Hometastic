@@ -2,24 +2,40 @@
   <div>
     <h1 class="f32 mB">Confirm your booking</h1>
 
+
+
   <div class="mB1 borderB">
     <div class="grid">
       <% if current_user.id == @owner.id %>
-      <div class="f18">
-        <p> <strong>Month requested:</strong> <%= @booking.month_request.to_date.strftime("%B") %></p>
-        <p> <strong>City of the booking:</strong> <%= @booking.flat.city %></p>
-        <p> <strong>Service fee:</strong> <%= @booking.service_fee %>€</p>
-        <p> <strong>You will pay:</strong> <%= @booking.price_owner %>€</p>
+        <div class="f18">
+            <p> <strong>Month requested:</strong></p>
+            <p> <strong>City of the booking:</strong> </p>
+            <p> <strong>Service fee:</strong></p>
+            <p> <strong>You will pay:</strong></p>
+        </div>
+        <div class="f18">
+            <p> <%= @booking.month_request.to_date.strftime("%B") %></p>
+            <p> <%= @booking.flat.city %></p>
+            <p> <%= @booking.service_fee %>€</p>
+            <p> <%= @booking.price_owner %>€</p>
+        </div>
       <% elsif current_user.id == @requester.id %>
-        <p> <strong>Month requested:</strong> <%= @booking.month_request %></p>
-        <p> <strong>City of the booking:</strong> <%= @booking.flat.city %></p>
-        <p> <strong>Service fee:</strong> <%= @booking.service_fee %>€</p>
-        <p> <strong>You will pay:</strong> <%= @booking.price_requester %>€</p>
+        <div class="f18">
+            <p> <strong>Month requested:</strong></p>
+            <p> <strong>City of the booking:</strong> </p>
+            <p> <strong>Service fee:</strong></p>
+            <p> <strong>You will pay:</strong></p>
+        </div>
+        <div class="f18">
+            <p> <%= @booking.month_request.to_date.strftime("%B") %></p>
+            <p> <%= @booking.flat.city %></p>
+            <p> <%= @booking.service_fee %>€</p>
+            <p> <%= @booking.price_requester %>€</p>
+        </div>
       <% else %>
         <% redirect_to dashboard_path %>
       <% end %>
     </div>
-  </div>
   </div>
 
 
