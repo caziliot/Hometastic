@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hometastic</title>
+    <title>Hometastic - Work from anywhere, at no cost!</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <%= favicon_link_tag asset_path('logo.png') %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= meta_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= meta_image %>" />
+    <meta property="og:description" content="<%= meta_description %>" />
+    <meta property="og:site_name" content="<%= meta_title %>" />
 
     <script src="https://kit.fontawesome.com/8116391e1d.js" crossorigin="anonymous"></script>
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
