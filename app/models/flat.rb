@@ -68,7 +68,7 @@ class Flat < ApplicationRecord
     reviews.each do |r|
       sum+= r.rating
     end
-    return (sum.to_f/reviews.size).round(1) if reviews.any?
+    return reviews.any? ? (sum.to_f/reviews.size).round(1) : 0
   end
 
   def full_street_address

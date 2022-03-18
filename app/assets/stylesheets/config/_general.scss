@@ -7,6 +7,13 @@ body {
   text-decoration: none!important;
 }
 
+.noDeco2{
+  text-decoration: none!important;
+  &:hover{
+    color: #3F3F46;
+  }
+}
+
 .f14 {
   font-size: 14px!important;
   font-family: 'Roboto', sans-serif;
@@ -45,8 +52,8 @@ body {
 }
 
 .f24 {
-  font-size: 24px;
-  font-family: 'Roboto', sans-serif;
+  font-size: 24px!important;
+  font-family: 'Roboto', sans-serif!important;
   color: #3F3F46;
   margin: 0;
 }
@@ -83,6 +90,13 @@ body {
   margin: 0;
   text-align: center;
   font-weight: bold;
+}
+
+.f32 {
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
 }
 
 .mPage {
@@ -127,6 +141,13 @@ body {
 .grid3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 10px 10px;
+  margin-left: -20px;
+}
+
+.grid4 {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-gap: 10px 10px;
   margin-left: -20px;
 }
@@ -255,6 +276,15 @@ body {
   height:40px!important;
 }
 
+.mB{
+margin-bottom: 32px;
+}
+
+.mB1{
+margin-bottom: 20px;
+padding-bottom: 30px;
+}
+
 .mR{
 margin-right: 24px!important;
 }
@@ -269,6 +299,10 @@ margin-bottom: 176px;
 
 .mB176{
 margin-bottom: 176px;
+}
+
+.mBPay{
+  margin-bottom: -12px;
 }
 
 
@@ -323,6 +357,10 @@ text-align: left;
 
 .wForm{
   width:175px;
+}
+
+.wConfirm{
+  width:100%!important;
 }
 
 

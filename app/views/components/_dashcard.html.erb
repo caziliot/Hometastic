@@ -1,12 +1,12 @@
 
 <div class="container">
-  <div class="card-product borderB">
+  <div class="card-product borderB mt-2">
     <div class=""> <%= cl_image_tag booking.flat.user.photo.key, class: "userAvatar"%></div>
     <%# <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
     <div class="flex space-between">
       <div class="card-product-infos">
-        <%= link_to flat_path(booking.flat) do %>
-          <h2 class="purple alignC"><%= booking.flat.user.first_name %>, <%= booking.flat.city %></h2>
+        <%= link_to flat_path(booking.flat), class: "text-decoration-none" do %>
+          <h2 class="purple alignC noDeco2"><%= booking.flat.user.first_name %>, <%= booking.flat.city %></h2>
         <% end %>
         <div id="spacing" class="alignC f16"><%= booking.month_request.to_date.strftime("%b - %Y")  %></div>
         <div class="flex">
