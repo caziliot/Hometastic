@@ -1,9 +1,11 @@
 <div class="container my-5">
- <div class="flex">
-  <div>
-      <p class="f20 ml-3 mb-2" ><%= @flat.name %></p>
-  </div>
-</div>
+	<div class="flex">
+		<div>
+			<%= link_to flat_path(@flat), class: "noDeco2" do %>
+				<p class="f20 ml-3 mb-2" ><%= @flat.name %></p>
+			<% end %>
+		</div>
+	</div>
 <%# Grid start %>
 <div class="grid">
 
@@ -60,8 +62,21 @@
     </div>
 </div>
 <%# Info end %>
+
+
+
 </div>
 <%# Grid end %>
 
-
 </div>
+
+<% if @booking.stay_status == BookingRequest::FINISHED && @booking.reviews.size < 1 %>
+	<div class="edit-user-form-container">
+		<%= simple_form_for [@booking, @review], remote: true do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :rating, collection: 1..5, wrapper_html: {class:"form-month f14"} %>
+			<%= f.input :content, wrapper_html: {class:"form-month f14"}%>
+			<%= f.submit "Send", class: "btn-lb2 rounded-pill widthSend" %>
+		<% end %>
+	</div>
+<% end %>

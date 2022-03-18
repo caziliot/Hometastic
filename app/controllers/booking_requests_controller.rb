@@ -21,6 +21,7 @@ class BookingRequestsController < ApplicationController
 
   def show
     @booking = BookingRequest.find(params[:id])
+    @review = Review.new
     if current_user.id == @booking.user_id
       @flat = Flat.find(@booking.flat_id)
     else
