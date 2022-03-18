@@ -1,11 +1,11 @@
 <div class="container">
   <div class="summary shadow">
     <p class="f26 between-space mb-2 mt-1 ml-1"><strong>Flat Summary</strong></p>
-    <% if flat.review_average >= 3  %>
+    <% if flat&.review_average >= 3  %>
       <div class="rating mb-3">
         <span class="iconify" data-icon="fa6-solid:medal" style="color: green; margin-right:2px;" data-width="26" data-height="26"></span>
       <div class="f20 mt-1 mb-2"><strong>Great Job!</strong></div>
-    <% elsif flat.review_average < 3 %>
+    <% elsif flat&.review_average < 3 %>
       <div class="rating mb-3">
         <span class="iconify" data-icon="fa6-solid:medal" style="color: green; margin-right:2px;" data-width="26" data-height="26"></span>
       <div class="f20 mt-1 mb-2"><strong>Needs a little love</strong></div>

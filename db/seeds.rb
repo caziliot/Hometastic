@@ -30,7 +30,7 @@ GeneralAmenity.create!(title: "Air continioning", icon_class: "ic:twotone-ac-uni
 GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-variant-alert")
 
 
-5.times do |i|
+7.times do |i|
   user = User.new(
     email: "email-#{i}@email.com",
     first_name: Faker::Name.first_name,
@@ -53,7 +53,7 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude
   )
-  5.times do
+  1.times do
     file = URI.open('https://source.unsplash.com/random/?apartment')
     flat.photos.attach(io: file, filename: 'nes.png', content_type: 'image/png')
   end
@@ -68,19 +68,30 @@ GeneralAmenity.create!(title: "Smoke Detector", icon_class: "mdi:smoke-detector-
     puts "Available Month ##{ava_m.id} for Flat ##{flat.id}, #{ava_m.month_year}"
   end
 end
-
-12.times do |i|
+ j= 1
+year = 2020
+24.times do |i|
   user_id = rand(User.first.id..User.last.id)
+  flat = Flat.find_by(user_id: user_id)
+  flat_id = flat.id
+  while(flat.user.id == user_id) do
+    flat_id = rand(Flat.first.id..Flat.last.id)
+    flat = Flat.find(flat_id)
+  end
   booking_request = BookingRequest.create!(
     direction: Faker::Address.street_address,
-    user_id: User.first.id,
-    flat_id: Flat.first.id + rand(1..4),
+    user_id: user_id,
+    flat_id: flat_id,
     month_request: "01-05-2022"
   )
 
   booking_request.calculate_prices
   booking_request.save
-  booking_request.month_request = "01-#{i+1}-2021"
+  booking_request.month_request = "01-#{j}-#{year}"
+  av = AvailableMonth.create!(month_year: "01-11-2022", flat_id: flat_id)
+  av.month_year = "01-#{j}-#{year}"
+  av.take
+  av.save!
   booking_request.stay_status = BookingRequest::FINISHED
   booking_request.status = BookingRequest::ACCEPTED
   booking_request.save!
@@ -92,19 +103,34 @@ end
     booking_request_id: booking_request.id
   )
   puts "reviews ##{i + 1}, #{review.content} #{review.rating}"
+
+  j+= 1
+  if j == 12
+    j = 1
+    year += 1
+  end
+
+
 end
 
 4.times do |i|
+  user_id = rand(User.first.id..User.last.id)
+  flat = Flat.find_by(user_id: user_id)
+  flat_id = flat.id
+  while(flat.user.id == user_id || ChatRoom.find_by(flat_id: flat_id, user_id: user_id)) do
+    flat_id = rand(Flat.first.id..Flat.last.id)
+    flat = Flat.find(flat_id)
+  end
   chatroom = ChatRoom.create!(
-    flat_id: Flat.first.id + i,
-    user_id: Flat.first.user.id + 1 + i
+    flat_id: flat_id,
+    user_id: user_id
   )
   puts "chat ##{i + 1}, chating with user ##{chatroom.flat_id}"
 
   message = Message.create!(
-    content: ["Message", "something", "else"].sample,
-    user_id: rand(User.first.id..User.last.id),
-    chat_room_id: chatroom.id
+    content: ["Hello! I have a question on your flat", "Hi, is it available next month?", "Do you mind having dogs", "Good Evening"].sample,
+    user_id: user_id,
+    chat_room_id: chatroom&.id
   )
   puts "message: ##{message.content}, from: user ##{message.user_id}, on: chat ##{message.chat_room_id}"
 end

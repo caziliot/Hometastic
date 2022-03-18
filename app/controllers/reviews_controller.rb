@@ -6,8 +6,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @booking = BookingRequest.find(params[:booking_id])
-    @review.booking = @booking
+    @booking = BookingRequest.find(params[:booking_request_id])
+    @flat = @booking.flat
+    @review.booking_request = @booking
     if @review.save
       redirect_to flat_path(@flat)
     else
