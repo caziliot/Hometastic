@@ -10,9 +10,13 @@
         <span class="iconify" data-icon="fa6-solid:medal" style="color: green; margin-right:2px;" data-width="26" data-height="26"></span>
       <div class="f20 mt-1 mb-2"><strong>Needs a little love</strong></div>
     <% end %>
-    </div>
+  </div>
     <p class="mb-2 pL">Your flat overall rating is:</p>
-  <div class="f28b rating star-rating borderB">  <i class="fas fa-star" style="margin-top:5px; margin-right:8px; padding-bottom:30px;"></i><%= flat.review_average %></div>
+    <% if flat.reviews.any? %>
+      <div class="f28b rating star-rating borderB">  <i class="fas fa-star" style="margin-top:5px; margin-right:8px; padding-bottom:30px;"></i><%= flat.review_average %></div>
+    <% else %>
+      <div class="rating mb-3" style="margin-top:5px; margin-right:8px; padding-bottom:30px; justify-content:center;"><strong>No reviews yet!</strong></div>
+    <% end %>
   <div style="">
     <p class="f18 between-space mt-2"><strong>Your swaps</strong><p>
     <div class="year">
