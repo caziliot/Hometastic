@@ -12,9 +12,9 @@
     <div class="chat-info">
       <% flat = user.flats.first %>
       <% text = "#{flat.name.split(" ")[0]} #{flat.name.split(" ")[1]}.." %>
-      <%= link_to flat_path(flat), class:"noDeco2" do %>
-        <p class="f14"> <%= text %> <span class="selected-color"> • <%= user.flats.first.city %></span></p>
-      <% end %>
+
+      <p class="f14"> <%= text %> <span class="selected-color"> • <%= user.flats.first.city %></span></p>
+
       <p> <% last_message = chat.messages.last %>
       <% if last_message&.created_at&.to_date == Date.current %>
         <p  class="pB10"><span class="message-info selected-color">Last Message: today </span></p>
