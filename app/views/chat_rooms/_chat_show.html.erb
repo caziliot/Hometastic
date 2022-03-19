@@ -1,9 +1,13 @@
 <div>
 <p class="f26" style="padding-left:20px;padding-top:15px;" id="flat">
   <% if chat_room.flat.user.id == current_user.id %>
-    <%= chat_room.user.first_name %> • <%= chat_room.flat.name%>
+    <%= link_to flat_path(chat_room.flat), class:"purple-p noDeco2" do %>
+      <%= chat_room.user.first_name %> • <%= chat_room.flat.name%>
+    <% end  %>
   <% else %>
-    <%= chat_room.flat.user.first_name %> • <%= chat_room.flat.name%>
+    <%= link_to flat_path(chat_room.flat), class:"purple-p noDeco2" do %>
+      <%= chat_room.flat.user.first_name %> • <%= chat_room.flat.name%>
+    <% end %>
   <% end %>
   </p>
   <div id="messages" style="" data-chat-room-id="<%= chat_room.id %>" >
