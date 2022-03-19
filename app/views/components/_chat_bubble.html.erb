@@ -10,7 +10,11 @@
       <img class="avatar-large" alt="avatar-large" src="https://miro.medium.com/max/720/1*W35QUSvGpcLuxPo3SRTH4w.png">
     <% end %>
     <div class="chat-info">
-      <p class="f14"> <%= user.first_name %> <span class="selected-color"> • <%= user.flats.first.city %></span></p>
+      <% flat = user.flats.first %>
+      <% text = "#{flat.name.split(" ")[0]} #{flat.name.split(" ")[1]}.." %>
+      <%= link_to flat_path(flat), class:"noDeco2" do %>
+        <p class="f14"> <%= text %> <span class="selected-color"> • <%= user.flats.first.city %></span></p>
+      <% end %>
       <p> <% last_message = chat.messages.last %>
       <% if last_message&.created_at&.to_date == Date.current %>
         <p  class="pB10"><span class="message-info selected-color">Last Message: today </span></p>
