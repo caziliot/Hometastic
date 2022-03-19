@@ -60,10 +60,20 @@
   width: 40px;
 }
 
+.reviews-container{
+  white-space: nowrap;
+  overflow-x: auto;
+  height: auto;
+  width: 100%;
+}
+
 .review-card {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
-  position: relative;
+  // position: relative;
+  height: 400px;
+  width: 250px;
+  overflow: hidden;
 
   .avatar-review {
   width: 50px;
@@ -74,8 +84,12 @@
   }
 
   p {
-    margin-top: 7px;
-    margin-left: 24px;
+    //margin: 7px 5px;
+    // margin-left: 5px;
+    width: 200px;
+    word-wrap: break-word;
+    // white-space: pre-wrap;
+    //display: inline;
   }
 
   h5 {
