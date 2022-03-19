@@ -3,7 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 20px;
-  height: 300px;
+  height: 310px;
   width: 100%;
   &:hover{
   -moz-transform: scale(1.05) slow;
@@ -47,7 +47,7 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: baseline;
   position: relative;
   color: #2C364C;
 
