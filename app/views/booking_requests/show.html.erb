@@ -69,14 +69,20 @@
 <%# Grid end %>
 
 </div>
-
-<% if @booking.stay_status == BookingRequest::FINISHED && @booking.reviews.size < 1 %>
-	<div class="edit-user-form-container">
-		<%= simple_form_for [@booking, @review], remote: true do |f| %>
-			<%= f.error_notification %>
-			<%= f.input :rating, collection: 1..5, wrapper_html: {class:"form-month f14"} %>
-			<%= f.input :content, wrapper_html: {class:"form-month f14"}%>
-			<%= f.submit "Send", class: "btn-lb2 rounded-pill widthSend" %>
-		<% end %>
-	</div>
-<% end %>
+<div class="grid">
+  <div>
+  </div>
+  <div class="ml-5 p-5 mReview">
+    <% if @booking.stay_status == BookingRequest::FINISHED && @booking.reviews.size < 1 %>
+      <div class="edit-user-container">
+        <p class="city"> <strong>Leave a Review..</strong></p>
+        <%= simple_form_for [@booking, @review], remote: true do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :rating, collection: 1..5, wrapper_html: {class:"form-month f14"} %>
+          <%= f.input :content, wrapper_html: {class:"form-month f14"}%>
+          <%= f.submit "Send", class: "btn-lb2 rounded-pill widthSend" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
