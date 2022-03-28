@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :phone_number, presence: true
   validates :email, presence: true
-  validates :email, 'valid_email_2/email': { blacklist: true, blacklist: true, message: "is not a valid email" }
+  validates :email, 'valid_email_2/email': { blacklist: true, message: "is not a valid email" }
 
   def total_swaps
     booking_requests.where(stay_status: BookingRequest::FINISHED).count + booking_as_owner.where(stay_status: BookingRequest::FINISHED).count
