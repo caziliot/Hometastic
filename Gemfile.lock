@@ -253,6 +253,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
+    valid_email2 (4.0.3)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     validates_timeliness (6.0.0.beta2)
       activemodel (>= 6.0.0, < 7)
       timeliness (>= 0.3.10, < 1)
@@ -314,6 +317,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   tzinfo-data
+  valid_email2
   validates_timeliness (~> 6.0.0.beta2)
   web-console (>= 4.1.0)
   webdrivers

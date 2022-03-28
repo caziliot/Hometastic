@@ -2,8 +2,9 @@
   <h2>Your Flat!</h2>
 
   <%= simple_form_for flat do |f| %>
-    <%= f.input :name %>
-    <%= f.input :address, id: "flat_address" %>
+    <p class="f14 font-italic">Add your own flat, make it attractive for people to want to swap it with you</p>
+    <%= f.input :name, required: true %>
+    <%= f.input :address, id: "flat_address", required: true %>
     <%= f.input :city, input_html: { id: "flat_city_form" }, readonly: true%>
     <%= f.input :description %>
     <%= f.input :price, input_html: { min: '0', step: 'any' } %>

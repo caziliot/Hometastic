@@ -9,6 +9,8 @@ gem 'validates_timeliness', '~> 6.0.0.beta2'
 #date picker for the booking
 gem 'flatpickr'
 
+#Use valid_email2 to Validate the input emails from users
+gem "valid_email2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
