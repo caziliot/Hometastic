@@ -1,5 +1,6 @@
 class ChatRoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_flat
 
   def index
     @chat_rooms = current_user.all_chats

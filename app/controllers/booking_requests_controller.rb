@@ -1,5 +1,6 @@
 class BookingRequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :verify_flat
 
   # The confirm page is only going to be shown once the booking is accepted.
   def pay

@@ -1,5 +1,7 @@
 class AmenitiesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
+  before_action :verify_flat
   def new
     @general_amenities = GeneralAmenity.all
     @flat = Flat.find(params[:flat_id])
