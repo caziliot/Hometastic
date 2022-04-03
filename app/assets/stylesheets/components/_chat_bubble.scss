@@ -11,11 +11,10 @@
 .chat-bub {
   overflow: hidden;
   height: 100px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 90%;
-  margin: 8px 16px 8px 16px;
+  width: 99%;
 }
 
 .chat-bub:hover {

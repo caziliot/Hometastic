@@ -1,19 +1,19 @@
 /* Frame 75 */
 .chat-container {
   /* Auto layout */
-  //display: flex;
-  //flex-direction: row;
-  //align-items: flex-start;
-  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
 
   //position: absolute;
   width: inherit;
-  height: inherit;
+  height: 100vh;
 
    /* lines */
-  border: 1px solid rgba(113, 113, 122, 0.6);
+  border-top: 1px solid rgba(113, 113, 122, 0.6);
   box-sizing: border-box;
-  margin: 10px;
+  margin: 40px;
 
 }
 
@@ -31,7 +31,7 @@
   // top: 0px;
 
   /* lines */
-  border: 1px solid rgba(113, 113, 122, 0.6);
+  border-right: 1px solid rgba(113, 113, 122, 0.6);
   box-sizing: border-box;
 
   /* Inside auto layout */
@@ -52,7 +52,7 @@
   top: 0px;
 
   /* lines */
-  border: 1px solid rgba(113, 113, 122, 0.6);
+  border-bottom: 1px solid rgba(113, 113, 122, 0.6);
   box-sizing: border-box;
 
   /* Inside auto layout */
@@ -61,18 +61,19 @@
   align-self: stretch;
   flex-grow: 0;
   margin: 0px 0px;
+  padding: 20px 10px;
 
 
 }
 
 .contents-container {
   position: static;
-  width: fill;
+  width: inherit;
   height: fill;
 
 
   /* lines */
-  border: 1px solid rgba(113, 113, 122, 0.6);
+  // border: 1px solid rgba(113, 113, 122, 0.6);
   box-sizing: border-box;
 
   /* Inside auto layout */
@@ -95,11 +96,11 @@
   padding: 0px;
 
   position: static;
-  width: fill;
-  height: auto;
+  width: inherit;
+  height: inherit;
 
   /* lines */
-  border: 1px solid rgba(113, 113, 122, 0.6);
+  // border: 1px solid rgba(113, 113, 122, 0.6);
   box-sizing: border-box;
 
   /* Inside auto layout */
