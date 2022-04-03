@@ -1,7 +1,13 @@
 <div class="message-container ml-3 " id="message-<%= message.id %>">
-    <i class="author">
-      <span><%= message.user.first_name %></span>
-      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-    </i>
-    <p class= "message-content"><%= message.content %></p>
+  <i class="author">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag message.user.photo.key, class: "avatar ml-0 mr-1"%>
+    <% else %>
+      <%= image_tag "empty-avatar.jpeg", class: "avatar ml-0 mr-1"%>
+    <% end %>
+
+    <span class="user-title"><%= message.user.first_name %></span>
+    <span class="f12L"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
+  </i>
+  <p class= "message-content "><%= message.content %></p>
 </div>
