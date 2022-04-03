@@ -1,5 +1,40 @@
 <!-- app/views/chatrooms/show.html.erb -->
 
+<div class="chat-container">
+  <div class="cards-window">
+    <div class="title-container text-left f22">
+      <strong>Chats</strong>
+    </div>
+    <div id="chat-cards" class="contents-container">
+      <% @chat_rooms.each_with_index do |chat, i| %>
+        <% if chat.flat.user_id == current_user.id%>
+          <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
+            <%= render 'components/chat_bubble', user: chat.user, chat: chat  %>
+          <% end %>
+        <% else %>
+          <%= link_to flat_chat_room_path(chat.flat, chat, anchor:"message-#{chat.messages.last&.id}"), class: "noDeco linkout" do %>
+            <%= render 'components/chat_bubble', user: chat.flat.user, chat: chat  %>
+          <% end %>
+        <%end %>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="messages-window">
+    <div class="title-container text-left f22">
+      <% if @chat_room.flat.user.id == current_user.id %>
+        <strong id="user"><%= @chat_room.user.first_name %> </strong>
+      <% else  %>
+        <strong id="user"><%= @chat_room.flat.user.first_name %> </strong>
+      <% end %>
+    </div>
+    <div class="contents-container" id="chat-display" style="">
+      <%= render 'chat_show', flat: @flat, chat_room: @chat_room, message: @message %>
+    </div>
+  </div>
+
+</div>
+<!-- app/views/chatrooms/show.html.erb
 <div class="grid2 mt-5">
   <div class="marginMess f18"><strong>Messages</strong></div>
   <div class="flex f18 justify-content-space-between marginCurr" >

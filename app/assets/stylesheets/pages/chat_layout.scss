@@ -1,0 +1,112 @@
+/* Frame 75 */
+.chat-container {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+
+  //position: absolute;
+  width: inherit;
+  height: 100vh;
+
+   /* lines */
+  border-top: 1px solid rgba(113, 113, 122, 0.6);
+  box-sizing: border-box;
+  margin: 40px;
+
+}
+
+.cards-window {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  //position: static;
+  width: 400px;
+  height: inherit;
+  // left: 0px;
+  // top: 0px;
+
+  /* lines */
+  border-right: 1px solid rgba(113, 113, 122, 0.6);
+  box-sizing: border-box;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+
+.title-container {
+  /* Title */
+
+  position: static;
+  width: inherit;
+  height: 75px;
+  left: 0px;
+  top: 0px;
+
+  /* lines */
+  border-bottom: 1px solid rgba(113, 113, 122, 0.6);
+  box-sizing: border-box;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: 0px 0px;
+  padding: 20px 10px;
+
+
+}
+
+.contents-container {
+  position: static;
+  width: inherit;
+  height: fill;
+
+
+  /* lines */
+  // border: 1px solid rgba(113, 113, 122, 0.6);
+  box-sizing: border-box;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 1;
+  margin: 0px 0px;
+
+}
+
+
+
+/* Chat */
+.messages-window {
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  position: static;
+  width: inherit;
+  height: inherit;
+
+  /* lines */
+  // border: 1px solid rgba(113, 113, 122, 0.6);
+  box-sizing: border-box;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin: 0px 0px;
+
+}

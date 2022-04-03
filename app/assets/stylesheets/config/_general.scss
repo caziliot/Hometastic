@@ -59,6 +59,14 @@ body {
   margin: 0;
 }
 
+.f22 {
+  font-size: 22px;
+  font-family: 'Roboto', sans-serif;
+  color: #3F3F46;
+  margin: 0;
+   font-weight: bold;
+}
+
 .f24 {
   font-size: 24px!important;
   font-family: 'Roboto', sans-serif!important;
@@ -236,6 +244,11 @@ body {
   padding-right: 10px;
   padding-left: 15px;
 
+}
+
+.sticky-bottom {
+  position: sticky;
+  bottom: 40px;
 }
 
 
