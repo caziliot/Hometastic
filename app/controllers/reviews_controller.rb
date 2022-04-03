@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :verify_flat
   def new
     @booking = BookingRequest.find(params[:booking_id])
     @review = Review.new

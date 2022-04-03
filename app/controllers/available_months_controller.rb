@@ -1,4 +1,6 @@
 class AvailableMonthsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :verify_flat
   def new
     @available_month = AvailableMonth.new
     @flat = Flat.find(params[:flat_id])
