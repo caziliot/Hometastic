@@ -4,24 +4,25 @@
 <div class="mPage">
   <div class="d-flex">
     <div class= "flex-grow-1">
-    <div class="mB176">
-      <p class="f24 mb-4 ml-4"><strong>Incoming requests</strong></h2>
-      <ul class="list-group">
-        <% @user.booking_as_owner.each do |booking| %>
-          <%= render 'components/dashcard_in', booking: booking %>
-        <% end %>
-      </ul>
+      <div class="mB176">
+        <h2 class="f24 mb-4 ml-4"><strong>Incoming requests</strong></h2>
+        <ul class="list-group">
+          <% @user.booking_as_owner.each do |booking| %>
+            <%= render 'components/dashcard_in', booking: booking %>
+          <% end %>
+        </ul>
       </div>
-      <p class="f24 mb-4 ml-4"><strong>Outgoing requests</strong></h2>
-      <ul class="list-group-flush">
-        <% @user.booking_requests.each do |booking| %>
-          <%= render 'components/dashcard', booking: booking %>
-        <% end %>
-      </ul>
-</div>
-    <div class="align-self-baseline">
+      <div class="mB176">
+        <h2 class="f24 mb-4 ml-4"><strong>Outgoing requests</strong></h2>
+        <ul class="list-group-flush">
+          <% @user.booking_requests.each do |booking| %>
+            <%= render 'components/dashcard', booking: booking %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="align-self-baseline sticky-top pt-4">
       <%= render 'components/flat_summary', flat: @user.flats.first %>
     </div>
   </div>
-
 </div>
